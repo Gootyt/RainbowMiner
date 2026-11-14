@@ -408,7 +408,7 @@ pub fn usage() -> String {
         "RainbowMiner (Rust port)\n\nUsage: rainbowminer [-Parameter value] [-Switch] ...\n\n\
          Special options:\n  -ConfigFile <path>   config file (default Config/config.txt)\n  \
          -BaseDir <path>      RainbowMiner folder (Data, Config, Stats, Bin, web)\n  \
-         -Setup               run the configuration setup\n  -ListDevices         show the detected devices and exit\n  \
+         -Setup               (the interactive setup is not part of the Rust port)\n  -ListDevices         show the detected devices and exit\n  \
          -ListPools           show the available pool modules and exit\n  -ListMiners          show the available miner modules and exit\n  \
          -Version             print the version\n\nParameters (same names as in RainbowMiner.ps1 / config.txt):\n",
     );
