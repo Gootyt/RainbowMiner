@@ -1,5 +1,6 @@
 //! Minimal OpenCL device enumeration (DotNet/OpenCL + Scripts/GetOpenCL.ps1), loaded at runtime
 //! so that RainbowMiner also runs on machines without an OpenCL ICD.
+#![allow(dead_code)]
 
 use libloading::{Library, Symbol};
 use std::ffi::c_void;

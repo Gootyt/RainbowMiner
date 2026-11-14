@@ -23,7 +23,7 @@ use crate::stat::{self, SetStat};
 use crate::util;
 use crate::util_term::{self, Key};
 use crate::web;
-use crate::{log_debug, log_info, log_warn};
+use crate::{log_info, log_warn};
 use chrono::{DateTime, Datelike, Duration, Utc};
 use indexmap::IndexMap;
 use serde_json::{json, Value};
@@ -212,6 +212,7 @@ fn libc_version() -> Option<util::Version> {
 pub struct Core {
     pub base: PathBuf,
     pub version: String,
+    #[allow(dead_code)]
     pub cl: CommandLine,
     pub defaults: IndexMap<String, Value>,
     pub files: ConfigFiles,
@@ -263,7 +264,6 @@ pub struct Core {
     pub pool_alternates: HashMap<String, Vec<String>>,
     pub memory_skipped: Vec<Value>,
     pub api_running: bool,
-    pub last_status: String,
 }
 
 impl Core {
@@ -339,7 +339,6 @@ impl Core {
             pool_alternates: HashMap::new(),
             memory_skipped: Vec::new(),
             api_running: false,
-            last_status: String::new(),
         };
         if let Err(e) = config::ensure_config_file(&core.files.config, &core.version) {
             return Err(anyhow::anyhow!("{}", e));
@@ -364,6 +363,26 @@ impl Core {
             });
             core.api_running = api::start(core.base.clone(), port as u16, core.config.i("APIthreads").clamp(1, 8) as usize);
         }
+        util_term::set_title(&format!("RainbowMiner v{} (Rust port)", core.version));
+        {
+            let empty = PoolsMap::default();
+            let alt = HashMap::new();
+            let yiimp = HashSet::new();
+            let ctx = MinerCtx {
+                base: &core.base,
+                config: &core.config,
+                devices: &core.devices,
+                cpu: &core.cpu,
+                pools: &empty,
+                alternates: &alt,
+                yiimp_pools: &yiimp,
+                distro_codename: core.distro_codename.clone(),
+                libc_version: core.libc_version.clone(),
+            };
+            let info = Value::Array(miner::get_miners_info(&ctx).iter().map(|m| m.to_json()).collect());
+            api::with(|s| s.minerinfo = info);
+        }
+        stat::load_pool_stats();
         log_info!("Updating exchange rates ..");
         rates::update(&core.config.arr("Currency"), &[], &core.config.arr("ExcludeCurrencyRateFromCoinbase"));
         core.timer = Utc::now();
@@ -587,7 +606,7 @@ impl Core {
         let exclude_pool_name = self.config.arr("ExcludePoolName");
         let speeds: HashMap<String, f64> = self.miner_speeds.iter().map(|(k, v)| (k.to_lowercase(), v.hashrate)).collect();
         let enable_error_ratio = self.config.b("EnableErrorRatio");
-        let mut run_pool = |name: &str, pc: &PoolConfig, module: Option<&dyn pool::PoolModule>, config: &Config, cpu: &CpuInfo, combos: &[String]| -> Vec<Pool> {
+        let run_pool = |name: &str, pc: &PoolConfig, module: Option<&dyn pool::PoolModule>, config: &Config, cpu: &CpuInfo, combos: &[String]| -> Vec<Pool> {
             let worker = if pc.worker.is_empty() { config.s("WorkerName") } else { pc.worker.clone() };
             let ctx = PoolCtx {
                 name: name.to_string(),
@@ -2639,7 +2658,16 @@ impl Core {
         let mut algos: Vec<String> = new_pools.iter().map(|p| p.Algorithm.clone()).collect();
         algos.sort();
         algos.dedup();
-        let dev_json = |d: &Device| serde_json::to_value(d).unwrap_or(Value::Null);
+        // CPU devices carry no OpenCL block in the original (the dashboard shows the L3 cache then)
+        let dev_json = |d: &Device| {
+            let mut v = serde_json::to_value(d).unwrap_or(Value::Null);
+            if d.is_cpu() {
+                if let Value::Object(m) = &mut v {
+                    m.remove("OpenCL");
+                }
+            }
+            v
+        };
         let selected: HashSet<String> = self.devices.devices.iter().map(|d| d.Name.clone()).collect();
         let devices: Vec<Value> = self.all_devices.iter().filter(|d| selected.contains(&d.Name)).map(dev_json).collect();
         let all_devices: Vec<Value> = self.all_devices.iter().map(dev_json).collect();
@@ -2701,8 +2729,43 @@ impl Core {
     }
 
     /// one round of Invoke-Core; false = stop
+    /// the remote data updates (Get-UnprofitableAlgos, Get-EthDAGSizes -EnableRemoteUpdate)
+    fn update_databases(&mut self) {
+        let data_dir = self.base.join("Data");
+        for (url, file, cpu) in [
+            ("https://api.rbminer.net/data/unprofitable3.json", "unprofitable.json", false),
+            ("https://api.rbminer.net/data/unprofitable-cpu.json", "unprofitable-cpu.json", true),
+        ] {
+            if let Ok(v) = web::Cached::new(url).jobkey(file).cycletime(3600).json() {
+                if !v.is_null() {
+                    if cpu {
+                        data::set_unprofitable_cpu(&v);
+                    } else {
+                        data::set_unprofitable(&v);
+                    }
+                    let _ = config::write_json(&data_dir.join(file), &v);
+                }
+            }
+        }
+        if self.round_counter > 0 && self.round_counter % 40 == 0 {
+            if let Ok(v) = web::Cached::new("https://api.rbminer.net/data/ethdagsizes.json").jobkey("ethdagsizes").cycletime(3600).json() {
+                if jsonx::count(&v) > 10 {
+                    data::set_eth_dag_sizes(&v);
+                    let _ = config::write_json(&data_dir.join("ethdagsizes.json"), &v);
+                }
+            }
+        }
+    }
+
     pub fn run_round(&mut self) -> bool {
         self.check_config();
+        if !self.config.b("DisableInternetCheck") {
+            let sites = self.config.arr("WebsitesForOnlineCheck");
+            if !sites.is_empty() && !web::test_internet(&sites) {
+                log_warn!("Internet is down - mining continues with the last known pools. ");
+            }
+        }
+        self.update_databases();
         let sched = self.active_scheduler().cloned();
         self.current_power_price = self.config.f("PowerPrice");
         self.heat_control = (self.config.b("EnableMiningHeatControl"), self.config.f("MiningHeatControl"));
@@ -2846,15 +2909,14 @@ impl Core {
         log_info!("Start waiting {} seconds before next run. ", wait);
         crate::log::console(&format!("Waiting {}s until next run: {}", wait, menu.join(", ")));
 
-        let restart = self.wait_loop(round_end, needing);
+        let (restart, miner_start) = self.wait_loop(round_end, needing);
+        self.timer = Utc::now();
         if self.stopp || restart {
-            self.set_miner_stats(Utc::now() - self.timer, false, true);
+            self.set_miner_stats(self.timer - miner_start, false, true);
             return false;
         }
         log_info!("Saving hash rates. ");
-        let span = Utc::now() - self.timer;
-        self.timer = Utc::now();
-        self.set_miner_stats(span, false, false);
+        self.set_miner_stats(self.timer - miner_start, false, false);
         for m in self.active_miners.iter_mut().filter(|m| m.stopped) {
             m.stop_mining_post_cleanup();
         }
@@ -2866,8 +2928,8 @@ impl Core {
         true
     }
 
-    /// the wait loop between two rounds; returns true for a restart request
-    fn wait_loop(&mut self, mut round_end: DateTime<Utc>, needing: usize) -> bool {
+    /// the wait loop between two rounds; returns (restart requested, start of the stats window)
+    fn wait_loop(&mut self, mut round_end: DateTime<Utc>, needing: usize) -> (bool, DateTime<Utc>) {
         let mut wait_round = 0u64;
         let mut samples = 0;
         let mut some_failed = false;
@@ -3009,7 +3071,7 @@ impl Core {
             self.update_active_miners(false, true);
         }
         crate::log::console("Finished waiting - starting next run ");
-        restart
+        (restart, miner_start)
     }
 
     /// Stop-Core: stop all miners

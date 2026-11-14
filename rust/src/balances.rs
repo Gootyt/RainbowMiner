@@ -13,7 +13,7 @@ use chrono::{DateTime, Duration, Utc};
 use indexmap::IndexMap;
 use serde_json::{json, Value};
 use std::collections::HashMap;
-use std::path::{Path, PathBuf};
+use std::path::Path;
 use std::sync::{LazyLock, Mutex};
 
 #[derive(Debug, Clone)]
@@ -442,15 +442,9 @@ fn nanopool(c: &Ctx, name: &str) -> Vec<Balance> {
         if c.excluded(sym) {
             continue;
         }
-        let (_, pid, _) = wallet_with_payment_id(&w, ".");
-        let wallet = {
-            let (full, _, _) = wallet_with_payment_id(&w, ".");
-            if pid.is_empty() {
-                full
-            } else {
-                full
-            }
-        };
+        // the plain wallet without payment id (Get-WalletWithPaymentId -asobject).wallet
+        let (full, pid, _) = wallet_with_payment_id(&w, ".");
+        let wallet = if pid.is_empty() { full } else { full.trim_end_matches(&format!(".{}", pid)).to_string() };
         let delay = if count > 0 { 500 } else { 0 };
         let url = format!("https://{}.nanopool.org/api/v1/load_account/{}", rpc, wallet);
         match web::Cached::new(&url).delay(delay).cycletime(c.cycle).retry(5).json() {
@@ -549,7 +543,7 @@ fn unmineable(c: &Ctx, name: &str) -> Vec<Balance> {
 
 type BalanceModule = fn(&Ctx, &str) -> Vec<Balance>;
 
-pub fn modules() -> Vec<(&'static str, BalanceModule)> {
+fn modules() -> Vec<(&'static str, BalanceModule)> {
     vec![
         ("2Miners", twominers as BalanceModule),
         ("HeroMiners", herominers),
@@ -982,12 +976,6 @@ fn add_earnings(o: &mut Value, st: &EarningsStat) {
     jsonx::set(o, "Earnings", json!(st.earnings));
     jsonx::set(o, "Started", json!(util::format_datetime(&st.started)));
 }
-
-/// the base folder for tests
-pub fn stats_dir(base: &Path) -> PathBuf {
-    base.join("Stats").join("Balances")
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -126,6 +126,7 @@ pub fn get_pools(ctx: &PoolCtx) -> Vec<Pool> {
                 let k = if pf.len() == 2 { format!("api{}", &pf[1..]) } else { "api1".into() };
                 profit = req.get(&k).map(jsonx::num).unwrap_or(0.0);
             } else {
+                let re = regex::Regex::new(r"^(api1|api2|api3|1|2|3|apiurl1|apiurl2|apiurl3)\.").unwrap();
                 for fld in ["Profit", "ProfitFactor", "Hashrate", "Difficulty", "Workers", "TimeSinceLast", "Blocks24h", "PoolFee"] {
                     let apifld = jsonx::s(jsonx::get(up, fld)).trim().to_string();
                     if apifld.is_empty() {
@@ -134,7 +135,6 @@ pub fn get_pools(ctx: &PoolCtx) -> Vec<Pool> {
                     let v = if apifld.chars().all(|c| c.is_ascii_digit() || "+-.,E".contains(c)) {
                         apifld.replace(',', ".").parse::<f64>().ok()
                     } else {
-                        let re = regex::Regex::new(r"^(api1|api2|api3|1|2|3|apiurl1|apiurl2|apiurl3)\.").unwrap();
                         let path = if let Some(c) = re.captures(&apifld) {
                             let n = c[1].chars().last().unwrap();
                             format!("api{}{}", n, &apifld[c[1].len()..])

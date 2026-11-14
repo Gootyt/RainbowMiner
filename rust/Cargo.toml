@@ -30,7 +30,7 @@ sha2 = "0.10"
 sysinfo = { version = "0.30", default-features = false }
 tar = "0.4"
 tiny_http = "0.12"
-ureq = { version = "2", features = ["json", "socks-proxy"] }
+ureq = { version = "2", features = ["json", "socks-proxy", "native-certs"] }
 url = "2"
 zip = { version = "2", default-features = false, features = ["deflate"] }
 

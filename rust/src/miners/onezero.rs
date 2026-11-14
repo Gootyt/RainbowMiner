@@ -69,6 +69,7 @@ impl MinerModule for OneZeroMiner {
         }
         let cuda = !ctx.has_type("NVIDIA") || ctx.cuda_ok(CUDA, NAME);
         let path = ctx.path("Bin/GPU-OneZero/onezerominer");
+        let re_user = regex::Regex::new(r"^([^/]+)/([^/]+)$").unwrap();
         for vendor in ["AMD", "NVIDIA"] {
             if vendor == "NVIDIA" && !cuda {
                 continue;
@@ -109,9 +110,8 @@ impl MinerModule for OneZeroMiner {
                         let pool_port = pool.port_gpu();
                         let mut user = pool.User.clone();
                         let mut worker_arg = String::new();
-                        let re = regex::Regex::new(r"^([^/]+)/([^/]+)$").unwrap();
-                        if main_raw == "pearlhash" && ps_match(&pool.Host, "kryptex") && re.is_match(&pool.User) {
-                            let c = re.captures(&pool.User).unwrap();
+                        if main_raw == "pearlhash" && ps_match(&pool.Host, "kryptex") && re_user.is_match(&pool.User) {
+                            let c = re_user.captures(&pool.User).unwrap();
                             user = format!("{}.{}", &c[1], &c[2]);
                             worker_arg = format!(" --worker {}", &c[2]);
                         } else if !pool.Worker.is_empty() && pool.User == pool.Wallet {

@@ -1,6 +1,7 @@
 //! Miner downloader (Scripts/Downloader.ps1 + Expand-WebRequest): download, verify (minersha256.json),
 //! extract (zip, tar.gz natively; 7z/tar.xz/... with 7-Zip or tar) and install into .\Bin\<Folder>,
 //! keeping backups and the protected miner config files. Runs in a background thread.
+#![allow(dead_code)]
 
 use crate::jsonx;
 use crate::util;

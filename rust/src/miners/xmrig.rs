@@ -140,6 +140,8 @@ impl MinerModule for Xmrig {
         if cfg!(windows) && cuda.is_none() {
             uri_cuda = cuda_list.last().map(|x| x.0.clone());
         }
+        let re_cpu1 = regex::Regex::new(r"(?i)(\(R\)|\(TM\)|CPU|Processor)").unwrap();
+        let re_cpu2 = regex::Regex::new(r"(?i)[^A-Z0-9]").unwrap();
         let mut path_cuda_lib: Option<PathBuf> = None;
         if let Some(uc) = &uri_cuda {
             let dir = ctx.base.join("Bin").join("ANY-Xmrig");
@@ -255,9 +257,7 @@ impl MinerModule for Xmrig {
                         } else {
                             let coin = if MO_COINS.iter().any(|c| c.eq_ignore_ascii_case(&pool.CoinSymbol)) { json!(pool.CoinSymbol) } else { Value::Null };
                             let hwsig = if vendor == "CPU" {
-                                let re1 = regex::Regex::new(r"(?i)(\(R\)|\(TM\)|CPU|Processor)").unwrap();
-                                let re2 = regex::Regex::new(r"(?i)[^A-Z0-9]").unwrap();
-                                let n = re2.replace_all(&re1.replace_all(&ctx.cpu.Name, ""), "").to_string();
+                                let n = re_cpu2.replace_all(&re_cpu1.replace_all(&ctx.cpu.Name, ""), "").to_string();
                                 format!("{}x{}", ctx.by_type("CPU").len(), n)
                             } else {
                                 let mut idx: Vec<usize> = miner_device.iter().map(|d| d.Type_Vendor_Index).collect();

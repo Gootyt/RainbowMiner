@@ -1,6 +1,7 @@
 //! Process management for the miners (Modules/ProcLib.psm1):
 //! start in an own process group, stdout/stderr into the miner log file (and to the wrapper parser),
 //! priority / niceness, CPU affinity, graceful stop, rogue process detection.
+#![allow(dead_code)]
 
 use crate::{log_info, log_warn};
 use anyhow::{anyhow, Result};

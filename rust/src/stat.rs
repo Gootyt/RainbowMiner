@@ -1,5 +1,6 @@
 //! Statistics (Modules/StatLib.psm1): moving averages with fluctuation for pool prices,
 //! miner hashrates and profits. The JSON format of the Stats folder is kept compatible.
+#![allow(dead_code)]
 
 use crate::jsonx;
 use crate::util;

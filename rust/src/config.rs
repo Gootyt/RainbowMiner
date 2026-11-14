@@ -2,6 +2,7 @@
 //! config.txt with $Variable placeholders, pools.config.txt, miners.config.txt,
 //! devices.config.txt, algorithms.config.txt, coins.config.txt, userpools.config.txt,
 //! customminers.config.txt and combos.config.txt.
+#![allow(dead_code)]
 
 use crate::data;
 use crate::jsonx;

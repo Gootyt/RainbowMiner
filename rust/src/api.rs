@@ -61,7 +61,6 @@ pub struct ApiState {
     // commands from the API
     pub cmd_stop: bool,
     pub cmd_pause: bool,
-    pub cmd_reboot: bool,
     pub cmd_update_balance: bool,
     pub cmd_watchdog_reset: bool,
     pub cmd_clear_cache: bool,

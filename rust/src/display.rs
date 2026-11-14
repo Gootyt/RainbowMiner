@@ -10,7 +10,6 @@ use crate::miner::MinerCandidate;
 use crate::minerapi::MinerStatus;
 use crate::rates;
 use crate::util;
-use serde_json::Value;
 
 /// a column: label and right alignment
 pub struct Col {
@@ -121,6 +120,7 @@ pub fn miners_table(core: &Core, model: &str, miners: &[&MinerCandidate], limit:
         }
     }
     let mut rows = Vec::new();
+    let re_num = regex::Regex::new(r"^\d+").unwrap();
     for m in miners.iter().take(limit) {
         let mut r: Vec<Vec<String>> = Vec::new();
         for c in &columns {
@@ -159,8 +159,7 @@ pub fn miners_table(core: &Core, model: &str, miners: &[&MinerCandidate], limit:
                     m.pools
                         .values()
                         .map(|p| {
-                            let re = regex::Regex::new(r"^\d+").unwrap();
-                            if re.is_match(&p.CoinName) {
+                            if re_num.is_match(&p.CoinName) {
                                 format!("{}-{}", p.Name, p.CoinName)
                             } else if !p.CoinSymbol.is_empty() {
                                 format!("{}-{}", p.Name, p.CoinSymbol)
@@ -284,6 +283,7 @@ pub fn show_round(core: &mut Core, miners: &[MinerCandidate], needing: usize, do
     let mut rows_other: Vec<(String, Vec<Vec<String>>)> = Vec::new();
     let first_rounds = core.config.i("MinimumMiningIntervals");
     let ui_full = core.ui_full || core.benchmarking;
+    let re_num = regex::Regex::new(r"^\d+").unwrap();
     for m in core.active_miners.iter_mut() {
         let recent = m.get_active_last() > chrono::Utc::now() - chrono::Duration::seconds(5 * interval);
         if !(m.activated > 0 && (m.status == MinerStatus::Running || (!m.donator && ui_full && recent))) {
@@ -301,7 +301,7 @@ pub fn show_round(core: &mut Core, miners: &[MinerCandidate], needing: usize, do
         let coins: Vec<String> = (0..m.coin_symbol.len())
             .map(|i| {
                 let cn = m.coin_name.get(i).cloned().unwrap_or_default();
-                if regex::Regex::new(r"^\d+").unwrap().is_match(&cn) {
+                if re_num.is_match(&cn) {
                     cn
                 } else if !m.coin_symbol[i].is_empty() {
                     m.coin_symbol[i].clone()
@@ -492,9 +492,4 @@ pub fn profit_line(core: &Core, profit_total: f64, without_cost: f64) -> String 
         parts.push(format!("E-Price = {} {}", core.config.s("PowerPriceCurrency"), util::round_to(core.current_power_price, 3)));
     }
     format!(" [{}] Profit = {} ", chrono::Local::now().format("%Y-%m-%d %H:%M:%S"), parts.join(" | "))
-}
-
-/// a JSON list as table rows (helper for the API pages)
-pub fn json_rows(v: &Value) -> usize {
-    jsonx::count(v)
 }

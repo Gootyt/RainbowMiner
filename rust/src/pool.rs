@@ -155,10 +155,6 @@ impl Pool {
         }
         self
     }
-    /// "$Pool.Name-$Pool.Algorithm0-$Pool.CoinSymbol"
-    pub fn key(&self) -> String {
-        format!("{}-{}-{}", self.Name, self.Algorithm0, self.CoinSymbol)
-    }
     /// the port for GPU / CPU miners
     pub fn port_gpu(&self) -> u32 {
         match &self.Ports {

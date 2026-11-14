@@ -1,5 +1,6 @@
 //! Write-Log port: daily log file Logs/RainbowMiner_yyyy-MM-dd.txt plus colored console output.
 //! Console lines are also kept in a ring buffer, the web console (/console) reads it.
+#![allow(dead_code)]
 
 use chrono::Local;
 use std::collections::VecDeque;

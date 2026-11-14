@@ -123,6 +123,7 @@ impl MinerModule for SrbMinerMulti {
         let cuda = !ctx.has_type("NVIDIA") || ctx.cuda_ok(CUDA, NAME);
         let path = ctx.path("Bin/ANY-SRBMinerMulti/SRBMiner-MULTI");
         let verthash = verthash_dat(ctx.base);
+        let re_hex = regex::Regex::new(r"(?i)[^0-9a-f]").unwrap();
         for vendor in ["AMD", "CPU", "INTEL", "NVIDIA"] {
             if vendor == "NVIDIA" && !cuda {
                 continue;
@@ -245,8 +246,7 @@ impl MinerModule for SrbMinerMulti {
                             mname = miner_name(NAME, algo2_0.as_ref().map(|a2| format!("{}-{}", algo0, a2)).as_deref(), &miner_device);
                             ids = device_ids(&miner_device, "BusId_Type_Vendor_Index", ",", false);
                             busid_str = if !is_cpu {
-                                let re = regex::Regex::new(r"(?i)[^0-9a-f]").unwrap();
-                                let mut s: String = miner_device.iter().map(|d| re.replace_all(d.BusId.as_deref().unwrap_or(""), "").to_string()).collect();
+                                let mut s: String = miner_device.iter().map(|d| re_hex.replace_all(d.BusId.as_deref().unwrap_or(""), "").to_string()).collect();
                                 if s.is_empty() {
                                     s = miner_device.iter().map(|d| format!("{:x}", d.BusId_Type_Vendor_Index)).collect();
                                 }

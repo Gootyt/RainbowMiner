@@ -1,13 +1,15 @@
 //! Device detection and selection (Modules/DeviceLib.psm1):
 //! GPUs via OpenCL (fallback nvidia-smi / Linux sysfs / Windows CIM), CPU via CPUID, /proc and /sys,
 //! device naming (GPU#00, CPU#00), the devices.json selectors, device combos and the live sensor data.
+#![allow(dead_code)]
+#![allow(unused_unsafe)]
 
 #![allow(non_snake_case)]
 
 use crate::jsonx;
 use crate::opencl;
 use crate::util;
-use crate::{log_info, log_warn};
+use crate::log_info;
 use indexmap::IndexMap;
 use regex::Regex;
 use serde::Serialize;

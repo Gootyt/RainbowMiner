@@ -56,6 +56,7 @@ pub struct Stratum {
 }
 
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 pub struct Sample {
     pub hashrate: HashMap<String, f64>,
     pub difficulty: HashMap<String, f64>,
@@ -78,6 +79,7 @@ pub struct SrbInfo {
 }
 
 /// what the miners need from the session while running
+#[allow(dead_code)]
 pub struct RunCtx<'a> {
     pub base: &'a Path,
     pub devices: &'a [Device],
@@ -86,6 +88,7 @@ pub struct RunCtx<'a> {
     pub niceness: Option<i32>,
 }
 
+#[allow(dead_code)]
 pub struct ActiveMiner {
     pub name: String,
     pub version: String,
@@ -185,16 +188,6 @@ pub struct ActiveMiner {
     srb: Option<SrbInfo>,
     custom_regex: Option<Regex>,
     regex_failed: bool,
-}
-
-/// the stats subfolder prefix of a device model (DevicesToVendors)
-fn vendor_sub(map: &HashMap<String, String>, model: &str) -> String {
-    map.get(model).cloned().unwrap_or_default()
-}
-
-/// Set-Stat names a miner stat "<Name>_<Algo without -suffix>_HashRate"
-pub fn stat_name(name: &str, algo: &str) -> String {
-    format!("{}_{}_HashRate", name, algo.split('-').next().unwrap_or(""))
 }
 
 impl ActiveMiner {
@@ -1028,10 +1021,6 @@ impl ActiveMiner {
         }
     }
 
-    pub fn get_current_difficulty(&self, algo: &str) -> f64 {
-        self.data.iter().rev().find_map(|d| Self::sample_value(&d.difficulty, algo)).unwrap_or(0.0)
-    }
-
     pub fn is_benchmarking(&self) -> bool {
         let base = self.new && (self.benchmarked - self.benchmarked_offset) < (self.max_benchmark_rounds + self.extend_interval.max(1) - 1);
         if self.api == "SrbMinerMulti" {
@@ -1101,10 +1090,6 @@ impl ActiveMiner {
         } else {
             (v.iter().sum::<f64>() / v.len() as f64).round()
         }
-    }
-
-    pub fn has_dev_fees(&self) -> bool {
-        self.dev_fee.values().sum::<f64>() > 0.0
     }
 
     // ------------------------------------------------------------------------------------
@@ -1382,9 +1367,10 @@ impl ActiveMiner {
         if let Ok(text) = std::fs::read(&self.log_file) {
             let text = String::from_utf8_lossy(&text);
             let re = Regex::new(r"GPU\d+\s*\|A0\|[^|]*\|(.*)$").unwrap();
+            let re_auto = Regex::new(r"INTENSITY:\s*AUTO").unwrap();
             for line in text.lines().take(500) {
                 if let Some(c) = re.captures(line) {
-                    if Regex::new(r"INTENSITY:\s*AUTO").unwrap().is_match(&c[1]) {
+                    if re_auto.is_match(&c[1]) {
                         auto += 1;
                     } else {
                         fixed += 1;
@@ -1781,9 +1767,4 @@ impl ActiveMiner {
             "Vendor": self.vendor,
         })
     }
-}
-
-/// a vendor sub folder for the stats (DevicesToVendors of the miner's model)
-pub fn stats_sub(map: &HashMap<String, String>, model: &str) -> String {
-    vendor_sub(map, model)
 }

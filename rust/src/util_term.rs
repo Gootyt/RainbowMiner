@@ -1,4 +1,5 @@
 //! Terminal helpers: color detection and non-blocking key reading (Read-ConsoleKeyGuarded)
+#![allow(dead_code)]
 
 use std::io::IsTerminal;
 use std::sync::atomic::{AtomicBool, Ordering};

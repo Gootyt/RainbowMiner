@@ -1,5 +1,6 @@
 //! serde_json helpers that mimic PowerShell's forgiving object access:
 //! case-insensitive property names, member enumeration over arrays and lenient number casts.
+#![allow(dead_code)]
 
 use serde_json::{Map, Value};
 

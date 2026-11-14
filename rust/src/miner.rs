@@ -27,6 +27,7 @@ pub struct PoolsMap {
     map: IndexMap<String, (String, Pool)>,
 }
 
+#[allow(dead_code)]
 impl PoolsMap {
     pub fn insert(&mut self, key: &str, p: Pool) {
         self.map.insert(key.to_lowercase(), (key.to_string(), p));
@@ -86,16 +87,6 @@ pub fn strip_alternate(key: &str) -> String {
 pub enum MinerArgs {
     Str(String),
     Obj(Value),
-}
-
-impl MinerArgs {
-    /// the part that takes the miners.config.txt Params
-    pub fn params_mut(&mut self) -> Option<&mut String> {
-        match self {
-            MinerArgs::Str(s) => Some(s),
-            MinerArgs::Obj(_) => None,
-        }
-    }
 }
 
 #[derive(Debug, Clone)]
@@ -610,15 +601,6 @@ impl<'a> MinerCtx<'a> {
         None
     }
 
-    /// the pool port for GPU / CPU miners
-    pub fn pool_port(pool: &Pool, cpu: bool) -> u32 {
-        if cpu {
-            pool.port_cpu()
-        } else {
-            pool.port_gpu()
-        }
-    }
-
     /// $Session.LinuxDistroInfo.distroCodename within a list, else the default
     pub fn distro(&self, allowed: &[&str], default: &str) -> String {
         if allowed.iter().any(|a| *a == self.distro_codename) {
@@ -779,11 +761,6 @@ pub fn get_miners_info(ctx: &MinerCtx) -> Vec<MinerInfo> {
         v.push(crate::miners::custom::info(ctx, def));
     }
     v
-}
-
-/// Get-MinerInstPath for a miner path
-pub fn miner_inst_path(base: &Path, path: &Path) -> PathBuf {
-    crate::download::miner_inst_path(base, path)
 }
 
 /// warn once per process

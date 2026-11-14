@@ -33,10 +33,6 @@ pub fn names() -> Vec<String> {
     v
 }
 
-pub fn find(name: &str) -> Option<Box<dyn PoolModule>> {
-    registry().into_iter().find(|p| p.name().eq_ignore_ascii_case(name))
-}
-
 /// "stratum+ssl" / "stratum+tcp"
 pub fn protocol(ssl: bool) -> String {
     if ssl {

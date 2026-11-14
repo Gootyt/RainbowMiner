@@ -1,5 +1,6 @@
 //! The static databases from the Data folder (algorithms.json, coinsdb.json, regions.json, ...)
 //! and the lookup functions built on them: Get-Algorithm, Get-Coin, Get-Region, Get-EthDAGSize, ...
+#![allow(dead_code)]
 
 use crate::jsonx;
 use crate::util;

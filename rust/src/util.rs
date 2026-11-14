@@ -1,5 +1,6 @@
 //! General helper functions, ported from Modules/Include.psm1
 //! (Get-Yes, ConvertTo-Hash, ConvertFrom-Time, Get-Sigma, Get-Version, CPU affinity helpers, ...)
+#![allow(dead_code)]
 
 use chrono::{DateTime, Duration, Utc};
 use std::cmp::Ordering;

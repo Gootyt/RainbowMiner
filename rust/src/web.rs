@@ -2,6 +2,7 @@
 //! - one shared HTTP agent (proxy, user agent, timeouts)
 //! - cached REST requests with a cycle time (the Asyncloader of the original: memory + Cache\*.asy)
 //! - raw TCP requests for the miner APIs
+#![allow(dead_code)]
 
 use crate::jsonx;
 use crate::util;
@@ -54,6 +55,9 @@ fn build_agent(s: &WebSettings, use_proxy: bool) -> ureq::Agent {
             Ok(px) => b = b.proxy(px),
             Err(e) => crate::log_warn!("Invalid proxy setting {}: {}", s.proxy, e),
         }
+    } else if use_proxy {
+        // like the .NET HttpClient of the original: honor HTTPS_PROXY / HTTP_PROXY / ALL_PROXY
+        b = b.try_proxy_from_env(true);
     }
     b.build()
 }
