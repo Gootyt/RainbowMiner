@@ -1,0 +1,438 @@
+[
+ {
+  "MainAlgorithm": "Autolykos2",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo autolykos2",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 2.0
+ },
+ {
+  "MainAlgorithm": "BeamHash3",
+  "MinMemGB": 1,
+  "Params": "--algo beamhash",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "Cortex",
+  "MinMemGB": 8,
+  "Params": "--algo cortex",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "NoCPUMining": false,
+  "Fee": 5.0
+ },
+ {
+  "MainAlgorithm": "CuckooCycle",
+  "MinMemGB": 3,
+  "Params": "--algo aeternity",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 2.0,
+  "NoCPUMining": false
+ },
+ {
+  "MainAlgorithm": "Equihash24x5",
+  "MinMemGB": 2,
+  "Params": "--algo 144_5",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "AutoPers": true
+ },
+ {
+  "MainAlgorithm": "EquihashR25x4",
+  "MinMemGB": 2,
+  "Params": "--algo 125_4",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "AutoPers": true
+ },
+ {
+  "MainAlgorithm": "Equihash21x9",
+  "MinMemGB": 0.5,
+  "Params": "--algo 210_9",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "AutoPers": true
+ },
+ {
+  "MainAlgorithm": "Etchash",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo etchash",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "Ethash",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo ethash",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "Ethash2g",
+  "DAG": true,
+  "MinMemGB": 1,
+  "Params": "--algo ethash",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "Ethash3g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ethash",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "Ethash4g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo ethash",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "Ethash5g",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "--algo ethash",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "EthashLowMemory",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ethash",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "KarlsenHash",
+  "MinMemGB": 1,
+  "Params": "--algo karlsenhash",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "KawPOW",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo kawpow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "KawPOW2g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo kawpow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "KawPOW3g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo kawpow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "KawPOW4g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo kawpow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "KawPOW5g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo kawpow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "kHeavyHash",
+  "MinMemGB": 1,
+  "Params": "--algo kheavyhash",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "Octopus",
+  "DAG": true,
+  "MinMemGB": 6,
+  "Params": "--algo octopus",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 4.0
+ },
+ {
+  "MainAlgorithm": "ProgpowSero",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo sero",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "SCCPow",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo firo",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "SHA256ton",
+  "MinMemGB": 1,
+  "Params": "--algo ton",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 2.0
+ },
+ {
+  "MainAlgorithm": "SHA512256d",
+  "MinMemGB": 1,
+  "Params": "--algo radiant",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 2.0
+ },
+ {
+  "MainAlgorithm": "Autolykos2",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo autolykos2 --dalgo kaspa",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 2.0,
+  "SecondaryAlgorithm": "kHeavyHash"
+ },
+ {
+  "MainAlgorithm": "Autolykos2",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo autolykos2 --dalgo radiant",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 2.0,
+  "SecondaryAlgorithm": "SHA512256d"
+ },
+ {
+  "MainAlgorithm": "Etchash",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo etchash --dalgo kaspa",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0,
+  "SecondaryAlgorithm": "kHeavyHash"
+ },
+ {
+  "MainAlgorithm": "Etchash",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo etchash --dalgo radiant",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0,
+  "SecondaryAlgorithm": "SHA512256d"
+ },
+ {
+  "MainAlgorithm": "Ethash",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo ethash --dalgo kaspa",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0,
+  "SecondaryAlgorithm": "kHeavyHash"
+ },
+ {
+  "MainAlgorithm": "Ethash2g",
+  "DAG": true,
+  "MinMemGB": 1,
+  "Params": "--algo ethash --dalgo kaspa",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0,
+  "SecondaryAlgorithm": "kHeavyHash"
+ },
+ {
+  "MainAlgorithm": "Ethash3g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ethash --dalgo kaspa",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0,
+  "SecondaryAlgorithm": "kHeavyHash"
+ },
+ {
+  "MainAlgorithm": "Ethash4g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo ethash --dalgo kaspa",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0,
+  "SecondaryAlgorithm": "kHeavyHash"
+ },
+ {
+  "MainAlgorithm": "Ethash5g",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "--algo ethash --dalgo kaspa",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0,
+  "SecondaryAlgorithm": "kHeavyHash"
+ },
+ {
+  "MainAlgorithm": "EthashLowMemory",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ethash --dalgo kaspa",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0,
+  "SecondaryAlgorithm": "kHeavyHash"
+ },
+ {
+  "MainAlgorithm": "Octopus",
+  "DAG": true,
+  "MinMemGB": 6,
+  "Params": "--algo octopus --dalgo kaspa",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 4.0,
+  "SecondaryAlgorithm": "kHeavyHash"
+ },
+ {
+  "MainAlgorithm": "Octopus",
+  "DAG": true,
+  "MinMemGB": 6,
+  "Params": "--algo octopus --dalgo radiant",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 4.0,
+  "SecondaryAlgorithm": "SHA512256d"
+ }
+]

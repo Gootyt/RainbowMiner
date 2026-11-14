@@ -1,0 +1,505 @@
+[
+ {
+  "MainAlgorithm": "allium",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "anime",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d1000",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d16000",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d250",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d500",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d4096",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "bmw",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cpupower",
+  "Params": "--param-key \"CPUpower: The number of CPU working or available for proof-of-work mining\"",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "hmq1725",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "interchained",
+  "Params": "--param-n 1024 --param-r 8",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "jha",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "lyra2rev3",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "lyra2z330",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "m7m",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "minotaur",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "minotaurx",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "power2b",
+  "Params": "--param-n 2048 --param-r 32 --param-key \"Now I am become Death, the destroyer of worlds\"",
+  "Algorithm": "yespower-b2b"
+ },
+ {
+  "MainAlgorithm": "scryptn2"
+ },
+ {
+  "MainAlgorithm": "scrypt:2048",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "scrypt:8192",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "scryptjane:16",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "scryptjane:nf",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sha256dt",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sha256q",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sha512256d",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "timetravel",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "verthash",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x12",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescrypt",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr16",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr32",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr8",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr8g",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespower",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerADVC",
+  "Params": "--param-n 2048 --param-r 32 --param-key \"Let the quest begin\"",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "yespowerARWN",
+  "Params": "--param-n 2048 --param-r 32 --param-key \"ARWN\"",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "yespowerIC",
+  "Params": "--param-n 2048 --param-r 32 --param-key \"IsotopeC\"",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "yespowerIOTS",
+  "Params": "--param-n 2048 --param-key \"Iots is committed to the development of IOT\"",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "yespowerLITB",
+  "Params": "--param-n 2048 --param-r 32 --param-key \"LITBpower: The number of LITB working or available for proof-of-work mini\"",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "yespowerLTNCG",
+  "Params": "--param-n 2048 --param-r 32 --param-key \"LTNCGYES\"",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "yespowerMGPC",
+  "Params": "--param-n 2048 --param-r 32 --param-key \"Magpies are birds of the Corvidae family.\"",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "yespowerr16",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerSUGAR",
+  "Params": "--param-n 2048 --param-r 32 --param-key \"Satoshi Nakamoto 31/Oct/2008 Proof-of-work is essentially one-CPU-one-vote\"",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "yespowerTIDE",
+  "Params": "--param-n 2048 --param-r 8",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "yespowerURX",
+  "Params": "--param-n 2048 --param-r 32 --param-key \"UraniumX\"",
+  "Algorithm": "yespower"
+ },
+ {
+  "MainAlgorithm": "zr5",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "bitcore",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "blake",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "blakecoin",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "blake2b",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "blake2s",
+  "Params": "",
+  "ExcludePoolName": "Nicehash",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "bmw512",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "c11",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "deep",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "hex",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "dmd-gr",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "groestl",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "keccak",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "keccakc",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "lbry",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "lyra2v2",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "lyra2h",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "lyra2re",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "lyra2z",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "myr-gr",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "neoscrypt",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "nist5",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "pentablake",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "phi1612",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "phi2",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "polytimos",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "quark",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "qubit",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "scrypt",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "sha256d",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "sha256t",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "sha3d",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "sib",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "skein",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "skein2",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "skunk",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "sonoa",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "tribus",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "vanilla",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "veltor",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "whirlpoolx",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x11",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x11evo",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x13",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x13sm3",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x14",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x15",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x13bcd",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x16r",
+  "Params": "",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.7,
+  "HashrateDuration": "Day",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x16rt",
+  "Params": "",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.7,
+  "HashrateDuration": "Day",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x16rt-veil",
+  "Params": "",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.7,
+  "HashrateDuration": "Day",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x16rv2",
+  "Params": "",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.7,
+  "HashrateDuration": "Day",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x16s",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x17",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x20r",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x21s",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x22i",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x25x",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "xevan",
+  "Params": "",
+  "NeverProfitable": true
+ }
+]

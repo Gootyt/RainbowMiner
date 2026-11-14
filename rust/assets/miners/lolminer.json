@@ -1,0 +1,749 @@
+[
+ {
+  "MainAlgorithm": "Autolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo AUTOLYKOS2",
+  "Pers": false,
+  "Fee": 1.5,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Autolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo AUTOLYKOS2 --dualmode PYRINV2DUAL",
+  "Pers": false,
+  "Fee": 1.5,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "PyrinHashV2"
+ },
+ {
+  "MainAlgorithm": "Autolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo AUTOLYKOS2 --dualmode TONDUAL",
+  "Pers": false,
+  "Fee": 1.5,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "SHA256ton"
+ },
+ {
+  "MainAlgorithm": "BeamHash3",
+  "MinMemGB": 3,
+  "Params": "--algo BEAM-III",
+  "Pers": false,
+  "Fee": 1,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Blake3Alephium",
+  "MinMemGB": 2,
+  "Params": "--algo ALEPH",
+  "Pers": false,
+  "Fee": 0.75,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "BlocxAutolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo AUTOLYKOS2",
+  "Pers": false,
+  "Fee": 1.5,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "BlocxAutolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo AUTOLYKOS2 --dualmode TONDUAL",
+  "Pers": false,
+  "Fee": 1.5,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "SHA256ton"
+ },
+ {
+  "MainAlgorithm": "Cuckaroo29",
+  "MinMemGB": 6,
+  "Params": "--algo CR29",
+  "Pers": false,
+  "Fee": 2,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Cuckaroo29b",
+  "MinMemGB": 6,
+  "Params": "--algo CR29-40",
+  "Pers": false,
+  "Fee": 1,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Cuckaroo29s",
+  "MinMemGB": 6,
+  "Params": "--algo CR29-32",
+  "Pers": false,
+  "Fee": 1,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Cuckaroo30",
+  "MinMemGB": 7.6,
+  "Params": "--algo C30CTX",
+  "Pers": false,
+  "Fee": 2.5,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "Cuckatoo31",
+  "MinMemGB": 4,
+  "Params": "--algo C31",
+  "Pers": false,
+  "Fee": 2,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Cuckatoo32",
+  "MinMemGB": 4,
+  "Params": "--algo C32",
+  "Pers": false,
+  "Fee": 2,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "CuckooCycle",
+  "MinMemGB": 6,
+  "Params": "--algo C29AE",
+  "Pers": false,
+  "Fee": 2,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Equihash21x9",
+  "MinMemGB": 1,
+  "Params": "--algo EQUI210_9",
+  "Pers": false,
+  "Fee": 1,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "Equihash24x5",
+  "MinMemGB": 2,
+  "Params": "--algo EQUI144_5",
+  "ParamsAutoPers": "--coin AUTO144_5",
+  "Pers": true,
+  "Fee": 1,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ]
+ },
+ {
+  "MainAlgorithm": "Equihash24x7",
+  "MinMemGB": 3,
+  "Params": "--algo EQUI192_7",
+  "ParamsAutoPers": "--coin AUTO192_7",
+  "Pers": true,
+  "Fee": 1,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "EquihashR25x4",
+  "MinMemGB": 3,
+  "Params": "--algo FLUX",
+  "Pers": false,
+  "Fee": 1,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "EtcHash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETCHASH --disable-dag-verify 1",
+  "Pers": false,
+  "Fee": 0.7,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "EtcHash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETCHASH --disable-dag-verify 1 --dualmode ALEPHDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "Blake3Alephium",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "Ethash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETHASH --disable-dag-verify 1",
+  "Pers": false,
+  "Fee": 0.7,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Ethash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETHASH --disable-dag-verify 1 --dualmode ALEPHDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "Blake3Alephium",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "Ethash2g",
+  "DAG": true,
+  "MinMemGB": 1,
+  "Params": "--algo ETHASH --disable-dag-verify 1",
+  "Pers": false,
+  "Fee": 0.7,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Ethash2g",
+  "DAG": true,
+  "MinMemGB": 1,
+  "Params": "--algo ETHASH --disable-dag-verify 1 --dualmode ALEPHDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "Blake3Alephium",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "Ethash3g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETHASH --disable-dag-verify 1",
+  "Pers": false,
+  "Fee": 0.7,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Ethash3g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETHASH --disable-dag-verify 1 --dualmode ALEPHDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "Blake3Alephium",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "Ethash4g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo ETHASH --disable-dag-verify 1",
+  "Pers": false,
+  "Fee": 0.7,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Ethash4g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "--algo ETHASH --disable-dag-verify 1 --dualmode ALEPHDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "Blake3Alephium",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "Ethash5g",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "--algo ETHASH --disable-dag-verify 1",
+  "Pers": false,
+  "Fee": 0.7,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Ethash5g",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "--algo ETHASH --disable-dag-verify 1 --dualmode ALEPHDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "Blake3Alephium",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "EthashB3",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETHASHB3 --disable-dag-verify 1",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "EtHashB3",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETHASHB3 --disable-dag-verify 1 --dualmode ALEPHDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "Blake3Alephium",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "EtHashB3",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETHASHB3 --disable-dag-verify 1 --dualmode KARLSENDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "KarlsenHash",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "EtHashB3",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETHASHB3 --disable-dag-verify 1 --dualmode PYRINDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "HeavyHashPyrin",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "EtHashB3",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETHASHB3 --disable-dag-verify 1 --dualmode RXDDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "SHA512256d",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "EthashLowMemory",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETHASH --disable-dag-verify 1",
+  "Pers": false,
+  "Fee": 0.7,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "EthashLowMemory",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo ETHASH --disable-dag-verify 1 --dualmode ALEPHDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "Blake3Alephium",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "FishHash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo FISHHASH --disable-dag-verify 1",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "FishHash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo FISHHASH --disable-dag-verify 1 --dualmode ALEPHDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "Blake3Alephium",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "FishHash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo FISHHASH --disable-dag-verify 1 --dualmode KARLSENDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "KarlsenHash",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "FishHash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo FISHHASH --disable-dag-verify 1 --dualmode PYRINDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "HeavyHashPyrin",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "FishHash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo FISHHASH --disable-dag-verify 1 --dualmode PYRINV2DUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "PyrinHashV2",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "FishHash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo FISHHASH --disable-dag-verify 1 --dualmode RXDDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "SHA512256d",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "FishHash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo FISHHASH --disable-dag-verify 1 --dualmode TONDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "SHA256ton",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "HeavyHashPyrin",
+  "MinMemGB": 2,
+  "Params": "--algo PYRIN",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "KarlsenHash",
+  "MinMemGB": 2,
+  "Params": "--algo KARLSEN",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "KarlsenHashV2",
+  "MinMemGB": 2,
+  "Params": "--algo KARLSENV2",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "KarlsenHashV2",
+  "MinMemGB": 2,
+  "Params": "--algo KARLSENV2 --dualmode PYRINV2DUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "PyrinHashV2",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "KarlsenHashV2",
+  "MinMemGB": 2,
+  "Params": "--algo KARLSENV2 --dualmode TONDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "SHA256ton",
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "NexaPoW",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo NEXA",
+  "Pers": false,
+  "Fee": 2,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "Octopus",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "--algo OCTOPUS",
+  "Pers": false,
+  "Fee": 2,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ZombieMode": [
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "PyrinHashV2",
+  "MinMemGB": 2,
+  "Params": "--algo PYRINV2",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "CUDAArch": "P"
+ },
+ {
+  "MainAlgorithm": "SHA256ton",
+  "MinMemGB": 2,
+  "Params": "--algo GRAM",
+  "Pers": false,
+  "Fee": 1,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "UbqHash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo UBQHASH --disable-dag-verify 1",
+  "Pers": false,
+  "Fee": 0.7,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "UbqHash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "--algo UBQHASH --disable-dag-verify 1 --dualmode ALEPHDUAL",
+  "Pers": false,
+  "Fee": 1.0,
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondAlgorithm": "Blake3Alephium",
+  "CUDAArch": "P"
+ }
+]

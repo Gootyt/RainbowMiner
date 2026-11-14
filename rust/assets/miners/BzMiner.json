@@ -1,0 +1,344 @@
+[
+ {
+  "MainAlgorithm": "cn-heavy/0",
+  "MinMemGB": 3.3,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn-heavy/xhv",
+  "MinMemGB": 3.3,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn-lite/1",
+  "MinMemGB": 1,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn-pico",
+  "MinMemGB": 1,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn-pico/tlo",
+  "MinMemGB": 1,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn/ccx",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn/double",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn/fast",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn/gpu",
+  "MinMemGB": 3.3,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn/half",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn/rto",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn/rwz",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn/upx2",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn/xao",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cn/zls",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "cuckaroo29",
+  "Algorithm": "c29",
+  "MinMemGB": 6,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "ergo",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 0.5
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 0.5
+ },
+ {
+  "MainAlgorithm": "kawpow",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "nexa",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "CPU",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 2.0
+ },
+ {
+  "MainAlgorithm": "pearl",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 2.0,
+  "ExcludePoolName": "^Pearlhash"
+ },
+ {
+  "MainAlgorithm": "quantus",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 2.0
+ },
+ {
+  "MainAlgorithm": "randomx",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "CPU"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "verus",
+  "MinMemGB": 1,
+  "Params": "",
+  "Vendor": [
+   "CPU"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "warthog",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 2.0,
+  "WithCPU": true,
+  "NoCPUMining": true
+ },
+ {
+  "MainAlgorithm": "xelis",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Fee": 1.0
+ }
+]

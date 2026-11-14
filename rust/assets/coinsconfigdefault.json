@@ -1,0 +1,29 @@
+{
+  "RVN": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "Wallet": "",
+    "EnableAutoPool": "0"
+  },
+  "XMR": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "Wallet": "",
+    "EnableAutoPool": "0"
+  },
+  "XWP": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "Wallet": "",
+    "EnableAutoPool": "0"
+  }
+}

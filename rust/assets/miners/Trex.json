@@ -1,0 +1,405 @@
+[
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "ExtendInterval": 3,
+  "DevFee": 2.0
+ },
+ {
+  "MainAlgorithm": "blake3",
+  "Params": "",
+  "MinMemGB": 2,
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "SecondAlgorithm": "blake3",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "DualAll": true
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "ethash2g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 1,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 4,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "SecondAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 4,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "SecondAlgorithm": "blake3",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 4,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "DualAll": true
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "SecondAlgorithm": "kawpow",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 4,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "SecondAlgorithm": "octopus",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 4,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "ethash2g",
+  "SecondAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 1,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash2g",
+  "SecondAlgorithm": "blake3",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 1,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash",
+  "DualAll": true
+ },
+ {
+  "MainAlgorithm": "ethash2g",
+  "SecondAlgorithm": "kawpow",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 1,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash2g",
+  "SecondAlgorithm": "octopus",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 1,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "SecondAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "SecondAlgorithm": "blake3",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash",
+  "DualAll": true
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "SecondAlgorithm": "kawpow",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "SecondAlgorithm": "octopus",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "SecondAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "SecondAlgorithm": "blake3",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash",
+  "DualAll": true
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "SecondAlgorithm": "kawpow",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "SecondAlgorithm": "octopus",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "SecondAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 4,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "SecondAlgorithm": "blake3",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 4,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash",
+  "DualAll": true
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "SecondAlgorithm": "kawpow",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 4,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "SecondAlgorithm": "octopus",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 4,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "SecondAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "SecondAlgorithm": "blake3",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "MinMemGB2nd": 2,
+  "ExtendInterval": 3,
+  "DualAll": true,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "SecondAlgorithm": "kawpow",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "SecondAlgorithm": "octopus",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "MinMemGB2nd": 4,
+  "ExtendInterval": 3,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "kawpow",
+  "DAG": true,
+  "Params": "",
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "kawpow2g",
+  "DAG": true,
+  "Params": "",
+  "ExtendInterval": 3,
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow3g",
+  "DAG": true,
+  "Params": "",
+  "ExtendInterval": 3,
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow4g",
+  "DAG": true,
+  "Params": "",
+  "ExtendInterval": 3,
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow5g",
+  "DAG": true,
+  "Params": "",
+  "ExtendInterval": 3,
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "mtp",
+  "MinMemGB": 5,
+  "Params": "",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "mtp-tcr",
+  "MinMemGB": 5,
+  "Params": "",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "octopus",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 4,
+  "ExtendInterval": 2,
+  "DevFee": 2.0
+ },
+ {
+  "MainAlgorithm": "progpow-veil",
+  "DAG": true,
+  "Params": "",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "progpow-veriblock",
+  "DAG": true,
+  "Params": "",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "progpowsero",
+  "DAG": true,
+  "Params": "--coin sero",
+  "ExtendInterval": 2,
+  "Algorithm": "progpow"
+ },
+ {
+  "MainAlgorithm": "progpowz",
+  "DAG": true,
+  "Params": "",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "tensority",
+  "Params": ""
+ }
+]

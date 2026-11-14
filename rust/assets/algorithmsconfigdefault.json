@@ -1,0 +1,938 @@
+{
+  "Allium": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "1",
+    "OCprofile": "Profile1"
+  },
+  "Autolykos2": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "2",
+    "OCprofile": "Profile2"
+  },
+  "Balloon": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "BeamHash3": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "2",
+    "OCprofile": "Profile2"
+  },
+  "Bitcore": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Blake2b": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Blake2bSHA3": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Blake2s": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Blake3": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Blake3Alephium": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Blake3Decred": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Blake3IronFish": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "BlocxAutolykos2": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "2",
+    "OCprofile": "Profile2"
+  },
+  "BMW512": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "CryptonightHeavyXhv": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Cuckaroo29": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile0"
+  },
+  "Cuckaroo30": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile0"
+  },
+  "Cuckatoo31": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile0"
+  },
+  "Cuckatoo32": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile0"
+  },
+  "Dedal": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "DynexSolve": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Equihash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "3",
+    "OCprofile": "Profile3"
+  },
+  "Equihash16x5": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "3",
+    "OCprofile": "Profile3"
+  },
+  "Equihash21x9": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "3",
+    "OCprofile": "Profile3"
+  },
+  "Equihash24x5": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "3",
+    "OCprofile": "Profile3"
+  },
+  "Equihash24x7": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "3",
+    "OCprofile": "Profile3"
+  },
+  "EquihashR25x4": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "3",
+    "OCprofile": "Profile3"
+  },
+  "EquihashR25x5": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "3",
+    "OCprofile": "Profile3"
+  },
+  "EquihashR25x5x3": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "3",
+    "OCprofile": "Profile3"
+  },
+  "EquihashVds": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "3",
+    "OCprofile": "Profile3"
+  },
+  "EtcHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "Ethash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "Ethash2g": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "Ethash3g": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "Ethash4g": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "Ethash5g": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "EthashB3": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "EthashLowMemory": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "EvrProgPow": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "FiroPoW": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "FishHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "GLTAstralHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "GLTJeongHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "GLTPadiHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "GLTPawelHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "HeavyHashPyrin": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Hex": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Hoohash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "JanusHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "KarlsenHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "KarlsenHashV2": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "KawPow": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "KawPow2g": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "KawPow3g": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "KawPow4g": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "KawPow5g": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "kHeavyHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Lyra2RE2": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Lyra2z": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Lyra2zz": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "MeowPow": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "Meraki": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "MTP": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "2",
+    "OCprofile": "Profile2"
+  },
+  "Neoscrypt": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "3",
+    "OCprofile": "Profile3"
+  },
+  "NeoscryptXaya": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "3",
+    "OCprofile": "Profile3"
+  },
+  "NexaPoW": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "2",
+    "OCprofile": "Profile2"
+  },
+  "Nist5": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Octopus": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "PHI2": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "PhiHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "Poseidon2b": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "ProgPoW": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "ProgPowEpic": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "ProgPoWEthercore": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "ProgPowQuai": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "ProgPowSero": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "ProgPowVeil": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "ProgPoWZ": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "PyrinHashV2": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Qhash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Quantus": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "Qubit": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "1",
+    "OCprofile": "Profile1"
+  },
+  "RainforestV2": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "SCCPow": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "SHA256csm": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "SHA256dt": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "SHA256ton": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "SHA3d": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "SHA3Solidity": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "SHA3x": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "SHA512256d": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "UbqHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile6"
+  },
+  "VerusHash": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "vProgPoW": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "",
+    "OCprofile": "Profile8"
+  },
+  "X16r": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "X16rt": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "X16rv2": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "X16s": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "X17": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "X21s": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "X22i": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "X25x": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "4",
+    "OCprofile": "Profile4"
+  },
+  "XelisHashV2": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "2",
+    "OCprofile": "Profile2"
+  },
+  "XelisHashV3": {
+    "Penalty": "0",
+    "MinHashrate": "0",
+    "MinHashrateSolo": "0",
+    "MinWorkers": "0",
+    "MaxTimeToFind": "0",
+    "MSIAprofile": "2",
+    "OCprofile": "Profile2"
+  }
+}

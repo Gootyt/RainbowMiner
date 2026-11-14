@@ -1,0 +1,617 @@
+[
+ {
+  "MainAlgorithm": "abelian",
+  "DAG": true,
+  "MinMemGB": 5,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "alephium",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "BlocxAutolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Algorithm": "autolykos2",
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "Ethash2g",
+  "DAG": true,
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "Ethash3g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "Ethash4g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "Ethash5g",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "EthashLowMemory",
+  "DAG": true,
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "fishhash",
+  "DAG": true,
+  "MinMemGB": 5,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "karlsenhashv2",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "nexapow",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Fee": 2.0
+ },
+ {
+  "MainAlgorithm": "octopus",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Fee": 2.0
+ },
+ {
+  "MainAlgorithm": "KawPOW",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow",
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "KawPOW2g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow",
+  "Fee": 1.0,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "KawPOW3g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow",
+  "Fee": 1.0,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "KawPOW4g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow",
+  "Fee": 1.0,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "KawPOW5g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow",
+  "Fee": 1.0,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "progpowz",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "sha256ton",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Fee": 1.0,
+  "PoolName": "Icemining"
+ },
+ {
+  "MainAlgorithm": "sha3x",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "sha512256d",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "xelishashv3",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Fee": 2.0,
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "abelian",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "alephium"
+ },
+ {
+  "MainAlgorithm": "abelian",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha256ton",
+  "SecondaryPoolName": "Icemining"
+ },
+ {
+  "MainAlgorithm": "abelian",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha3x"
+ },
+ {
+  "MainAlgorithm": "abelian",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha512256d"
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "alephium",
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha256ton",
+  "Fee": 1.0,
+  "SecondaryPoolName": "Icemining"
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha3x",
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha512256d",
+  "Fee": 1.0
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "alephium"
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha512256d"
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "alephium"
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha512256d"
+ },
+ {
+  "MainAlgorithm": "Ethash2g",
+  "DAG": true,
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "alephium",
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "Ethash2g",
+  "DAG": true,
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha512256d",
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "Ethash3g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "alephium",
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "Ethash3g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha512256d",
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "Ethash4g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "alephium",
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "Ethash4g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha512256d",
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "Ethash5g",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "alephium",
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "Ethash5g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha512256d",
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "EthashLowMemory",
+  "DAG": true,
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "alephium",
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "EthashLowMemory",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha512256d",
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "fishhash",
+  "DAG": true,
+  "MinMemGB": 5,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "alephium"
+ },
+ {
+  "MainAlgorithm": "fishhash",
+  "DAG": true,
+  "MinMemGB": 5,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha256ton",
+  "SecondaryPoolName": "Icemining"
+ },
+ {
+  "MainAlgorithm": "fishhash",
+  "DAG": true,
+  "MinMemGB": 5,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha3x"
+ },
+ {
+  "MainAlgorithm": "fishhash",
+  "DAG": true,
+  "MinMemGB": 5,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha512256d"
+ },
+ {
+  "MainAlgorithm": "karlsenhashv2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha256ton",
+  "SecondaryPoolName": "Icemining"
+ },
+ {
+  "MainAlgorithm": "karlsenhashv2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha3x"
+ },
+ {
+  "MainAlgorithm": "octopus",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "alephium",
+  "Fee": 2.0
+ },
+ {
+  "MainAlgorithm": "octopus",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha256ton",
+  "Fee": 2.0,
+  "SecondaryPoolName": "Icemining"
+ },
+ {
+  "MainAlgorithm": "octopus",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha3x",
+  "Fee": 2.0
+ },
+ {
+  "MainAlgorithm": "octopus",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha512256d",
+  "Fee": 2.0
+ }
+]

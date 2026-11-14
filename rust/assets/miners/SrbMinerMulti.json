@@ -1,0 +1,1304 @@
+[
+ {
+  "MainAlgorithm": "cpupower",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "flex",
+  "Params": "",
+  "Fee": 2.0,
+  "Vendor": [
+   "CPU"
+  ],
+  "FaultTolerance": 8,
+  "CPUFeatures": [
+   "aes",
+   "sse42"
+  ],
+  "ExcludePoolName": "C3pool|MoneroOcean"
+ },
+ {
+  "MainAlgorithm": "ghostrider",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "FaultTolerance": 8,
+  "CPUFeatures": [
+   "aes",
+   "sse42"
+  ],
+  "ExcludePoolName": "C3pool|MoneroOcean"
+ },
+ {
+  "MainAlgorithm": "mike",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "FaultTolerance": 8,
+  "CPUFeatures": [
+   "aes",
+   "sse42"
+  ],
+  "ExcludePoolName": "C3pool|MoneroOcean"
+ },
+ {
+  "MainAlgorithm": "minotaurx",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "panthera",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "randomalpha",
+  "Params": "",
+  "Fee": 1.0,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomarq",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomc64",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomdrgx",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomepic",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomjuno",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randoml",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randompcn",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomscash",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomsnap",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomvirel",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomx",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomy",
+  "Params": "",
+  "Fee": 1.0,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomyada",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomzqvx",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "rinhash",
+  "Params": "",
+  "Fee": 1.0,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "verushash",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "ExcludePoolName": "LuckPool",
+  "FaultTolerance": 0.5
+ },
+ {
+  "MainAlgorithm": "yespower2b",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespoweradvc",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespowereqpay",
+  "Params": "",
+  "Fee": 2.0,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespowerinterchained",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespowermgpc",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespowermwc",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespowerr16",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespowersugar",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespowerurx",
+  "Params": "",
+  "Fee": 0.0,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2d_16000",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2d_dynamic",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.0,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "blake3_decred",
+  "Params": "",
+  "Fee": 1.0,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_gpu",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_turtle",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "curvehash",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash2g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 1,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 4,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "evrprogpow",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "fishhash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "heavyhash",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "kawpow",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "kawpow2g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "kawpow3g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "kawpow4g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "kawpow5g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "lyra2v2_webchain",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "memehash",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "meowpow",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "oggpow",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "pearlhash",
+  "Params": "",
+  "Fee": 2.0,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExcludePoolName": "^Pearlhash",
+  "ExcludeCompute": [
+   "Volta",
+   "Pascal",
+   "GCN51",
+   "GCN50",
+   "8.0",
+   "10.3"
+  ],
+  "NoAutoTune": true
+ },
+ {
+  "MainAlgorithm": "phihash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "poseidon2b",
+  "Params": "",
+  "Fee": 2.0,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Algorithm": "noid",
+  "ExcludePoolName": "RPlant",
+  "ExcludeCompute": [
+   "Volta",
+   "Pascal",
+   "Turing",
+   "RDNA1",
+   "GCN51",
+   "GCN50"
+  ],
+  "NoAutoTune": true
+ },
+ {
+  "MainAlgorithm": "progpow_epic",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": null
+ },
+ {
+  "MainAlgorithm": "progpow_zano",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": null
+ },
+ {
+  "MainAlgorithm": "qhash",
+  "Params": "",
+  "Fee": 1.5,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "quantus",
+  "Params": "",
+  "Fee": 2.0,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "GCN51",
+   "GCN50"
+  ],
+  "IncludeCompute": [
+   "GCN4"
+  ],
+  "NoAutoTune": true
+ },
+ {
+  "MainAlgorithm": "sccpow",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "firopow",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "sha256d_csd",
+  "Params": "",
+  "Fee": 1.0,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta",
+   "GCN51",
+   "GCN50"
+  ]
+ },
+ {
+  "MainAlgorithm": "verthash",
+  "Params": "",
+  "Fee": 1.0,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "xelishashv3",
+  "Params": "",
+  "Fee": 1.5,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "xhash",
+  "Params": "",
+  "Fee": 3.0,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "yescrypt",
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "yescryptr8",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "yescryptr16",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "yescryptr32",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespower",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespowertide",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU",
+   "NVIDIA"
+  ],
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.5,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "blake3_decred",
+  "ExcludePoolName": "Nicehash",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.5,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "heavyhash",
+  "ExcludePoolName": "Nicehash",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.5,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "hoohash",
+  "ExcludePoolName": "Nicehash",
+  "ExcludeCompute": [
+   "Volta",
+   "GCN51",
+   "GCN50"
+  ]
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.5,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "qhash",
+  "ExcludePoolName": "Nicehash",
+  "ExcludeCompute": [
+   "Volta",
+   "GCN51",
+   "GCN50"
+  ]
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "blake3_decred",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "heavyhash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "blake3_decred",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "heavyhash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash2g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "blake3_decred",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash2g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 1,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "heavyhash",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "blake3_decred",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "heavyhash",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "blake3_decred",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "heavyhash",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "blake3_decred",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 4,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "heavyhash",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "blake3_decred",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "heavyhash",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "fishhash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.0,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "blake3_decred",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "fishhash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.0,
+  "MinMemGB": 3,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "hoohash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta",
+   "GCN51",
+   "GCN50"
+  ]
+ },
+ {
+  "MainAlgorithm": "fishhash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.5,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "qhash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta",
+   "GCN51",
+   "GCN50"
+  ]
+ },
+ {
+  "MainAlgorithm": "xhash",
+  "Params": "",
+  "Fee": 3.0,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "blake3_decred",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta"
+  ]
+ },
+ {
+  "MainAlgorithm": "xhash",
+  "Params": "",
+  "Fee": 3.0,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "qhash",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "Volta",
+   "GCN51",
+   "GCN50"
+  ]
+ }
+]

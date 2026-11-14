@@ -1,0 +1,407 @@
+[
+ {
+  "MainAlgorithm": "argon2/chukwa",
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2/chukwav2",
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2/wrkz",
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn/ccx",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn/double",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn/half",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn/fast",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn/r",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn/rto",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn/rwz",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn/upx2",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn/xao",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn/zls",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn-heavy/0",
+  "MinMemGB": 3.3,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn-heavy/tube",
+  "MinMemGB": 3.3,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn-heavy/xhv",
+  "MinMemGB": 3.3,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn-lite/1",
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn-pico",
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cn-pico/tlo",
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "flex",
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 3,
+  "Vendor": [
+   "CPU"
+  ],
+  "ForceMO": true
+ },
+ {
+  "MainAlgorithm": "ghostrider",
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 3,
+  "Vendor": [
+   "CPU"
+  ],
+  "FaultTolerance": 8,
+  "UseMO": true
+ },
+ {
+  "MainAlgorithm": "kawpow",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "kawpow2g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow3g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow4g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow5g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "panthera",
+  "MinMemGB": 1,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "CPU"
+  ],
+  "ForceMO": true
+ },
+ {
+  "MainAlgorithm": "rx/0",
+  "MinMemGB": 2.0,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "rx/2",
+  "MinMemGB": 2.0,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "rx/arq",
+  "MinMemGB": 2.0,
+  "Params": "",
+  "ExtendInterval": 3,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "rx/grft",
+  "MinMemGB": 2.0,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "rx/sfx",
+  "MinMemGB": 2.0,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "rx/wow",
+  "MinMemGB": 2.0,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "rx/xeq",
+  "MinMemGB": 2.0,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "CPU"
+  ],
+  "ForceMO": true
+ },
+ {
+  "MainAlgorithm": "rx/yada",
+  "MinMemGB": 2.0,
+  "Params": "",
+  "ExtendInterval": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ }
+]
