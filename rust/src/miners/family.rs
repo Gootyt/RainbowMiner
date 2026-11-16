@@ -391,8 +391,11 @@ impl Family {
             } else {
                 all.iter().copied().filter(|d| fam.arch_ok(d)).collect()
             };
+            // the devices of the model the command and key filters start from ($Device)
+            let mut base: Vec<&Device> = all.clone();
             if let Some(f) = fam.model_filter {
                 miner_device = all.iter().copied().filter(|d| f(fam, d)).collect();
+                base = miner_device.clone();
             }
             let (mut miner_port, mut mname, mut ids) = (0u16, String::new(), String::new());
             for cmd in fam.commands.iter() {
@@ -434,7 +437,7 @@ impl Family {
                     device_params = dp(ctx, threads, affinity.as_deref());
                 }
                 if let Some(f) = fam.pre_key_filter {
-                    miner_device = all.iter().copied().filter(|d| f(ctx, d, cmd)).collect();
+                    miner_device = base.iter().copied().filter(|d| f(ctx, d, cmd)).collect();
                 }
                 let exclude = cmd_s(cmd, "ExcludePoolName");
                 let coin_symbols = cmd_list(cmd, "CoinSymbols");
@@ -456,7 +459,7 @@ impl Family {
                 for key in keys {
                     let pool = ctx.pool(&key);
                     if let Some(f) = fam.per_key_filter {
-                        miner_device = all.iter().copied().filter(|d| f(fam, ctx, d, cmd, pool, &algo0)).collect();
+                        miner_device = base.iter().copied().filter(|d| f(fam, ctx, d, cmd, pool, &algo0)).collect();
                     }
                     let Some(pool) = pool else { continue };
                     if (fam.check_ssl && pool.SSL)

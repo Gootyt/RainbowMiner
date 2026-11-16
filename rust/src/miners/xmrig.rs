@@ -1,5 +1,5 @@
-//! Miners/Xmrig.ps1 (AMD, CPU, INTEL, NVIDIA): argument objects for the XMRig6 API class,
-//! which writes the per hardware signature config files.
+//! Miners/Xmrig.ps1 and Miners/XmrigCC.ps1 (AMD, CPU, INTEL, NVIDIA): argument objects for the
+//! XMRig6 API class, which writes the per hardware signature config files.
 
 use crate::data;
 use crate::device::Device;
@@ -10,15 +10,67 @@ use serde_json::{json, Value};
 use std::path::PathBuf;
 use std::sync::LazyLock;
 
-pub struct Xmrig;
+/// Xmrig, or XmrigCC (the xmrigDaemon/xmrigMiner pair, no MoneroOcean build)
+pub struct Xmrig {
+    pub cc: bool,
+}
 
-const NAME: &str = "Xmrig";
-const PORT: &str = "303";
-const VERSION: &str = "6.26.0.3";
-const DEVFEE: f64 = 0.0;
-const MANUAL_URI: &str = "https://github.com/xmrig/xmrig/releases";
+struct Variant {
+    name: &'static str,
+    port: &'static str,
+    version: &'static str,
+    manual_uri: &'static str,
+    dir: &'static str,
+    exe: &'static str,
+    uri_win: &'static str,
+    /// {DISTROCODENAME} templates
+    uri_arm: &'static str,
+    uri_x64: &'static str,
+    /// the ARM build for other distributions (XmrigCC: "generic" with 1% fee)
+    arm_default: &'static str,
+    commands: &'static LazyLock<Vec<Value>>,
+}
 
 static COMMANDS: LazyLock<Vec<Value>> = LazyLock::new(|| commands(include_str!("../../assets/miners/Xmrig.json")));
+static COMMANDS_CC: LazyLock<Vec<Value>> = LazyLock::new(|| commands(include_str!("../../assets/miners/XmrigCC.json")));
+
+static XMRIG: Variant = Variant {
+    name: "Xmrig",
+    port: "303",
+    version: "6.26.0.3",
+    manual_uri: "https://github.com/xmrig/xmrig/releases",
+    dir: "ANY-Xmrig",
+    exe: "xmrig",
+    uri_win: "https://github.com/RainbowMiner/miner-binaries/releases/download/v6.26.0-xmrig/xmrig-6.26.0.3-msvc-win64.7z",
+    uri_arm: "https://github.com/RainbowMiner/miner-binaries/releases/download/v6.26.0-xmrig/xmrig-6.26.0.3-{DISTROCODENAME}-armv8.7z",
+    uri_x64: "https://github.com/RainbowMiner/miner-binaries/releases/download/v6.26.0-xmrig/xmrig-6.26.0.3-{DISTROCODENAME}-x64.7z",
+    arm_default: "jammy",
+    commands: &COMMANDS,
+};
+
+static XMRIGCC: Variant = Variant {
+    name: "XmrigCC",
+    port: "376",
+    version: "3.4.9",
+    manual_uri: "https://github.com/Bendr0id/xmrigCC/releases",
+    dir: "ANY-XmrigCC",
+    exe: "xmrigDaemon",
+    uri_win: "https://github.com/RainbowMiner/miner-binaries/releases/download/v3.4.9-xmrigcc/xmrigcc-3.4.9-msvc-win64.7z",
+    uri_arm: "https://github.com/RainbowMiner/miner-binaries/releases/download/v3.4.9-xmrigcc/xmrigcc-3.4.9-{DISTROCODENAME}-armv8.7z",
+    uri_x64: "https://github.com/RainbowMiner/miner-binaries/releases/download/v3.4.9-xmrigcc/xmrigcc-3.4.9-{DISTROCODENAME}-x64.7z",
+    arm_default: "generic",
+    commands: &COMMANDS_CC,
+};
+
+impl Xmrig {
+    fn v(&self) -> &'static Variant {
+        if self.cc {
+            &XMRIGCC
+        } else {
+            &XMRIG
+        }
+    }
+}
 
 const CUDA_LINUX: &[&str] = &[
     "12.9", "12.8", "12.6", "12.5", "12.4", "12.3", "12.2", "12.1", "12.0", "11.8", "11.7", "11.6", "11.5", "11.4", "11.3", "11.2", "11.1", "11.0", "10.2", "10.1", "10.0", "9.2",
@@ -48,26 +100,28 @@ struct Setup {
     path: PathBuf,
     path_mo: PathBuf,
     cuda_lib: &'static str,
+    dev_fee: f64,
 }
 
-fn setup(ctx: &MinerCtx) -> Option<Setup> {
+fn setup(ctx: &MinerCtx, v: &Variant) -> Option<Setup> {
+    let path = ctx.path(&format!("Bin/{}/{}", v.dir, v.exe));
+    let path_mo = ctx.path(&format!("Bin/{}/xmrig-mo", v.dir));
     if cfg!(windows) {
-        return Some(Setup {
-            uri: "https://github.com/RainbowMiner/miner-binaries/releases/download/v6.26.0-xmrig/xmrig-6.26.0.3-msvc-win64.7z".into(),
-            path: ctx.path("Bin/ANY-Xmrig/xmrig"),
-            path_mo: ctx.path("Bin/ANY-Xmrig/xmrig-mo"),
-            cuda_lib: "xmrig-cuda.dll",
-        });
+        return Some(Setup { uri: v.uri_win.into(), path, path_mo, cuda_lib: "xmrig-cuda.dll", dev_fee: 0.0 });
     }
     if !cfg!(target_os = "linux") {
         return None;
     }
+    let mut dev_fee = 0.0;
     let uri = if ctx.is_arm() {
         if ctx.cpu.Architecture != "8" {
             return None;
         }
-        let d = ctx.distro(&["jammy", "noble"], "jammy");
-        format!("https://github.com/RainbowMiner/miner-binaries/releases/download/v6.26.0-xmrig/xmrig-6.26.0.3-{}-armv8.7z", d)
+        let d = ctx.distro(&["jammy", "noble"], v.arm_default);
+        if d == "generic" {
+            dev_fee = 1.0;
+        }
+        v.uri_arm.replace("{DISTROCODENAME}", &d)
     } else {
         if let Some(v) = &ctx.libc_version {
             if *v < util::get_version("2.25").unwrap() {
@@ -75,14 +129,9 @@ fn setup(ctx: &MinerCtx) -> Option<Setup> {
             }
         }
         let d = ctx.distro(&["focal", "jammy", "noble"], "focal");
-        format!("https://github.com/RainbowMiner/miner-binaries/releases/download/v6.26.0-xmrig/xmrig-6.26.0.3-{}-x64.7z", d)
+        v.uri_x64.replace("{DISTROCODENAME}", &d)
     };
-    Some(Setup {
-        uri,
-        path: ctx.path("Bin/ANY-Xmrig/xmrig"),
-        path_mo: ctx.path("Bin/ANY-Xmrig/xmrig-mo"),
-        cuda_lib: "libxmrig-cuda.so",
-    })
+    Some(Setup { uri, path, path_mo, cuda_lib: "libxmrig-cuda.so", dev_fee })
 }
 
 const MO_COINS: &[&str] = &["XMR", "SUMO", "ARQ", "GRFT", "KVA", "RVN", "WOW", "XEQ", "ZEPH", "Townforge"];
@@ -101,21 +150,22 @@ fn algo_perf() -> Value {
 
 impl MinerModule for Xmrig {
     fn name(&self) -> &'static str {
-        NAME
+        self.v().name
     }
     fn types(&self) -> Vec<String> {
         vec!["AMD".into(), "CPU".into(), "INTEL".into(), "NVIDIA".into(), "ARMCPU".into()]
     }
     fn info(&self, ctx: &MinerCtx) -> Option<MinerInfo> {
-        let s = setup(ctx);
+        let v = self.v();
+        let s = setup(ctx, v);
         Some(MinerInfo {
-            name: NAME.into(),
+            name: v.name.into(),
             types: self.types(),
-            path: s.as_ref().map(|s| s.path.clone()).unwrap_or_else(|| ctx.path("Bin/ANY-Xmrig/xmrig")),
+            path: s.as_ref().map(|s| s.path.clone()).unwrap_or_else(|| ctx.path(&format!("Bin/{}/{}", v.dir, v.exe))),
+            dev_fee: s.as_ref().map(|s| s.dev_fee).unwrap_or(0.0),
             uri: s.map(|s| s.uri).unwrap_or_default(),
-            dev_fee: DEVFEE,
-            manual_uri: MANUAL_URI.into(),
-            commands: Value::Array(COMMANDS.clone()),
+            manual_uri: v.manual_uri.into(),
+            commands: Value::Array((*v.commands).clone()),
         })
     }
     fn get_miners(&self, ctx: &MinerCtx) -> Vec<MinerCandidate> {
@@ -123,7 +173,12 @@ impl MinerModule for Xmrig {
         if !["AMD", "CPU", "INTEL", "NVIDIA"].iter().any(|v| ctx.has_type(v)) {
             return out;
         }
-        let Some(s) = setup(ctx) else { return out };
+        let v = self.v();
+        #[allow(non_snake_case)]
+        let (NAME, PORT, VERSION, MANUAL_URI) = (v.name, v.port, v.version, v.manual_uri);
+        let Some(s) = setup(ctx, v) else { return out };
+        #[allow(non_snake_case)]
+        let DEVFEE = s.dev_fee;
         let cuda_list = cuda_data();
         let mut uri_cuda: Option<String> = None;
         let mut cuda: Option<String> = None;
@@ -144,7 +199,7 @@ impl MinerModule for Xmrig {
         let re_cpu2 = regex::Regex::new(r"(?i)[^A-Z0-9]").unwrap();
         let mut path_cuda_lib: Option<PathBuf> = None;
         if let Some(uc) = &uri_cuda {
-            let dir = ctx.base.join("Bin").join("ANY-Xmrig");
+            let dir = ctx.base.join("Bin").join(v.dir);
             let lib = dir.join(s.cuda_lib);
             let urilib = dir.join("_urilib.json");
             let mut update = true;
@@ -179,7 +234,7 @@ impl MinerModule for Xmrig {
                     }
                     platform_id = Some(ids[0]);
                 }
-                for cmd in COMMANDS.iter().filter(|c| cmd_vendor(c, vendor)) {
+                for cmd in v.commands.iter().filter(|c| cmd_vendor(c, vendor)) {
                     let cmd_vendors = cmd_list(cmd, "Vendor");
                     if !(cmd_vendors.iter().any(|v| v != "NVIDIA") || cmd_s(cmd, "MainAlgorithm") != "rx/grft" || ps_match(&s.uri, r"\ddev")) {
                         continue;
@@ -239,7 +294,7 @@ impl MinerModule for Xmrig {
                                 )
                             };
                         }
-                        let use_mo = (cmd_b(cmd, "UseMO") && ps_match(&pool.Host, "C3pool|MoneroOcean")) || cmd_b(cmd, "ForceMO");
+                        let use_mo = !self.cc && ((cmd_b(cmd, "UseMO") && ps_match(&pool.Host, "C3pool|MoneroOcean")) || cmd_b(cmd, "ForceMO"));
                         let arguments = if by_params {
                             MinerArgs::Str(format!(
                                 "-a {} -o {}:{} -u {}{}{}{} --donate-level={} --keepalive --http-enabled --http-host=127.0.0.1 --http-port=$mport{} {}",
@@ -269,7 +324,7 @@ impl MinerModule for Xmrig {
                                 "background": false,
                                 "colors": true,
                                 "randomx": {"init": -1, "numa": true},
-                                "donate-level": 0,
+                                "donate-level": if self.cc { json!(DEVFEE) } else { json!(0) },
                                 "log-file": null,
                                 "print-time": 5,
                                 "retries": 5,
@@ -326,6 +381,9 @@ impl MinerModule for Xmrig {
                         m.prerequisite_path = path_cuda_lib.clone();
                         m.prerequisite_uri = uri_cuda.clone().unwrap_or_default();
                         m.prerequisite_msg = "Downloading Xmrig support files in the background, please wait!".into();
+                        if self.cc {
+                            m.executables = vec![if cfg!(windows) { "xmrigMiner.exe".into() } else { "xmrigMiner".into() }];
+                        }
                         out.push(m);
                     }
                 }

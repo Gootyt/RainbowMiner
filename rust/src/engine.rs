@@ -2283,7 +2283,8 @@ impl Core {
         }
         // kill rogue processes of the miner binaries
         let tracked: HashSet<u32> = active_miners.iter().filter_map(|m| m.process_id()).collect();
-        let exes: HashSet<String> = active_miners.iter().filter_map(|m| m.path.file_name().map(|f| f.to_string_lossy().to_string())).collect();
+        let mut exes: HashSet<String> = active_miners.iter().filter_map(|m| m.path.file_name().map(|f| f.to_string_lossy().to_string())).collect();
+        exes.extend(active_miners.iter().flat_map(|m| m.executables.iter().cloned()));
         for (pid, name) in crate::proc::find_rogue_processes(&base.join("Bin"), &tracked, &exes) {
             log_warn!("Stop rogue process {} (pid {})", name, pid);
             crate::proc::kill_pid(pid);

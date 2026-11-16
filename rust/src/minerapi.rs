@@ -155,6 +155,7 @@ pub struct ActiveMiner {
     /// DevicesToVendors of the device model (stats sub folder prefix)
     pub stats_sub: String,
     pub env_vars: Vec<String>,
+    pub executables: Vec<String>,
     pub priority_cpu: i32,
     pub priority_gpu: i32,
     pub priority_affinity: String,
@@ -265,6 +266,7 @@ impl ActiveMiner {
             vendor: String::new(),
             stats_sub: String::new(),
             env_vars: c.env_vars.clone(),
+            executables: c.executables.clone(),
             priority_cpu: -2,
             priority_gpu: -1,
             priority_affinity: String::new(),

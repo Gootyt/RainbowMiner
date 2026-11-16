@@ -81,6 +81,9 @@ pub struct Pool {
     pub MinerName: Vec<String>,
     pub ExcludeMinerName: Vec<String>,
     pub Mallob: String,
+    /// MinerRocks (boolberry scratchpad)
+    #[serde(skip_serializing_if = "String::is_empty")]
+    pub ScratchPadUrl: String,
 }
 
 impl Default for Pool {
@@ -139,6 +142,7 @@ impl Default for Pool {
             MinerName: Vec::new(),
             ExcludeMinerName: Vec::new(),
             Mallob: String::new(),
+            ScratchPadUrl: String::new(),
         }
     }
 }

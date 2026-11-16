@@ -128,6 +128,8 @@ pub struct MinerCandidate {
     pub skip_seconds: Option<i64>,
     pub min_samples: Option<usize>,
     pub list_devices: String,
+    /// more process names of the miner (child processes, $Miner.Executables)
+    pub executables: Vec<String>,
     // ---- set by the core (Invoke-Core "Calculating profit for each miner")
     pub pools: IndexMap<String, Pool>,
     pub difficulties: HashMap<String, f64>,
@@ -185,6 +187,7 @@ impl MinerCandidate {
             skip_seconds: None,
             min_samples: None,
             list_devices: String::new(),
+            executables: Vec::new(),
             pools: IndexMap::new(),
             difficulties: HashMap::new(),
             ratios: HashMap::new(),

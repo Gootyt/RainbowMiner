@@ -774,3 +774,209 @@ fn verthash(ctx: &MinerCtx, info_only: bool) -> Option<Family> {
     });
     Some(f)
 }
+
+// ------------------------------------------------------------------------------------------
+// Trex19, TrexGTX19 (NVIDIA, T-Rex 0.19.14 without dual mining)
+// ------------------------------------------------------------------------------------------
+
+cmds!(CMD_TREX19, "Trex19");
+cmds!(CMD_TREXGTX19, "TrexGTX19");
+
+pub fn modules_trex19() -> Vec<FamilyModule> {
+    vec![
+        FamilyModule { name: "Trex19", types: &["NVIDIA"], def: trex19 },
+        FamilyModule { name: "TrexGTX19", types: &["NVIDIA"], def: trex_gtx19 },
+        FamilyModule { name: "Xlarig", types: &["CPU", "ARMCPU"], def: xlarig },
+    ]
+}
+
+/// (Uri, Cuda, IsGtx) newest first: the first build that fits the CUDA version
+fn trex19_select(f: &mut Family, ctx: &MinerCtx, info_only: bool, builds: &[(&str, &str, bool)]) -> bool {
+    f.uri = builds.first().map(|b| b.0.to_string()).unwrap_or_default();
+    if info_only {
+        return true;
+    }
+    for (i, (uri, cuda, gtx)) in builds.iter().enumerate() {
+        if ctx.cuda_ok(cuda, if i + 1 < builds.len() { "" } else { f.name }) {
+            f.uri = uri.to_string();
+            f.vars.insert("IsGtx", if *gtx { "1".into() } else { String::new() });
+            return true;
+        }
+    }
+    false
+}
+
+fn trex19_base(name: &'static str, cmds: &'static LazyLock<Vec<Value>>) -> Family {
+    let mut f = Family::new(name, "NVIDIA", cmds);
+    f.manual_uri = "https://github.com/trexminer/T-Rex/releases".into();
+    f.dev_fee = 1.0;
+    f.version = "0.19.14".into();
+    f.suffix = Suffix::Keys;
+    f.first_per_cmd = true;
+    f.use_exclude_pool = true;
+    f.api = "Trex";
+    f.make_args = |a| {
+        let p = a.pool;
+        let proto = if a.algo0 == "Octopus" {
+            p.Protocol.clone()
+        } else {
+            match p.EthMode.as_str() {
+                "qtminer" => format!("stratum1+{}", if p.SSL { "ssl" } else { "tcp" }),
+                "ethstratumnh" => format!("stratum2+{}", if p.SSL { "ssl" } else { "tcp" }),
+                "ethlocalproxy" => "stratum+http".into(),
+                _ => p.Protocol.clone(),
+            }
+        };
+        format!(
+            "-N 10 -r 5 --api-bind-http 127.0.0.1:$mport -d {} -a {} -o {}://{}:{} -u {}{}{}{}{}{} --watchdog-exit-mode 10:5:e -b 0 {}",
+            a.ids,
+            a.algorithm(),
+            proto,
+            p.Host,
+            a.pool_port,
+            p.User,
+            opt(!p.Wallet.is_empty() && !p.Worker.is_empty(), format!(" -w {}", p.Worker)),
+            a.pass_opt(" -p "),
+            super::failover_args(p),
+            opt(p.SSL, " --no-strict-ssl".into()),
+            opt(!a.ctx.config.b("ShowMinerWindow"), " --no-color".into()),
+            a.params()
+        )
+    };
+    f.post = Some(|a, m| {
+        let fee = cmd_f(a.cmd, "DevFee").filter(|x| *x != 0.0).unwrap_or(a.fam.dev_fee);
+        m.dev_fee.values_mut().for_each(|v| *v = fee);
+    });
+    f
+}
+
+/// $MinMemGB with the zombie mode of the Ethash algorithms
+fn trex19_min_mem(ctx: &MinerCtx, cmd: &Value, pool: &Pool, algo0: &str) -> f64 {
+    let mut min = ctx.min_mem_gb(cmd, pool, algo0);
+    let cmd_min = min_mem(cmd);
+    if cmd_b(cmd, "DAG") && crate::data::RE_ALGO_IS_ETHASH.is_match(algo0) && min > cmd_min && ctx.config.b("EnableEthashZombieMode") {
+        min = cmd_min;
+    }
+    min
+}
+
+fn trex19(ctx: &MinerCtx, info_only: bool) -> Option<Family> {
+    if !win_linux_x64(ctx) {
+        return None;
+    }
+    let mut f = trex19_base("Trex19", &CMD_TREX19);
+    f.port = "319".into();
+    let builds: &[(&str, &str, bool)] = if ctx.is_linux() {
+        f.path = "Bin/NVIDIA-Trex19/t-rex".into();
+        &[
+            ("https://github.com/RainbowMiner/miner-binaries/releases/download/v0.19.14-trex/t-rex-0.19.14-linux-cuda11.1.tar.gz", "11.1", false),
+            ("https://github.com/RainbowMiner/miner-binaries/releases/download/v0.19.14-trex/t-rex-0.19.14-linux-cuda10.0.tar.gz", "10.0", true),
+            ("https://github.com/RainbowMiner/miner-binaries/releases/download/v0.19.14-trex/t-rex-0.19.14-linux-cuda9.2.tar.gz", "9.2", true),
+        ]
+    } else {
+        f.path = "Bin/NVIDIA-Trex19/t-rex.exe".into();
+        &[
+            ("https://github.com/RainbowMiner/miner-binaries/releases/download/v0.19.14-trex/t-rex-0.19.14-win-cuda11.1.zip", "11.1", false),
+            ("https://github.com/RainbowMiner/miner-binaries/releases/download/v0.19.14-trex/t-rex-0.19.14-win-cuda10.0.zip", "10.0", true),
+            ("https://github.com/RainbowMiner/miner-binaries/releases/download/v0.19.14-trex/t-rex-0.19.14-win-cuda9.2.zip", "9.2", true),
+        ]
+    };
+    if !trex19_select(&mut f, ctx, info_only, builds) {
+        return None;
+    }
+    // $DeviceCapability = "5.0"
+    f.model_filter = Some(|_, d| capability_ok(d, "5.0"));
+    f.per_key_filter = Some(|fam, ctx, d, cmd, pool, algo0| {
+        let Some(pool) = pool else { return false };
+        let gtx_build = fam.vars.get("IsGtx").map(|s| !s.is_empty()).unwrap_or(false);
+        let gtx_arch = ["Other", "Pascal", "Turing"].contains(&d.OpenCL.Architecture.as_str());
+        (gtx_build || !cmd_b(cmd, "IsGtx") || !gtx_arch) && ctx.test_vram(d, trex19_min_mem(ctx, cmd, pool, algo0))
+    });
+    Some(f)
+}
+
+fn trex_gtx19(ctx: &MinerCtx, info_only: bool) -> Option<Family> {
+    if !win_linux_x64(ctx) {
+        return None;
+    }
+    let mut f = trex19_base("TrexGTX19", &CMD_TREXGTX19);
+    f.port = "327".into();
+    // the CUDA 10 build, if CUDA 11.1 is installed
+    let builds: &[(&str, &str, bool)] = if ctx.is_linux() {
+        f.path = "Bin/NVIDIA-TrexGTX19/t-rex".into();
+        &[("https://github.com/RainbowMiner/miner-binaries/releases/download/v0.19.14-trex/t-rex-0.19.14-linux-cuda10.0.tar.gz", "11.1", false)]
+    } else {
+        f.path = "Bin/NVIDIA-TrexGTX19/t-rex.exe".into();
+        &[("https://github.com/RainbowMiner/miner-binaries/releases/download/v0.19.14-trex/t-rex-0.19.14-win-cuda10.0.zip", "11.1", false)]
+    };
+    if !trex19_select(&mut f, ctx, info_only, builds) {
+        return None;
+    }
+    f.model_filter = Some(|_, d| ["Other", "Pascal", "Turing"].contains(&d.OpenCL.Architecture.as_str()) && capability_ok(d, "5.0"));
+    f.per_key_filter = Some(|_, ctx, d, cmd, pool, algo0| pool.map(|p| ctx.test_vram(d, trex19_min_mem(ctx, cmd, p, algo0))).unwrap_or(false));
+    Some(f)
+}
+
+// ------------------------------------------------------------------------------------------
+// Xlarig (CPU, XMRig6 API)
+// ------------------------------------------------------------------------------------------
+
+cmds!(CMD_XLARIG, "Xlarig");
+
+fn xlarig(ctx: &MinerCtx, _info_only: bool) -> Option<Family> {
+    if !win_linux_x64(ctx) {
+        return None;
+    }
+    let mut f = Family::new("Xlarig", "CPU", &CMD_XLARIG);
+    f.info_types = vec!["CPU".into(), "ARMCPU".into()];
+    f.manual_uri = "https://github.com/scala-network/XLArig/releases".into();
+    f.port = "241".into();
+    f.version = "5.2.4".into();
+    if ctx.is_linux() {
+        f.uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v5.2.4-xlarig/xlarig-5.2.4-bionic-x64.7z".into();
+        f.path = "Bin/CPU-Xlarig/xlarig".into();
+    } else {
+        f.uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v5.2.4-xlarig/xlarig-5.2.4-win64.7z".into();
+        f.path = "Bin/CPU-Xlarig/xlarig.exe".into();
+    }
+    f.suffix = Suffix::ListCPU;
+    f.api = "XMRig6";
+    f.post = Some(|a, m| {
+        let algorithm = a.algorithm();
+        let re1 = regex::Regex::new(r"(?i)(\(R\)|\(TM\)|CPU|Processor)").unwrap();
+        let re2 = regex::Regex::new(r"(?i)[^A-Z0-9]").unwrap();
+        let hwsig = format!("{}x{}", a.ctx.by_type("CPU").len(), re2.replace_all(&re1.replace_all(&a.ctx.cpu.Name, ""), ""));
+        let p = a.pool;
+        m.arguments = MinerArgs::Obj(serde_json::json!({
+            "Algorithm": algorithm,
+            "APIParams": "--http-enabled --http-host=127.0.0.1 --http-port=$mport",
+            "Config": {
+                "api": {"id": null, "worker-id": null},
+                "background": false,
+                "colors": true,
+                "donate-level": 0,
+                "log-file": null,
+                "print-time": 5,
+                "retries": 5,
+                "retry-pause": 1
+            },
+            "Pools": [{
+                "algo": algorithm,
+                "coin": null,
+                "url": format!("{}://{}:{}", p.Protocol, p.Host, p.Port),
+                "user": p.User,
+                "pass": if p.Pass.is_empty() { "x".to_string() } else { p.Pass.clone() },
+                "nicehash": ps_match(&p.Host, "NiceHash"),
+                "keepalive": true,
+                "enabled": true,
+                "tls": p.SSL,
+                "ip_version": 4
+            }],
+            "Params": a.params(),
+            "HwSig": hwsig,
+            "Threads": a.ctx.cpu_threads(a.fam.name, a.algo0).unwrap_or(a.ctx.cpu.Threads as i64),
+            "Affinity": a.ctx.cpu_affinity(a.fam.name, a.algo0),
+        }));
+    });
+    Some(f)
+}
