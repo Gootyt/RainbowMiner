@@ -17,6 +17,7 @@ pub mod lolminer;
 pub mod onezero;
 pub mod rigel;
 pub mod srbminermulti;
+pub mod srbminermulti_old;
 pub mod teamred;
 pub mod trex;
 pub mod xmrig;
@@ -38,6 +39,9 @@ pub fn registry() -> Vec<Box<dyn MinerModule>> {
         Box::new(xmrig::Xmrig { cc: false }),
         Box::new(xmrig::Xmrig { cc: true }),
     ];
+    for m in srbminermulti_old::SrbMinerMultiOld::all() {
+        v.push(Box::new(m));
+    }
     for m in fam_nvidia::modules().into_iter().chain(fam_amd::modules()).chain(fam_cpu::modules()).chain(fam_progpow::modules()).chain(fam_misc::modules()).chain(fam_misc::modules_trex19()).chain(fam_misc::modules_teamblack()).chain(fam_misc::modules_more()).chain(fam_wildrig::modules()).chain(fam_versions::modules()) {
         v.push(Box::new(m));
     }
