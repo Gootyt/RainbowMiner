@@ -565,6 +565,41 @@ impl Core {
         }
     }
 
+    /// the engine state for the pool modules (MiningRigRentals)
+    fn engine_view(&self) -> pool::EngineView {
+        let benchmarking: Vec<String> = api::with(|s| jsonx::pluck(&s.miners_needing_benchmark, "DeviceName").into_iter().map(jsonx::s).collect());
+        let mut bd: Vec<String> = Vec::new();
+        for d in benchmarking {
+            if !bd.contains(&d) {
+                bd.push(d);
+            }
+        }
+        pool::EngineView {
+            devices: self.devices.devices.iter().map(|d| (d.Name.clone(), d.Model.clone(), d.Type.clone())).collect(),
+            miners: self
+                .active_miners
+                .iter()
+                .map(|m| pool::EngineMiner {
+                    enabled: m.enabled,
+                    running: m.status == MinerStatus::Running,
+                    device_model: m.device_model.clone(),
+                    algorithm: m.algorithm.clone(),
+                    pool: m.pool.clone(),
+                    exclude_pool_name: m.exclude_pool_name.clone(),
+                    last_accepted: m.get_last_accepted_seconds(),
+                    difficulty: m.algorithm.iter().map(|a| (a.clone(), m.get_difficulty(a))).collect(),
+                })
+                .collect(),
+            benchmarking_devices: bd,
+            paused: self.is_paused(),
+            paused_by_error: false,
+            pause_rentals: false,
+            interval: self.config.i("Interval"),
+            current_interval: self.current_interval,
+            config_dir: self.files.dir.clone(),
+        }
+    }
+
     pub fn is_paused(&self) -> bool {
         self.pause_ia || self.pause_scheduler || self.devices.devices.is_empty()
     }
@@ -638,6 +673,7 @@ impl Core {
         let exclude_pool_name = self.config.arr("ExcludePoolName");
         let speeds: HashMap<String, f64> = self.miner_speeds.iter().map(|(k, v)| (k.to_lowercase(), v.hashrate)).collect();
         let enable_error_ratio = self.config.b("EnableErrorRatio");
+        let view = self.engine_view();
         let run_pool = |name: &str, pc: &PoolConfig, module: Option<&dyn pool::PoolModule>, config: &Config, cpu: &CpuInfo, combos: &[String]| -> Vec<Pool> {
             let worker = if pc.worker.is_empty() { config.s("WorkerName") } else { pc.worker.clone() };
             let ctx = PoolCtx {
@@ -657,6 +693,7 @@ impl Core {
                 exclude_algorithm: pc.exclude_algorithm.clone(),
                 cpu_cores: cpu.Cores,
                 cpu_mhz: cpu.MaxClockSpeed,
+                engine: Some(&view),
             };
             let t0 = std::time::Instant::now();
             let list = match module {

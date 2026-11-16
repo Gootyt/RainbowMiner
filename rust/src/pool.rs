@@ -174,6 +174,34 @@ impl Pool {
     }
 }
 
+/// a running/enabled miner as the pool modules see it ($Global:ActiveMiners)
+#[derive(Debug, Clone, Default)]
+pub struct EngineMiner {
+    pub enabled: bool,
+    pub running: bool,
+    pub device_model: String,
+    pub algorithm: Vec<String>,
+    pub pool: Vec<String>,
+    pub exclude_pool_name: String,
+    pub last_accepted: i64,
+    pub difficulty: Vec<(String, f64)>,
+}
+
+/// the engine state a pool module may look at (MiningRigRentals)
+#[derive(Debug, Clone, Default)]
+pub struct EngineView {
+    /// name, model, type ("Gpu"/"Cpu") of the devices in use
+    pub devices: Vec<(String, String, String)>,
+    pub miners: Vec<EngineMiner>,
+    pub benchmarking_devices: Vec<String>,
+    pub paused: bool,
+    pub paused_by_error: bool,
+    pub pause_rentals: bool,
+    pub interval: i64,
+    pub current_interval: i64,
+    pub config_dir: std::path::PathBuf,
+}
+
 /// The parameters a pool module gets (the param block of Pools/*.ps1)
 pub struct PoolCtx<'a> {
     pub name: String,
@@ -192,6 +220,8 @@ pub struct PoolCtx<'a> {
     pub exclude_algorithm: Vec<String>,
     pub cpu_cores: usize,
     pub cpu_mhz: i64,
+    /// the engine state, None outside the main loop
+    pub engine: Option<&'a EngineView>,
 }
 
 impl<'a> PoolCtx<'a> {

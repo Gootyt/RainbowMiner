@@ -16,6 +16,7 @@ pub mod group13;
 pub mod herominers;
 pub mod miningdutch;
 pub mod moneroocean;
+pub mod mrr;
 pub mod nanopool;
 pub mod nicehash;
 pub mod twominers;
@@ -94,6 +95,7 @@ pub fn registry() -> Vec<Box<dyn PoolModule>> {
         Box::new(group12::YadaMiners),
         Box::new(group12::ZpoolCoins),
         Box::new(group13::Gtpool),
+        Box::new(mrr::MiningRigRentals),
     ]
 }
 
@@ -125,6 +127,24 @@ pub fn eth_mode_default(algo: &str, ethash: &str) -> String {
 
 #[cfg(test)]
 mod tests {
+    /// every Pools/*.ps1 of the original has a module (Userpools and WhatToMine are special)
+    #[test]
+    fn registry_complete() {
+        let dir = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("Pools");
+        let Ok(rd) = std::fs::read_dir(&dir) else { return };
+        let names = super::names();
+        let mut missing = Vec::new();
+        for e in rd.flatten() {
+            let f = e.file_name().to_string_lossy().to_string();
+            if let Some(n) = f.strip_suffix(".ps1") {
+                if n != "Userpools" && n != "WhatToMine" && !names.iter().any(|x| x == n) {
+                    missing.push(n.to_string());
+                }
+            }
+        }
+        assert!(missing.is_empty(), "missing pool modules: {:?}", missing);
+    }
+
     use crate::config::{Config, PoolConfig};
     use crate::pool::PoolCtx;
     use indexmap::IndexMap;
@@ -167,6 +187,7 @@ mod tests {
                 algorithm: vec![],
                 exclude_algorithm: vec![],
                 cpu_cores: 8,
+                engine: None,
                 cpu_mhz: 3000,
             };
             let t0 = std::time::Instant::now();
