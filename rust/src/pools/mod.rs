@@ -12,6 +12,7 @@ pub mod group9;
 pub mod group10;
 pub mod group11;
 pub mod group12;
+pub mod group13;
 pub mod herominers;
 pub mod miningdutch;
 pub mod moneroocean;
@@ -28,7 +29,9 @@ use crate::pool::PoolModule;
 /// all pool modules (without Userpools and WhatToMine, they are special)
 pub fn registry() -> Vec<Box<dyn PoolModule>> {
     vec![
-        Box::new(twominers::TwoMiners),
+        Box::new(twominers::TwoMiners { mode: twominers::Mode::Pplns }),
+        Box::new(twominers::TwoMiners { mode: twominers::Mode::Solo }),
+        Box::new(twominers::TwoMiners { mode: twominers::Mode::AutoExchange }),
         Box::new(herominers::HeroMiners),
         Box::new(miningdutch::MiningDutch),
         Box::new(moneroocean::MoneroOcean),
@@ -90,6 +93,7 @@ pub fn registry() -> Vec<Box<dyn PoolModule>> {
         Box::new(group12::ViaBTC),
         Box::new(group12::YadaMiners),
         Box::new(group12::ZpoolCoins),
+        Box::new(group13::Gtpool),
     ]
 }
 
