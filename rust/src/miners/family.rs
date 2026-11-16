@@ -171,6 +171,8 @@ pub struct Family {
     pub mining_priority: Option<i32>,
     pub use_exclude_pool: bool,
     pub use_coin_symbols: bool,
+    /// the ExcludeYiimp field of the commands (keys and the pool of the base algorithm)
+    pub exclude_yiimp: bool,
     pub emits_no_cpu: bool,
     pub emits_max_rej: bool,
     pub api: &'static str,
@@ -236,6 +238,7 @@ impl Family {
             mining_priority: None,
             use_exclude_pool: false,
             use_coin_symbols: false,
+            exclude_yiimp: false,
             emits_no_cpu: false,
             emits_max_rej: false,
             api: "Ccminer",
@@ -441,19 +444,24 @@ impl Family {
                 }
                 let exclude = cmd_s(cmd, "ExcludePoolName");
                 let coin_symbols = cmd_list(cmd, "CoinSymbols");
+                let ex_yiimp = fam.exclude_yiimp && cmd_b(cmd, "ExcludeYiimp");
+                // (-not $_.ExcludeYiimp -or -not $Session.YiimpPools.Contains("$($Pools.$Algorithm_Norm_0.Name)"))
+                if ex_yiimp && ctx.pool(&algo0).map(|p| ctx.yiimp_pools.contains(&p.Name)).unwrap_or(false) {
+                    continue;
+                }
                 let keys: Vec<String> = match fam.suffix {
                     Suffix::ListGPU => vec![algo0.clone(), format!("{}-{}", algo0, model), format!("{}-GPU", algo0)],
                     Suffix::ListCPU => vec![algo0.clone(), format!("{}-{}", algo0, model)],
                     Suffix::List if !is_gpu => vec![algo0.clone(), format!("{}-{}", algo0, model)],
                     Suffix::List => vec![algo0.clone(), format!("{}-{}", algo0, model), format!("{}-GPU", algo0)],
-                    Suffix::KeysNoGPU => ctx.algo_keys(fam.name, &algo0, &model, KeyOpts { no_gpu: true, exclude_pool_name: &exclude, ..Default::default() }),
+                    Suffix::KeysNoGPU => ctx.algo_keys(fam.name, &algo0, &model, KeyOpts { no_gpu: true, exclude_pool_name: &exclude, exclude_yiimp: ex_yiimp, ..Default::default() }),
                     Suffix::KeysCoin => ctx.algo_keys(
                         fam.name,
                         &algo0,
                         &model,
-                        KeyOpts { exclude_pool_name: &exclude, coin_symbols: &coin_symbols, ..Default::default() },
+                        KeyOpts { exclude_pool_name: &exclude, coin_symbols: &coin_symbols, exclude_yiimp: ex_yiimp, ..Default::default() },
                     ),
-                    Suffix::Keys => ctx.algo_keys(fam.name, &algo0, &model, KeyOpts { exclude_pool_name: &exclude, ..Default::default() }),
+                    Suffix::Keys => ctx.algo_keys(fam.name, &algo0, &model, KeyOpts { exclude_pool_name: &exclude, exclude_yiimp: ex_yiimp, ..Default::default() }),
                 };
                 let prereq = fam.prerequisite.and_then(|p| p(ctx, cmd));
                 for key in keys {
