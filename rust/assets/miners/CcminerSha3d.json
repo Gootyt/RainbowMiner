@@ -1,0 +1,7 @@
+[
+ {
+  "MainAlgorithm": "sha3d",
+  "Params": "-a keccak -i 27",
+  "ExtendInterval": 2
+ }
+]

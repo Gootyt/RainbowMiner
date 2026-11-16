@@ -1,0 +1,77 @@
+[
+ {
+  "MainAlgorithm": "bitcore",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "blake2b",
+  "Params": "",
+  "ExtendInterval": 2,
+  "CoinSymbols": [
+   "BCHC",
+   "TNET"
+  ]
+ },
+ {
+  "MainAlgorithm": "exosis",
+  "Params": "-N 1"
+ },
+ {
+  "MainAlgorithm": "groestl",
+  "Params": "",
+  "FaultTolerance": 0.5
+ },
+ {
+  "MainAlgorithm": "hmq1725",
+  "Params": "-N 1",
+  "FaultTolerance": 0.5
+ },
+ {
+  "MainAlgorithm": "jha",
+  "Params": "-N 1"
+ },
+ {
+  "MainAlgorithm": "lyra2z",
+  "Params": "-N 1 --submit-stale"
+ },
+ {
+  "MainAlgorithm": "phi",
+  "Params": " -N 1"
+ },
+ {
+  "MainAlgorithm": "phi2",
+  "Params": " -N 3"
+ },
+ {
+  "MainAlgorithm": "sha256q",
+  "Params": "-N 1"
+ },
+ {
+  "MainAlgorithm": "sha256t",
+  "Params": "-N 1"
+ },
+ {
+  "MainAlgorithm": "skunk",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sonoa",
+  "Params": "-N 1"
+ },
+ {
+  "MainAlgorithm": "stellite",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "timetravel",
+  "Params": "-N 1"
+ },
+ {
+  "MainAlgorithm": "tribus",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x12",
+  "Params": ""
+ }
+]

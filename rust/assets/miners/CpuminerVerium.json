@@ -1,0 +1,6 @@
+[
+ {
+  "MainAlgorithm": "scryptn2",
+  "Params": "$(if ($Global:GlobalCPUInfo.IsRyzen) {\"--ryzen\"})"
+ }
+]

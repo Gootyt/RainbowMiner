@@ -1,0 +1,33 @@
+[
+ {
+  "MainAlgorithm": "yescrypt",
+  "Params": "",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.3
+ },
+ {
+  "MainAlgorithm": "yescryptR16",
+  "Params": "",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.3
+ },
+ {
+  "MainAlgorithm": "yescryptR16v2",
+  "Params": "",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.3
+ },
+ {
+  "MainAlgorithm": "yescryptR24",
+  "Params": "",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.3
+ },
+ {
+  "MainAlgorithm": "yescryptR32",
+  "Params": "",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.3,
+  "MaxRejectedShareRatio": 0.9
+ }
+]

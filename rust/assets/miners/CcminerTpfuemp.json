@@ -1,0 +1,235 @@
+[
+ {
+  "MainAlgorithm": "allium",
+  "Params": "-a allium",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "argon2d1000",
+  "Params": "-a argon2d1000",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "argon2d16000",
+  "Params": "-a argon2d16000",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "balloon",
+  "Params": "-a balloon",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "bc3hash",
+  "Params": "-a bc3hash",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "blake2s",
+  "Params": "-a blake2s",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "blake3decred",
+  "Params": "-a decred",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "curvehash",
+  "Params": "-a curvehash",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "evohash",
+  "Params": "-a evohash",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "flex",
+  "Params": "-a flex",
+  "ExtendInterval": 3,
+  "FaultTolerance": 8
+ },
+ {
+  "MainAlgorithm": "homescrypt",
+  "Params": "-a homescrypt",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "hoohashpepew",
+  "Params": "-a hoohash",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "lyra2v2",
+  "Params": "-a lyra2v2",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "lyra2z330",
+  "Params": "-a lyra2z330",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "mike",
+  "Params": "-a mike",
+  "ExtendInterval": 3,
+  "FaultTolerance": 8
+ },
+ {
+  "MainAlgorithm": "minotaurx",
+  "Params": "-a minotaurx",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "neoscryptxaya",
+  "Params": "-a neoscrypt-xaya",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "odocrypt",
+  "Params": "-a odocrypt",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "pearlhash",
+  "Params": "-a pearlhash",
+  "ExtendInterval": 2,
+  "ExcludePoolName": "^Pearlhash"
+ },
+ {
+  "MainAlgorithm": "power2b",
+  "Params": "-a power2b",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "rinhash",
+  "Params": "-a rinhash",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "sha3t",
+  "Params": "-a sha3t",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "skydoge",
+  "Params": "-a skydoge",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "soterg",
+  "Params": "-a soterg",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "verus",
+  "Params": "-a verus",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "whirlpoolx2",
+  "Params": "-a whirlpoolx2",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "x16rt",
+  "Params": "-a x16rt",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "x25x",
+  "Params": "-a x25x",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yescrypt",
+  "Params": "-a yescrypt",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yescryptr8",
+  "Params": "-a yescryptr8",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yescryptr16",
+  "Params": "-a yescryptr16",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yescryptr32",
+  "Params": "-a yescryptr32",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespower",
+  "Params": "-a yespower",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespoweradvc",
+  "Params": "-a yespoweradvc",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespowerarwn",
+  "Params": "-a yespowerarwn",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespowereqpay",
+  "Params": "-a yespowereqpay",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespoweric",
+  "Params": "-a yespoweric",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespoweriots",
+  "Params": "-a yespoweriots",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespowerlitb",
+  "Params": "-a yespowerlitb",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespowerltncg",
+  "Params": "-a yespowerltncg",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespowermgpc",
+  "Params": "-a yespowermgpc",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespowerr16",
+  "Params": "-a yespowerr16",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespowersmt",
+  "Params": "-a yespowersmt",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespowersugar",
+  "Params": "-a yespowersugar",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespowertide",
+  "Params": "-a yespowertide",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "yespowerurx",
+  "Params": "-a yespowerurx",
+  "ExtendInterval": 2
+ }
+]

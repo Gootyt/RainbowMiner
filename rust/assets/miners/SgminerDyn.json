@@ -1,0 +1,6 @@
+[
+ {
+  "MainAlgorithm": "argon2d-dyn",
+  "Params": "-k argon2d"
+ }
+]

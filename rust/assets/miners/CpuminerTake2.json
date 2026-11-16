@@ -1,0 +1,9 @@
+[
+ {
+  "MainAlgorithm": "take2",
+  "Params": "",
+  "FaultTolerance": 10,
+  "ExtendInterval": 3,
+  "ExcludePoolName": "C3pool|MoneroOcean"
+ }
+]

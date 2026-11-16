@@ -760,6 +760,16 @@ pub fn pools_config_default() -> Value {
     serde_json::from_str(POOLS_CONFIG_DEFAULT).unwrap_or(Value::Null)
 }
 
+/// $Session.YiimpPools: the pool modules flagged Yiimp in PoolsConfigDefault
+pub fn yiimp_pools(pool_modules: &[String]) -> std::collections::HashSet<String> {
+    let def = pools_config_default();
+    pool_modules
+        .iter()
+        .filter(|p| jsonx::truthy(jsonx::get(jsonx::get(&def, p), "Yiimp")))
+        .cloned()
+        .collect()
+}
+
 /// the field names of all pools that are no wallets ($Global:GlobalPoolFields)
 fn pool_fields() -> Vec<String> {
     let def = pools_config_default();

@@ -1,0 +1,14 @@
+[
+ {
+  "MainAlgorithm": "rfv2",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "scryptjane:16",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "scrypt:2048",
+  "Params": ""
+ }
+]

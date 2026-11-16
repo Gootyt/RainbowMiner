@@ -1,0 +1,46 @@
+[
+ {
+  "MainAlgorithm": "aergo",
+  "Params": "-X 256 -g 2"
+ },
+ {
+  "MainAlgorithm": "c11",
+  "Params": "-X 256 -g 2"
+ },
+ {
+  "MainAlgorithm": "geek",
+  "Params": "-X 256 -g 2"
+ },
+ {
+  "MainAlgorithm": "phi",
+  "Params": "-X 256 -g 2 -w 256"
+ },
+ {
+  "MainAlgorithm": "polytimos",
+  "Params": "-X 256 -g 2 -w 256"
+ },
+ {
+  "MainAlgorithm": "skunk",
+  "Params": "-X 256 -g 2 -w 256"
+ },
+ {
+  "MainAlgorithm": "tribus",
+  "Params": "-X 256 -g 2"
+ },
+ {
+  "MainAlgorithm": "xevan",
+  "Params": "-X 256 -g 2"
+ },
+ {
+  "MainAlgorithm": "x16s",
+  "Params": "-X 256 -g 2"
+ },
+ {
+  "MainAlgorithm": "x16r",
+  "Params": "-X 256 -g 2"
+ },
+ {
+  "MainAlgorithm": "x17",
+  "Params": "-X 256 -g 2"
+ }
+]

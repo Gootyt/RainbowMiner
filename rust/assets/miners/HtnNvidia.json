@@ -1,0 +1,10 @@
+[
+ {
+  "MainAlgorithm": "hoohashpepew",
+  "MinMemGB": 2,
+  "Params": "--pepepow",
+  "Vendor": [
+   "NVIDIA"
+  ]
+ }
+]

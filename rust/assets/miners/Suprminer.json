@@ -1,0 +1,8 @@
+[
+ {
+  "MainAlgorithm": "heavyhash",
+  "MinMemGB": 2,
+  "Params": "-a obtc",
+  "ExtendInterval": 2
+ }
+]

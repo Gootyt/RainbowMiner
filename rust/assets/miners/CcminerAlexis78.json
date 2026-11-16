@@ -1,0 +1,18 @@
+[
+ {
+  "MainAlgorithm": "hsr",
+  "Params": "-N 1"
+ },
+ {
+  "MainAlgorithm": "skein2",
+  "Params": "-N 1"
+ },
+ {
+  "MainAlgorithm": "veltor",
+  "Params": "-N 1"
+ },
+ {
+  "MainAlgorithm": "x15",
+  "Params": "-N 1"
+ }
+]

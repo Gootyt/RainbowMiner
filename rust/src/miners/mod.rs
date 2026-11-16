@@ -4,6 +4,10 @@
 pub mod bzminer;
 pub mod cpuminer_jayddee;
 pub mod custom;
+pub mod fam_amd;
+pub mod fam_cpu;
+pub mod fam_nvidia;
+pub mod family;
 pub mod gminer;
 pub mod lolminer;
 pub mod onezero;
@@ -16,7 +20,7 @@ use crate::miner::MinerModule;
 use crate::pool::Pool;
 
 pub fn registry() -> Vec<Box<dyn MinerModule>> {
-    vec![
+    let mut v: Vec<Box<dyn MinerModule>> = vec![
         Box::new(bzminer::BzMiner),
         Box::new(cpuminer_jayddee::CpuminerJayddee),
         Box::new(gminer::Gminer),
@@ -26,7 +30,13 @@ pub fn registry() -> Vec<Box<dyn MinerModule>> {
         Box::new(srbminermulti::SrbMinerMulti),
         Box::new(trex::Trex),
         Box::new(xmrig::Xmrig),
-    ]
+    ];
+    for m in fam_nvidia::modules().into_iter().chain(fam_amd::modules()).chain(fam_cpu::modules()) {
+        v.push(Box::new(m));
+    }
+    // Get-ChildItem .\Miners\*.ps1 order
+    v.sort_by_key(|m| m.name().to_lowercase());
+    v
 }
 
 pub fn names() -> Vec<String> {
@@ -74,3 +84,6 @@ pub fn opt(cond: bool, s: String) -> String {
         String::new()
     }
 }
+
+#[cfg(test)]
+pub mod tests;

@@ -1,0 +1,7 @@
+[
+ {
+  "MainAlgorithm": "bmw512",
+  "Params": "-a bmw512",
+  "ExtendInterval": 2
+ }
+]

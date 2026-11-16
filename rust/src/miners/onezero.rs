@@ -51,8 +51,8 @@ impl MinerModule for OneZeroMiner {
     fn types(&self) -> Vec<String> {
         vec!["AMD".into(), "NVIDIA".into()]
     }
-    fn info(&self, ctx: &MinerCtx) -> MinerInfo {
-        MinerInfo {
+    fn info(&self, ctx: &MinerCtx) -> Option<MinerInfo> {
+        Some(MinerInfo {
             name: NAME.into(),
             types: self.types(),
             path: ctx.path("Bin/GPU-OneZero/onezerominer"),
@@ -60,7 +60,7 @@ impl MinerModule for OneZeroMiner {
             dev_fee: DEVFEE,
             manual_uri: MANUAL_URI.into(),
             commands: Value::Array(COMMANDS.clone()),
-        }
+        })
     }
     fn get_miners(&self, ctx: &MinerCtx) -> Vec<MinerCandidate> {
         let mut out = Vec::new();

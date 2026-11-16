@@ -1,0 +1,6 @@
+[
+ {
+  "MainAlgorithm": "lyra2z",
+  "Params": "--worksize 32 --intensity 18"
+ }
+]

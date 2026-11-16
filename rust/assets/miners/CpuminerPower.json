@@ -1,0 +1,23 @@
+[
+ {
+  "MainAlgorithm": "power2b",
+  "Params": "",
+  "MaxRejectedShareRatio": 0.7
+ },
+ {
+  "MainAlgorithm": "yespower",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerinter",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerlitb",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerr16",
+  "Params": ""
+ }
+]

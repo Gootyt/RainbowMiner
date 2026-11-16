@@ -1,0 +1,26 @@
+[
+ {
+  "MainAlgorithm": "Equihash965",
+  "MinMemGB": 2.5,
+  "Params": "--algo 96_5",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "Equihash1445",
+  "MinMemGB": 2,
+  "Params": "--algo 144_5",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "Equihash1927",
+  "MinMemGB": 2.5,
+  "Params": "--algo 192_7",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "Equihash2109",
+  "MinMemGB": 0.5,
+  "Params": "--algo 210_9",
+  "ExcludePoolName": "Nicehash"
+ }
+]

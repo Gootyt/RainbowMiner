@@ -106,9 +106,9 @@ impl MinerModule for Xmrig {
     fn types(&self) -> Vec<String> {
         vec!["AMD".into(), "CPU".into(), "INTEL".into(), "NVIDIA".into(), "ARMCPU".into()]
     }
-    fn info(&self, ctx: &MinerCtx) -> MinerInfo {
+    fn info(&self, ctx: &MinerCtx) -> Option<MinerInfo> {
         let s = setup(ctx);
-        MinerInfo {
+        Some(MinerInfo {
             name: NAME.into(),
             types: self.types(),
             path: s.as_ref().map(|s| s.path.clone()).unwrap_or_else(|| ctx.path("Bin/ANY-Xmrig/xmrig")),
@@ -116,7 +116,7 @@ impl MinerModule for Xmrig {
             dev_fee: DEVFEE,
             manual_uri: MANUAL_URI.into(),
             commands: Value::Array(COMMANDS.clone()),
-        }
+        })
     }
     fn get_miners(&self, ctx: &MinerCtx) -> Vec<MinerCandidate> {
         let mut out = Vec::new();

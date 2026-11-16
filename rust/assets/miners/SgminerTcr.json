@@ -1,0 +1,7 @@
+[
+ {
+  "MainAlgorithm": "mtp-tcr",
+  "Params": "--kernel mtp --worksize 64 -I 20",
+  "ParamsVega": "--kernel mtp_vega --worksize 256 -I 23"
+ }
+]

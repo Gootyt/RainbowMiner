@@ -1,0 +1,398 @@
+[
+ {
+  "MainAlgorithm": "allium",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "anime",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d250",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d500",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d4096",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "axiom",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "bmw",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "circcash",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "dpowhash",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "gr",
+  "Params": "",
+  "FaultTolerance": 8,
+  "ExtendInterval": 3,
+  "ExcludePoolName": "C3pool|MoneroOcean"
+ },
+ {
+  "MainAlgorithm": "heavyhash",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "hodl",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "interchained",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "lyra2a40",
+  "Params": "",
+  "LinuxOnly": true
+ },
+ {
+  "MainAlgorithm": "lyra2h",
+  "Params": "",
+  "LinuxOnly": true
+ },
+ {
+  "MainAlgorithm": "lyra2z",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "lyra2z330",
+  "Params": "",
+  "ExcludePoolName": "Zpool"
+ },
+ {
+  "MainAlgorithm": "memehashv2",
+  "Params": "",
+  "LinuxOnly": true
+ },
+ {
+  "MainAlgorithm": "mike",
+  "FaultTolerance": 8,
+  "ExtendInterval": 3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "minotaur",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "minotaurx",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "rinhash2",
+  "Params": "",
+  "LinuxOnly": true
+ },
+ {
+  "MainAlgorithm": "rwahash",
+  "Params": "",
+  "LinuxOnly": true
+ },
+ {
+  "MainAlgorithm": "scryptjane:16",
+  "Params": "",
+  "LinuxOnly": true
+ },
+ {
+  "MainAlgorithm": "shavite3",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "timetravel",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x22",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "hashx7",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr16",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr32",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr32glt",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr8",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr8g",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespower",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerr16",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerARWN",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerIC",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerIOTS",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerLITB",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerLTNCG",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerMGPC",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerRES",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerSUGAR",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerTIDE",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerURX",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "zr5",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "blake",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "blake2b",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "blake2s",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "blakecoin",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "bmw512",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "c11",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "decred",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "dmd-gr",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "groestl",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "hex",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "hmq1725",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "jha",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "keccak",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "keccakc",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "lbry",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "lyra2re",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "lyra2rev2",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "lyra2rev3",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "myr-gr",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "neoscrypt",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "nist5",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "pentablake",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "phi1612",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "phi2",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "phi5",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "polytimos",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "power2b",
+  "Params": "",
+  "MaxRejectedShareRatio": 0.7
+ },
+ {
+  "MainAlgorithm": "phichox",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "quark",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "qubit",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "skein",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "skein2",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "skunk",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "sonoa",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "timetravel10",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "tribus",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "veltor",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "whirlpool",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "whirlpoolx",
+  "Params": "",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "x11",
+  "Params": "",
+  "NeverProfitable": true
+ }
+]

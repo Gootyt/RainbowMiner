@@ -1,0 +1,7 @@
+[
+ {
+  "MainAlgorithm": "argon2d-dyn",
+  "Params": "-a argon2d",
+  "ExtendInterval": 2
+ }
+]

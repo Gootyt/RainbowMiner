@@ -1,0 +1,61 @@
+[
+ {
+  "MainAlgorithm": "aergo",
+  "Params": "-N 1"
+ },
+ {
+  "MainAlgorithm": "hex",
+  "Params": "-N 1",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.5,
+  "HashrateDuration": "Day"
+ },
+ {
+  "MainAlgorithm": "kawpow",
+  "DAG": true,
+  "Params": "-N 1",
+  "ExtendInterval": 3,
+  "MinMemGB": 3,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "kawpow2g",
+  "DAG": true,
+  "Params": "-N 1",
+  "ExtendInterval": 3,
+  "MinMemGB": 3,
+  "ExcludePoolName": "MiningRigRentals",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow3g",
+  "DAG": true,
+  "Params": "-N 1",
+  "ExtendInterval": 3,
+  "MinMemGB": 3,
+  "ExcludePoolName": "MiningRigRentals",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow4g",
+  "DAG": true,
+  "Params": "-N 1",
+  "ExtendInterval": 3,
+  "MinMemGB": 3,
+  "ExcludePoolName": "MiningRigRentals",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow5g",
+  "DAG": true,
+  "Params": "-N 1",
+  "ExtendInterval": 3,
+  "MinMemGB": 3,
+  "ExcludePoolName": "MiningRigRentals",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "xevan",
+  "Params": "-N 1"
+ }
+]

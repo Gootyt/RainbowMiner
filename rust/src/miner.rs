@@ -312,6 +312,8 @@ pub struct MinerCtx<'a> {
     pub yiimp_pools: &'a HashSet<String>,
     pub distro_codename: String,
     pub libc_version: Option<util::Version>,
+    /// $Session.IsVM
+    pub is_vm: bool,
 }
 
 #[derive(Default, Clone, Copy)]
@@ -601,6 +603,14 @@ impl<'a> MinerCtx<'a> {
         None
     }
 
+    /// $Session.LibCVersion -and $Session.LibCVersion -lt (Get-Version <v>)
+    pub fn libc_below(&self, v: &str) -> bool {
+        match (&self.libc_version, util::get_version(v)) {
+            (Some(l), Some(v)) => *l < v,
+            _ => false,
+        }
+    }
+
     /// $Session.LinuxDistroInfo.distroCodename within a list, else the default
     pub fn distro(&self, allowed: &[&str], default: &str) -> String {
         if allowed.iter().any(|a| *a == self.distro_codename) {
@@ -692,7 +702,8 @@ pub trait MinerModule: Send + Sync {
     fn name(&self) -> &'static str;
     /// the device types the miner can handle ($Global:MinerInfo, "ARMCPU" for ARM builds)
     fn types(&self) -> Vec<String>;
-    fn info(&self, ctx: &MinerCtx) -> MinerInfo;
+    /// InfoOnly; None if the module returns nothing on this system
+    fn info(&self, ctx: &MinerCtx) -> Option<MinerInfo>;
     fn get_miners(&self, ctx: &MinerCtx) -> Vec<MinerCandidate>;
 }
 
@@ -756,7 +767,7 @@ pub fn get_miners_content(ctx: &MinerCtx, timers: Option<&mut HashMap<String, f6
 
 /// InfoOnly of all modules
 pub fn get_miners_info(ctx: &MinerCtx) -> Vec<MinerInfo> {
-    let mut v: Vec<MinerInfo> = crate::miners::registry().iter().map(|m| m.info(ctx)).collect();
+    let mut v: Vec<MinerInfo> = crate::miners::registry().iter().filter_map(|m| m.info(ctx)).collect();
     for def in &ctx.config.custom_miners {
         v.push(crate::miners::custom::info(ctx, def));
     }

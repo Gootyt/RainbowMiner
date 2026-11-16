@@ -142,9 +142,9 @@ impl MinerModule for CpuminerJayddee {
     fn types(&self) -> Vec<String> {
         vec!["CPU".into(), "ARMCPU".into()]
     }
-    fn info(&self, ctx: &MinerCtx) -> MinerInfo {
+    fn info(&self, ctx: &MinerCtx) -> Option<MinerInfo> {
         let pu = path_uri(ctx);
-        MinerInfo {
+        Some(MinerInfo {
             name: NAME.into(),
             types: self.types(),
             path: pu.as_ref().map(|x| x.0.clone()).unwrap_or_default(),
@@ -152,7 +152,7 @@ impl MinerModule for CpuminerJayddee {
             dev_fee: DEVFEE,
             manual_uri: MANUAL_URI.into(),
             commands: Value::Array(COMMANDS.clone()),
-        }
+        })
     }
     fn get_miners(&self, ctx: &MinerCtx) -> Vec<MinerCandidate> {
         let mut out = Vec::new();

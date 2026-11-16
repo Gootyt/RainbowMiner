@@ -1,0 +1,46 @@
+[
+ {
+  "MainAlgorithm": "cryptonightfast",
+  "Params": "--algo=8"
+ },
+ {
+  "MainAlgorithm": "cryptonightheavy",
+  "Params": "--algo=2"
+ },
+ {
+  "MainAlgorithm": "cryptonightlite",
+  "Params": "--algo=3"
+ },
+ {
+  "MainAlgorithm": "cryptonightsuperfast",
+  "Params": "--algo=11"
+ },
+ {
+  "MainAlgorithm": "cryptonighttubeheavy",
+  "Params": "--algo=5"
+ },
+ {
+  "MainAlgorithm": "cryptonightturtle",
+  "Params": "--algo=9"
+ },
+ {
+  "MainAlgorithm": "cryptonightv7",
+  "Params": "--algo=1"
+ },
+ {
+  "MainAlgorithm": "cryptonightv7lite",
+  "Params": "--algo=4"
+ },
+ {
+  "MainAlgorithm": "cryptonightv8fast",
+  "Params": "--algo=6"
+ },
+ {
+  "MainAlgorithm": "cryptonightv8",
+  "Params": "--algo=10"
+ },
+ {
+  "MainAlgorithm": "cryptonightxhvheavy",
+  "Params": "--algo=7"
+ }
+]

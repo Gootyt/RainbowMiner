@@ -1,0 +1,8 @@
+[
+ {
+  "MainAlgorithm": "lyra2z330",
+  "Params": "-i 12.5",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.3
+ }
+]

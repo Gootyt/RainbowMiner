@@ -1,0 +1,30 @@
+[
+ {
+  "MainAlgorithm": "groestlcoin",
+  "Params": "--gpu-threads 2 --worksize 128 --intensity d"
+ },
+ {
+  "MainAlgorithm": "lbry",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "lyra2rev2",
+  "Params": "--gpu-threads 2 --worksize 128 --intensity d"
+ },
+ {
+  "MainAlgorithm": "neoscrypt",
+  "Params": "--gpu-threads 1 --worksize 64 --intensity 15"
+ },
+ {
+  "MainAlgorithm": "sibcoin-mod",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "skeincoin",
+  "Params": "--gpu-threads 2 --worksize 256 --intensity d"
+ },
+ {
+  "MainAlgorithm": "yescrypt",
+  "Params": "--worksize 4 --rawintensity 256"
+ }
+]

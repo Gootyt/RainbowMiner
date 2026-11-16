@@ -1,0 +1,22 @@
+[
+ {
+  "MainAlgorithm": "myr-gr",
+  "Params": "",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "neoscrypt",
+  "Params": "",
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "neoscrypt-xaya",
+  "Params": "",
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "qubit",
+  "Params": "",
+  "ExtendInterval": 2
+ }
+]

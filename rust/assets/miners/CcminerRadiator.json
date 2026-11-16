@@ -1,0 +1,12 @@
+[
+ {
+  "MainAlgorithm": "SHA512256d",
+  "Params": "",
+  "Algorithm": "rad"
+ },
+ {
+  "MainAlgorithm": "SHA256dt",
+  "Params": "",
+  "Algorithm": "novo"
+ }
+]

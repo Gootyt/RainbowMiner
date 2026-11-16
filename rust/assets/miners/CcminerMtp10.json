@@ -1,0 +1,16 @@
+[
+ {
+  "MainAlgorithm": "mtp-classic",
+  "MinMemGB": 5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "ExcludePoolName": "(MiningRigRentals|NiceHash)"
+ },
+ {
+  "MainAlgorithm": "mtp-tcr",
+  "MinMemGB": 5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "ExcludePoolName": "(MiningRigRentals|NiceHash)"
+ }
+]

@@ -1,0 +1,17 @@
+[
+ {
+  "MainAlgorithm": "allium",
+  "MinMemGB": 1,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "bitcore",
+  "MinMemGB": 1,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "phi2",
+  "MinMemGB": 1,
+  "Params": ""
+ }
+]

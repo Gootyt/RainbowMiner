@@ -1,0 +1,7 @@
+[
+ {
+  "MainAlgorithm": "verus",
+  "Params": "-a verus",
+  "ExtendInterval": 2
+ }
+]

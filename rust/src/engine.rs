@@ -197,6 +197,32 @@ fn distro_codename() -> String {
     String::new()
 }
 
+/// $Session.IsVM: virt-what on Linux (as root), the computer system's manufacturer/model on Windows
+fn detect_vm() -> bool {
+    if cfg!(target_os = "linux") {
+        // virt-what needs root
+        let root = std::process::Command::new("id").arg("-u").output().map(|o| String::from_utf8_lossy(&o.stdout).trim() == "0").unwrap_or(false);
+        if !root {
+            return false;
+        }
+        match std::process::Command::new("virt-what").output() {
+            Ok(o) => String::from_utf8_lossy(&o.stdout).lines().any(|l| !l.trim().is_empty()),
+            Err(_) => false,
+        }
+    } else if cfg!(windows) {
+        let out = std::process::Command::new("powershell")
+            .args(["-NoProfile", "-Command", "$c=Get-CimInstance -ClassName Win32_ComputerSystem; \"$($c.Manufacturer)`n$($c.Model)\""])
+            .output();
+        let re = regex::Regex::new(r"(?i)^Bochs|^KVM|^HVM|^QEMU|^UML|^Xen|ARAnyM|red hat|virtual|vmware|vmxnet").unwrap();
+        match out {
+            Ok(o) => String::from_utf8_lossy(&o.stdout).lines().any(|l| re.is_match(l.trim())),
+            Err(_) => false,
+        }
+    } else {
+        false
+    }
+}
+
 /// the glibc version (libc_version.sh)
 fn libc_version() -> Option<util::Version> {
     if !cfg!(target_os = "linux") {
@@ -254,6 +280,9 @@ pub struct Core {
     pub downloader: SharedDownloader,
     pub downloader_prq: SharedDownloader,
     pub distro_codename: String,
+    pub is_vm: bool,
+    /// $Session.YiimpPools
+    pub yiimp_pools: HashSet<String>,
     pub libc_version: Option<util::Version>,
     pub current_power_price: f64,
     pub current_power_price_btc: f64,
@@ -329,6 +358,8 @@ impl Core {
             downloader: Arc::new(Mutex::new(DownloaderState::default())),
             downloader_prq: Arc::new(Mutex::new(DownloaderState::default())),
             distro_codename: distro_codename(),
+            is_vm: detect_vm(),
+            yiimp_pools: config::yiimp_pools(&crate::pools::names()),
             libc_version: libc_version(),
             current_power_price: 0.0,
             current_power_price_btc: 0.0,
@@ -378,6 +409,7 @@ impl Core {
                 yiimp_pools: &yiimp,
                 distro_codename: core.distro_codename.clone(),
                 libc_version: core.libc_version.clone(),
+                is_vm: core.is_vm,
             };
             let info = Value::Array(miner::get_miners_info(&ctx).iter().map(|m| m.to_json()).collect());
             api::with(|s| s.minerinfo = info);
@@ -1136,7 +1168,6 @@ mod merge_tests {
 impl Core {
     /// the miner part of Invoke-Core: candidates with profits (sorted out: unavailable, disabled)
     fn select_miners(&mut self, pools_map: &PoolsMap, disabled: &HashSet<String>) -> (Vec<MinerCandidate>, usize, usize, usize) {
-        let yiimp: HashSet<String> = HashSet::new();
         let ctx = MinerCtx {
             base: &self.base,
             config: &self.config,
@@ -1144,9 +1175,10 @@ impl Core {
             cpu: &self.cpu,
             pools: pools_map,
             alternates: &self.pool_alternates,
-            yiimp_pools: &yiimp,
+            yiimp_pools: &self.yiimp_pools,
             distro_codename: self.distro_codename.clone(),
             libc_version: self.libc_version.clone(),
+            is_vm: self.is_vm,
         };
         if self.round_counter == 0 {
             log_info!("Loading miner modules ..");

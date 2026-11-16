@@ -1,0 +1,8 @@
+[
+ {
+  "MainAlgorithm": "Equihash",
+  "MinMemGB": 2,
+  "Params": "",
+  "ExcludePoolName": "Nicehash"
+ }
+]

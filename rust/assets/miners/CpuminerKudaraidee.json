@@ -1,0 +1,35 @@
+[
+ {
+  "MainAlgorithm": "rinhash",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x11k",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x11kvs",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "XelisV2Pepew",
+  "Params": "",
+  "Algorithm": "xelisv2"
+ },
+ {
+  "MainAlgorithm": "Yespoweradvc",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowermgpc",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowerarwn",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yespowersugar",
+  "Params": ""
+ }
+]

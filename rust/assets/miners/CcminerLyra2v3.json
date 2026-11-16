@@ -1,0 +1,6 @@
+[
+ {
+  "MainAlgorithm": "lyra2v3",
+  "Params": "-N 1"
+ }
+]

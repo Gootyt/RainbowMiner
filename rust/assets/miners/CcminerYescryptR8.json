@@ -1,0 +1,26 @@
+[
+ {
+  "MainAlgorithm": "yescryptr16",
+  "Params": "-a yescryptr16",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.3
+ },
+ {
+  "MainAlgorithm": "yescryptr32",
+  "Params": "-a yescryptr32",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.3
+ },
+ {
+  "MainAlgorithm": "yescryptR8",
+  "Params": "-a yescryptR8",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.3
+ },
+ {
+  "MainAlgorithm": "yescryptR8G",
+  "Params": "-a yescrypt",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.3
+ }
+]

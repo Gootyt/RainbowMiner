@@ -1,0 +1,26 @@
+[
+ {
+  "MainAlgorithm": "cpupower",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "m7m",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescrypt",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr16",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr32",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "yescryptr8",
+  "Params": ""
+ }
+]
