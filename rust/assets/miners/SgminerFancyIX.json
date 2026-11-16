@@ -1,0 +1,124 @@
+[
+ {
+  "MainAlgorithm": "allium",
+  "Params": "--gpu-threads 1 --worksize 256 -I 23 --difficulty-multiplier 0.5",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "allium_navi",
+  "Params": "--gpu-threads 1 --worksize 256 -I 22 --difficulty-multiplier 0.5",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "argon2d",
+  "Params": "--gpu-threads 2 --worksize 64",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "chainox",
+  "Params": "--gpu-threads 1 --worksize 256",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "chainox_navi",
+  "Params": "--gpu-threads 1 --worksize 256",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "groestlcoin",
+  "Params": "--gpu-threads 1 --worksize 256 -I 22",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "groestlcoin_navi",
+  "Params": "--gpu-threads 1 --worksize 256 -I 22",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "heavyhash",
+  "Params": "--gpu-threads 4 --worksize 128 -I 22",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "heavyhash_navi",
+  "Params": "--gpu-threads 4 --worksize 128 -I 22",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "lyra2v3",
+  "Params": "--gpu-threads 1 --worksize 256 -I 24",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "lyra2z",
+  "Params": "--gpu-threads 1 --worksize 256 -I 22",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "lyra2z_navi",
+  "Params": "--gpu-threads 1 --worksize 256 -I 22",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "lyra2zz",
+  "Params": "--gpu-threads 1 --worksize 256 -I 22",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "mtp",
+  "Params": "-I 20",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "neoscrypt",
+  "Params": "--gpu-threads 1 --worksize 256 -I 17",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "neoscrypt_navi",
+  "Params": "--gpu-threads 1 --worksize 256 -I 17",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "neoscrypt-xaya",
+  "Params": "--gpu-threads 1 --worksize 256 -I 17",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "neoscrypt-xaya_navi",
+  "Params": "--gpu-threads 1 --worksize 256 -I 17",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "phi2",
+  "Params": "--gpu-threads 1 --worksize 256 -I 22",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "phi2_navi",
+  "Params": "--gpu-threads 1 --worksize 256 -I 22",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "yescrypt",
+  "Params": "--gpu-threads 1 --worksize 256 -I 20",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "yescryptr16",
+  "Params": "--gpu-threads 1 --worksize 256 -I 20",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "x22i",
+  "Params": "--gpu-threads 2 --worksize 256 -I 22",
+  "ExtendInterval": 2,
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "x25x",
+  "Params": "--gpu-threads 4 --worksize 256 -I 22",
+  "ExtendInterval": 2,
+  "ExcludePoolName": "Nicehash"
+ }
+]

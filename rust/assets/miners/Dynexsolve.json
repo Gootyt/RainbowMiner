@@ -1,0 +1,8 @@
+[
+ {
+  "MainAlgorithm": "dynexsolve",
+  "Params": "",
+  "ExtendInterval": 2,
+  "NoCPUMining": true
+ }
+]

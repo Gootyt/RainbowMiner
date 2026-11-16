@@ -1,0 +1,8 @@
+[
+ {
+  "MainAlgorithm": "meowpow",
+  "MinMemGB": 4,
+  "Params": [],
+  "ExtendInterval": 3
+ }
+]

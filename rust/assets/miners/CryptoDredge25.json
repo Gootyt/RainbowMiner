@@ -1,0 +1,147 @@
+[
+ {
+  "MainAlgorithm": "argon2d-dyn",
+  "MinMemGB": 1,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d250",
+  "MinMemGB": 1,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d4096",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "chukwa",
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "chukwa-wrkz",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "Legacy": true
+ },
+ {
+  "MainAlgorithm": "cnconceal",
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnfast2",
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cngpu",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnhaven",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnheavy",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnsaber",
+  "MinMemGB": 3.3,
+  "Params": "",
+  "Legacy": true
+ },
+ {
+  "MainAlgorithm": "cntlo",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnturtle",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnupx2",
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnzls",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "hmq1725",
+  "MinMemGB": 1,
+  "Params": "",
+  "Legacy": true
+ },
+ {
+  "MainAlgorithm": "lyra2v3",
+  "MinMemGB": 1,
+  "Params": "",
+  "Legacy": true
+ },
+ {
+  "MainAlgorithm": "lyra2vc0ban",
+  "MinMemGB": 1,
+  "Params": "",
+  "Legacy": true
+ },
+ {
+  "MainAlgorithm": "lyra2z",
+  "MinMemGB": 1,
+  "Params": "",
+  "Legacy": true
+ },
+ {
+  "MainAlgorithm": "lyra2zz",
+  "MinMemGB": 1,
+  "Params": "",
+  "Legacy": true
+ },
+ {
+  "MainAlgorithm": "mtp",
+  "MinMemGB": 5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "DevFee": 2.0
+ },
+ {
+  "MainAlgorithm": "neoscrypt",
+  "MinMemGB": 1,
+  "Params": "",
+  "Legacy": true
+ },
+ {
+  "MainAlgorithm": "pipe",
+  "MinMemGB": 1,
+  "Params": "",
+  "Legacy": true
+ },
+ {
+  "MainAlgorithm": "sha256csm",
+  "MinMemGB": 1,
+  "Params": "",
+  "Legacy": true
+ },
+ {
+  "MainAlgorithm": "skunk",
+  "MinMemGB": 1,
+  "Params": "",
+  "Legacy": true
+ },
+ {
+  "MainAlgorithm": "tribus",
+  "MinMemGB": 1,
+  "Params": "",
+  "Legacy": true,
+  "ExtendInterval": 2
+ }
+]

@@ -1,0 +1,74 @@
+[
+ {
+  "MainAlgorithm": "argon2d-dyn",
+  "MinMemGB": 1,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d250",
+  "MinMemGB": 1,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "argon2d4096",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "chukwa",
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "chukwa2",
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.5
+ },
+ {
+  "MainAlgorithm": "cnconceal",
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnfast2",
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cngpu",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnhaven",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnheavy",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cntlo",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnturtle",
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnupx2",
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "cnzls",
+  "MinMemGB": 3.3,
+  "Params": ""
+ }
+]

@@ -1,0 +1,37 @@
+[
+ {
+  "MainAlgorithm": "heavyhash",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 2,
+  "FaultTolerance": 0.4
+ },
+ {
+  "MainAlgorithm": "progpow-veil",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75
+ },
+ {
+  "MainAlgorithm": "vprogpow",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "ExcludePoolName": "Beepool"
+ }
+]

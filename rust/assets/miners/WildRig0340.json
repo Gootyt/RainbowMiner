@@ -1,0 +1,78 @@
+[
+ {
+  "MainAlgorithm": "0x10",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "exosis",
+  "Vendor": [
+   "AMD"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "geek",
+  "Vendor": [
+   "AMD"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "megamec",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "mtp",
+  "Vendor": [
+   "AMD"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "mtp-tcr",
+  "Vendor": [
+   "AMD"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "renesis",
+  "Vendor": [
+   "AMD"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sonoa",
+  "Vendor": [
+   "AMD"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "wildkeccak",
+  "Vendor": [
+   "AMD"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 2.0
+ },
+ {
+  "MainAlgorithm": "x17r",
+  "Vendor": [
+   "AMD"
+  ],
+  "Params": "--protocol ufo2",
+  "DevFee": 2.0
+ }
+]

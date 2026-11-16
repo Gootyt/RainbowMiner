@@ -1,0 +1,308 @@
+[
+ {
+  "MainAlgorithm": "0x10",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2d_16000",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2d_dynamic",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2id_chukwa",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2id_chukwa2",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "Fee": 2.0,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "blake2b",
+  "Params": "",
+  "Fee": 0.0,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ],
+  "CoinSymbols": [
+   "TNET"
+  ]
+ },
+ {
+  "MainAlgorithm": "blake3_alephium",
+  "Params": "",
+  "Fee": 1.0,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "circcash",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_ccx",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_gpu",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_talleo",
+  "Params": "",
+  "Fee": 0.0,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_turtle",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_upx",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_xhv",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "dynamo",
+  "Params": "",
+  "Fee": 1.0,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludeYiimp": true
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "DAG": true,
+  "Params": "--enable-ethash-leak-fix",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "DAG": true,
+  "Params": "--enable-ethash-leak-fix",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "DAG": true,
+  "Params": "--enable-ethash-leak-fix",
+  "Fee": 0.65,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludePoolName": "Nicehash",
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "firopow",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "heavyhash",
+  "Params": "",
+  "Fee": 1.0,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "k12",
+  "Params": "",
+  "Fee": 0.0,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "kawpow",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "keccak",
+  "Params": "",
+  "Fee": 0.0,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "lyra2v2_webchain",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "progpow_epic",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "progpow_sero",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "progpow_veil",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "progpow_veriblock",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "progpow_zano",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ],
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "sha3d",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "ubqhash",
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "yescrypt",
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ]
+ }
+]

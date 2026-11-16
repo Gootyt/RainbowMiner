@@ -6,7 +6,9 @@ pub mod cpuminer_jayddee;
 pub mod custom;
 pub mod fam_amd;
 pub mod fam_cpu;
+pub mod fam_misc;
 pub mod fam_nvidia;
+pub mod fam_progpow;
 pub mod family;
 pub mod gminer;
 pub mod lolminer;
@@ -31,7 +33,7 @@ pub fn registry() -> Vec<Box<dyn MinerModule>> {
         Box::new(trex::Trex),
         Box::new(xmrig::Xmrig),
     ];
-    for m in fam_nvidia::modules().into_iter().chain(fam_amd::modules()).chain(fam_cpu::modules()) {
+    for m in fam_nvidia::modules().into_iter().chain(fam_amd::modules()).chain(fam_cpu::modules()).chain(fam_progpow::modules()).chain(fam_misc::modules()) {
         v.push(Box::new(m));
     }
     // Get-ChildItem .\Miners\*.ps1 order

@@ -1,0 +1,24 @@
+[
+ {
+  "MainAlgorithm": "Aeternity",
+  "MinMemGB": 4,
+  "Params": "--algo aeternity",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "NoCPUMining": true
+ },
+ {
+  "MainAlgorithm": "BeamHash3",
+  "MinMemGB": 3,
+  "Params": "--algo BeamHashIII",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "AutoPers": false
+ }
+]

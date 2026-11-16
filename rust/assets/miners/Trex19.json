@@ -1,0 +1,151 @@
+[
+ {
+  "MainAlgorithm": "astralhash",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "balloon",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "bcd",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "bitcore",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "c11",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "dedal",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "geek",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "hmq1725",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "honeycomb",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "hsr",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "jeonghash",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "megabtx",
+  "Params": "",
+  "IsGtx": true
+ },
+ {
+  "MainAlgorithm": "megamec",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "padihash",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "pawelhash",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "phi",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "polytimos",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "renesis",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sha256q",
+  "Params": "",
+  "IsGtx": true
+ },
+ {
+  "MainAlgorithm": "sha256t",
+  "Params": "",
+  "IsGtx": true
+ },
+ {
+  "MainAlgorithm": "skunk",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sonoa",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "timetravel",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "tribus",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x16r",
+  "Params": "",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.7,
+  "HashrateDuration": "Day"
+ },
+ {
+  "MainAlgorithm": "x16rv2",
+  "Params": "",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.7,
+  "HashrateDuration": "Day"
+ },
+ {
+  "MainAlgorithm": "x16rt",
+  "Params": "",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.7,
+  "HashrateDuration": "Day"
+ },
+ {
+  "MainAlgorithm": "x16s",
+  "Params": "",
+  "FaultTolerance": 0.5
+ },
+ {
+  "MainAlgorithm": "x17",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x21s",
+  "Params": "",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.7,
+  "HashrateDuration": "Day"
+ },
+ {
+  "MainAlgorithm": "x22i",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x25x",
+  "Params": "",
+  "FaultTolerance": 0.5
+ },
+ {
+  "MainAlgorithm": "x33",
+  "Params": ""
+ }
+]

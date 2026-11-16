@@ -1,0 +1,7 @@
+[
+ {
+  "MainAlgorithm": "chukwa",
+  "MinMemGB": 1,
+  "ExtendInterval": 2
+ }
+]

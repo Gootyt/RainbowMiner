@@ -1,0 +1,57 @@
+[
+ {
+  "MainAlgorithm": "argon2ad",
+  "MinMemGB": 2,
+  "Params": "",
+  "Blocksize": 8192,
+  "ExtendInterval": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2d250",
+  "MinMemGB": 2,
+  "Params": "",
+  "Blocksize": 250,
+  "ExtendInterval": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2d500",
+  "MinMemGB": 2,
+  "Params": "",
+  "Blocksize": 500,
+  "ExtendInterval": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2d4096",
+  "MinMemGB": 2,
+  "Params": "",
+  "Blocksize": 4096,
+  "ExtendInterval": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2d16000",
+  "MinMemGB": 2,
+  "Params": "",
+  "Blocksize": 16000,
+  "ExtendInterval": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ }
+]

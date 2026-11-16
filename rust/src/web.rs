@@ -536,7 +536,50 @@ pub fn hmac_sha256_hex(key: &[u8], msg: &[u8]) -> String {
     hex::encode(mac.finalize().into_bytes())
 }
 
-/// Get-UrlEncode
+/// [System.Web.HttpUtility]::UrlEncode: form encoding with lower case hex, "!()*" stay
+fn http_utility_encode(s: &str) -> String {
+    let e: String = url::form_urlencoded::byte_serialize(s.as_bytes()).collect();
+    let mut out = String::with_capacity(e.len());
+    let mut chars = e.chars().peekable();
+    while let Some(c) = chars.next() {
+        if c == '%' {
+            let h: String = chars.by_ref().take(2).collect();
+            match h.as_str() {
+                "21" => out.push('!'),
+                "28" => out.push('('),
+                "29" => out.push(')'),
+                _ => {
+                    out.push('%');
+                    out.push_str(&h.to_lowercase());
+                }
+            }
+        } else {
+            out.push(c);
+        }
+    }
+    out
+}
+
+/// Get-UrlEncode: "{...}" templates stay, the value of "{name:value}" is encoded
 pub fn url_encode(s: &str) -> String {
-    url::form_urlencoded::byte_serialize(s.as_bytes()).collect()
+    let re = regex::Regex::new(r"^(.*?)(\{[^}]+\})(.*?)$").unwrap();
+    let re_t = regex::Regex::new(r"^\{(\w+):(.*?)\}$").unwrap();
+    let mut rest = s.to_string();
+    let mut out = String::new();
+    loop {
+        let Some(c) = re.captures(&rest) else { break };
+        let (pre, tmp, post) = (c[1].to_string(), c[2].to_string(), c[3].to_string());
+        if !pre.is_empty() {
+            out.push_str(&http_utility_encode(&pre));
+        }
+        match re_t.captures(&tmp) {
+            Some(t) => out.push_str(&format!("{{{}:{}}}", &t[1], http_utility_encode(&t[2].replace('$', "*dollar*")).replace("*dollar*", "$"))),
+            None => out.push_str(&tmp),
+        }
+        rest = post;
+    }
+    if !rest.is_empty() {
+        out.push_str(&http_utility_encode(&rest));
+    }
+    out
 }

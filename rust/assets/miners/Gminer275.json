@@ -1,0 +1,13 @@
+[
+ {
+  "MainAlgorithm": "Equihash24x7",
+  "MinMemGB": 3.0,
+  "Params": "--algo 192_7",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "AutoPers": true
+ }
+]

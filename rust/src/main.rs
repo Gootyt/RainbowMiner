@@ -16,6 +16,7 @@ mod jsonx;
 mod log;
 mod miner;
 mod minerapi;
+mod minerapi2;
 mod miners;
 mod opencl;
 mod params;

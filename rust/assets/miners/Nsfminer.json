@@ -1,0 +1,44 @@
+[
+ {
+  "MainAlgorithm": "ethash",
+  "MinMemGB": 3,
+  "Params": [],
+  "FaultTolerance": 0.2,
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "ethash2g",
+  "MinMemGB": 1,
+  "Params": [],
+  "FaultTolerance": 0.2,
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "MinMemGB": 2,
+  "Params": [],
+  "FaultTolerance": 0.2,
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "MinMemGB": 3,
+  "Params": [],
+  "FaultTolerance": 0.2,
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "MinMemGB": 4,
+  "Params": [],
+  "FaultTolerance": 0.2,
+  "ExtendInterval": 3
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "MinMemGB": 3,
+  "Params": [],
+  "FaultTolerance": 0.2,
+  "ExtendInterval": 3
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "MainAlgorithm": "Cuckatoo31",
+  "MinMemGB": 8,
+  "Params": "--algo grin31",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "NoCPUMining": true
+ },
+ {
+  "MainAlgorithm": "Cuckatoo32",
+  "MinMemGB": 6,
+  "Params": "--algo grin32",
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "NoCPUMining": true
+ }
+]

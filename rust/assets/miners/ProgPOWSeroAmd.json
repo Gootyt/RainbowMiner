@@ -1,0 +1,8 @@
+[
+ {
+  "MainAlgorithm": "progpowsero",
+  "Params": "",
+  "ExtendInterval": 2,
+  "MinMemGB": 3
+ }
+]

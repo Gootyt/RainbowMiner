@@ -1,0 +1,521 @@
+[
+ {
+  "MainAlgorithm": "anime",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "bitcore",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "bmw512",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "c11",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "curvehash",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 1.0
+ },
+ {
+  "MainAlgorithm": "evohash",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "AmdCompute": "RDNA"
+ },
+ {
+  "MainAlgorithm": "evrprogpow",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75
+ },
+ {
+  "MainAlgorithm": "firopow",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75
+ },
+ {
+  "MainAlgorithm": "ghostrider",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 1.0,
+  "FaultTolerance": 8,
+  "ExcludePoolName": "C3pool|MoneroOcean"
+ },
+ {
+  "MainAlgorithm": "hashx7",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "Algorithm": "x7"
+ },
+ {
+  "MainAlgorithm": "hex",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "hmq1725",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "kawpow",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75,
+  "ExcludePoolName": "unMineable"
+ },
+ {
+  "MainAlgorithm": "kawpow2g",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75,
+  "ExcludePoolName": "unMineable",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow3g",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75,
+  "ExcludePoolName": "unMineable",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow4g",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75,
+  "ExcludePoolName": "unMineable",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow5g",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75,
+  "ExcludePoolName": "unMineable",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "megabtx",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "memehash",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "memehashv2",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "meowpow",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75
+ },
+ {
+  "MainAlgorithm": "mike",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 1.0,
+  "FaultTolerance": 8
+ },
+ {
+  "MainAlgorithm": "minotaur",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "nexapow",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75
+ },
+ {
+  "MainAlgorithm": "pearlhash",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "DevFee": 0.0,
+  "ExcludePoolName": "BaikalMine|F2pool|HeroMiners|K1Pool|K1PoolSolo|Kryptex|KryptexSolo|LuckyPool|Mining4people|RPlant|RPlantSolo|SuprNova|unMineable",
+  "AmdCapability": [
+   "RDNA2",
+   "RDNA3",
+   "RDNA4"
+  ]
+ },
+ {
+  "MainAlgorithm": "phi",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "progpow-sero",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75
+ },
+ {
+  "MainAlgorithm": "progpow-telestai",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75
+ },
+ {
+  "MainAlgorithm": "progpowz",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.75,
+  "ExcludePoolName": "Fairpool"
+ },
+ {
+  "MainAlgorithm": "qhash",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "DevFee": 2.0,
+  "FaultTolerance": 0.4
+ },
+ {
+  "MainAlgorithm": "sha512256d",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sha256csm",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sha256q",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sha256t",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "skein2",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "skunkhash",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "skydoge",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 2.0
+ },
+ {
+  "MainAlgorithm": "timetravel",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "tribus",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x11k",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x16r",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.7,
+  "HashrateDuration": "Day"
+ },
+ {
+  "MainAlgorithm": "x16rt",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.7,
+  "HashrateDuration": "Day"
+ },
+ {
+  "MainAlgorithm": "x16rv2",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "FaultTolerance": 0.7,
+  "HashrateDuration": "Day"
+ },
+ {
+  "MainAlgorithm": "x16s",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x17",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x18",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x20r",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x21s",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x22i",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "x25x",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": "",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "x33",
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "Params": ""
+ }
+]

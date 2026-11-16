@@ -1,0 +1,8 @@
+[
+ {
+  "MainAlgorithm": "verthash",
+  "MinMemGB": 2,
+  "Params": "",
+  "ExtendInterval": 2
+ }
+]

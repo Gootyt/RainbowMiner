@@ -1,0 +1,12 @@
+[
+ {
+  "MainAlgorithm": "Eaglesong",
+  "MinMemGB": 2,
+  "Params": "--algo eaglesong",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ }
+]

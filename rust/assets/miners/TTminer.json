@@ -1,0 +1,357 @@
+[
+ {
+  "MainAlgorithm": "Flex",
+  "MinMemGB": 1,
+  "Params": "-a Flex",
+  "Vendor": [
+   "CPU"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "SpectreX",
+  "MinMemGB": 1,
+  "Params": "-a SpectreX",
+  "Vendor": [
+   "CPU"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "XelisHashV2",
+  "MinMemGB": 1,
+  "Params": "-a Xelis",
+  "Vendor": [
+   "CPU"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "Blake3Alephium",
+  "MinMemGB": 2,
+  "Params": "-a Blake3",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "Ethash",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a ETHASH",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "Ethash2g",
+  "DAG": true,
+  "MinMemGB": 1,
+  "Params": "-a ETHASH",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "Ethash3g",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "-a ETHASH",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "Ethash4g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a ETHASH",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "Ethash5g",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Params": "-a ETHASH",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "EthashB3",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a ETHASHB3",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "Etchash",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a ETCHASH",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "EthashLowMemory",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Params": "-a ETHASH",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "EvrProgPow",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a EvrProgPow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "SCCPow",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a FiroPowSCC",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "ExcludePoolName": "ZergPool|ZPool"
+ },
+ {
+  "MainAlgorithm": "FishHash",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a FishHash",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "Take2",
+  "MinMemGB": 1,
+  "Params": "-a Ghostrider",
+  "Vendor": [
+   "CPU",
+   "NVIDIA"
+  ],
+  "FaultTolerance": 10,
+  "ExtendInterval": 3,
+  "DevFee": 1.0
+ },
+ {
+  "MainAlgorithm": "KawPow",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a KawPow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "KawPow2g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a KawPow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "KawPow3g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a KawPow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "KawPow4g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a KawPow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "KawPow5g",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a KawPow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "Mike",
+  "MinMemGB": 1,
+  "Params": "-a Mike",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "DevFee": 2.0
+ },
+ {
+  "MainAlgorithm": "ProgPoWEPIC",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-c EPIC",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "DevFee": 2.0
+ },
+ {
+  "MainAlgorithm": "ProgPoWSERO",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-c SERO",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "ProgPoWVEIL",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-c VEIL",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "ProgPoWZ",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-c ZANO",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "SHA3d",
+  "MinMemGB": 2,
+  "Params": "-a Sha3d",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "SHA3Solidity",
+  "MinMemGB": 2,
+  "Params": "",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "Coins": [
+   "EGAZ",
+   "ETI"
+  ]
+ },
+ {
+  "MainAlgorithm": "SHA256dt",
+  "MinMemGB": 2,
+  "Params": "-a Sha256dt",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "SHA512256d",
+  "MinMemGB": 2,
+  "Params": "-a Sha512256d",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2,
+  "ExcludePoolName": "MiningRigRentals"
+ },
+ {
+  "MainAlgorithm": "UbqHash",
+  "MinMemGB": 2.4,
+  "Params": "-a UBQHASH",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "vProgPoW",
+  "DAG": true,
+  "MinMemGB": 3,
+  "Params": "-a vProgPow",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 2
+ }
+]

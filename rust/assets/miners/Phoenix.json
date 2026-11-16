@@ -1,0 +1,66 @@
+[
+ {
+  "MainAlgorithm": "ethash2g",
+  "MinMemGB": 1,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Params": []
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Params": []
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Params": []
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "MinMemGB": 4,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Params": []
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Params": []
+ },
+ {
+  "MainAlgorithm": "progpow",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Params": [],
+  "ExcludePoolName": "SuprNova"
+ },
+ {
+  "MainAlgorithm": "ubqhash",
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Params": []
+ }
+]

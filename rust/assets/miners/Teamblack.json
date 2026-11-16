@@ -1,0 +1,276 @@
+[
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5
+ },
+ {
+  "MainAlgorithm": "ethash2g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 1,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 4,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "ethashb3",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "ethashb3"
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "ethash"
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5
+ },
+ {
+  "MainAlgorithm": "evrprogpow",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5
+ },
+ {
+  "MainAlgorithm": "firopow",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5
+ },
+ {
+  "MainAlgorithm": "kawpow",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5
+ },
+ {
+  "MainAlgorithm": "kawpow2g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow3g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow4g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow5g",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "meowpow",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5
+ },
+ {
+  "MainAlgorithm": "octopus",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 6,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5
+ },
+ {
+  "MainAlgorithm": "pearlhash",
+  "Params": "",
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "pearl",
+  "ExcludePoolName": "^Pearlhash"
+ },
+ {
+  "MainAlgorithm": "progpowepic",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5,
+  "Algorithm": "epicpow"
+ },
+ {
+  "MainAlgorithm": "progpowz",
+  "DAG": true,
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5
+ },
+ {
+  "MainAlgorithm": "verthash",
+  "Params": "",
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "ExtendInterval": 3,
+  "DevFee": 0.5
+ }
+]

@@ -1,0 +1,177 @@
+[
+ {
+  "MainAlgorithm": "alloy",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "artocash",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "b2n",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "bittubev2",
+  "Threads": 2,
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "conceal",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "dark",
+  "Threads": 2,
+  "MinMemGB": 1,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "fast2",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "fest",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "gpu",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "lite",
+  "Threads": 2,
+  "MinMemGB": 1,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "litev7",
+  "Threads": 2,
+  "MinMemGB": 1,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "haven",
+  "Threads": 2,
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "heavy",
+  "Threads": 2,
+  "MinMemGB": 3.3,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "hospital",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "hycon",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "marketcash",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "mox",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "normalv4",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": "",
+  "ExtendInterval": 2
+ },
+ {
+  "MainAlgorithm": "normalv4_64",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "normalv7",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "normalv8",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "graft",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "stellitev4",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "stellitev8",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "turtle",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "upx",
+  "Threads": 2,
+  "MinMemGB": 1,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "upx2",
+  "Threads": 2,
+  "MinMemGB": 1,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "xcash",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "zelerius",
+  "Threads": 2,
+  "MinMemGB": 1.5,
+  "Params": ""
+ }
+]

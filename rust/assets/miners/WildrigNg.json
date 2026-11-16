@@ -1,0 +1,197 @@
+[
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.0,
+  "ExcludeAmdCapability": "GCN[123]"
+ },
+ {
+  "MainAlgorithm": "kawpow",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 1.0,
+  "ExcludePoolName": "unMineable"
+ },
+ {
+  "MainAlgorithm": "kawpow2g",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 1.0,
+  "ExcludePoolName": "unMineable",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow3g",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 1.0,
+  "ExcludePoolName": "unMineable",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow4g",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 1.0,
+  "ExcludePoolName": "unMineable",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "kawpow5g",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 1.0,
+  "ExcludePoolName": "unMineable",
+  "Algorithm": "kawpow"
+ },
+ {
+  "MainAlgorithm": "nexapow",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 1.0,
+  "ExcludeAmdCapability": "GCN[123]",
+  "ExcludeNvCompute": "Pascal"
+ },
+ {
+  "MainAlgorithm": "octopus",
+  "DAG": true,
+  "MinMemGB": 4,
+  "Vendor": [
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 0.0
+ },
+ {
+  "MainAlgorithm": "pearlhash",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "DevFee": 0.0,
+  "ExcludePoolName": "BaikalMine|F2pool|HeroMiners|K1Pool|K1PoolSolo|Kryptex|KryptexSolo|LuckyPool|Mining4people|RPlant|RPlantSolo|SuprNova|unMineable",
+  "AmdCompute": "RDNA"
+ },
+ {
+  "MainAlgorithm": "poseidon2b",
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 2,
+  "DevFee": 2.0,
+  "Algorithm": "noid",
+  "AmdCompute": "RDNA",
+  "ExcludeNvCompute": "Pascal"
+ },
+ {
+  "MainAlgorithm": "progpowz",
+  "DAG": true,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 1.0,
+  "ExcludePoolName": "Fairpool"
+ },
+ {
+  "MainAlgorithm": "qhash",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "DevFee": 2.0,
+  "FaultTolerance": 0.4,
+  "ExcludeAmdCapability": "GCN[123]"
+ },
+ {
+  "MainAlgorithm": "quantus",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 2,
+  "DevFee": 2.0,
+  "ExcludeAmdCapability": "GCN[123]"
+ },
+ {
+  "MainAlgorithm": "sha256d",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "DevFee": 0.0,
+  "ExcludeAmdCapability": "GCN[123]",
+  "NeverProfitable": true
+ },
+ {
+  "MainAlgorithm": "xelishashv3",
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "Params": "",
+  "ExtendInterval": 3,
+  "DevFee": 1.0,
+  "ExcludeAmdCapability": "GCN[123]",
+  "ExcludePoolName": "unMineable"
+ }
+]

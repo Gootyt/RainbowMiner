@@ -1,0 +1,260 @@
+[
+ {
+  "MainAlgorithm": "clchash",
+  "Params": "",
+  "Fee": 2.0,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "evohash",
+  "Params": "",
+  "Fee": 1.0,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "randomsfx",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true
+ },
+ {
+  "MainAlgorithm": "randomxeq",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ],
+  "Rx1GbPages": true,
+  "ExcludePoolName": "C3pool|Moneroocean"
+ },
+ {
+  "MainAlgorithm": "yespowerdogemone",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2id_chukwa",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "argon2id_chukwa2",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "astrixhash",
+  "Params": "",
+  "Fee": 1.0,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "blake3_lbrt",
+  "Params": "",
+  "Fee": 2.0,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_ccx",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_upx",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_xhv",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "dutahashv4",
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethashb3",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.85,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "fphash",
+  "Params": "",
+  "Fee": 1.0,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "hoohash",
+  "Params": "",
+  "Fee": 2.0,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "nxlhash",
+  "Params": "",
+  "Fee": 1.0,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "sha256dt",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "sha3x",
+  "Params": "",
+  "Fee": 0.65,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "xehash",
+  "Params": "",
+  "Fee": 1.0,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.5,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha3x",
+  "ExcludePoolName": "Nicehash",
+  "ExcludeCompute": [
+   "GCN51",
+   "GCN50"
+  ]
+ },
+ {
+  "MainAlgorithm": "ethashb3",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.0,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "blake3_decred",
+  "ExcludePoolName": "Gteh"
+ },
+ {
+  "MainAlgorithm": "ethashb3",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.0,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha256dt",
+  "ExcludePoolName": "Gteh"
+ },
+ {
+  "MainAlgorithm": "fishhash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.0,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "sha3x",
+  "ExcludePoolName": "Gteh",
+  "ExcludeCompute": [
+   "GCN51",
+   "GCN50"
+  ]
+ }
+]

@@ -1,0 +1,11 @@
+[
+ {
+  "MainAlgorithm": "dynex",
+  "Params": "",
+  "Fee": 2.0,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ]
+ }
+]

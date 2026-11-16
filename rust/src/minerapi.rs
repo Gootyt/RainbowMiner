@@ -188,6 +188,10 @@ pub struct ActiveMiner {
     srb: Option<SrbInfo>,
     custom_regex: Option<Regex>,
     regex_failed: bool,
+    /// $this.Difficulty_Value of the EthminerWrapper/RHWrapper classes
+    pub api_difficulty: f64,
+    /// $this.MaxPowerDraw of the TTminerWrapper class
+    pub api_max_power_draw: f64,
 }
 
 impl ActiveMiner {
@@ -294,6 +298,8 @@ impl ActiveMiner {
             srb: None,
             custom_regex: None,
             regex_failed: false,
+            api_difficulty: 0.0,
+            api_max_power_draw: 0.0,
         }
     }
 
@@ -340,6 +346,9 @@ impl ActiveMiner {
 
     /// GetArguments (with the config file handling of XMRig6, SrbMinerMulti and BzMiner)
     pub fn get_arguments(&mut self, rc: &RunCtx) -> String {
+        if let Some(a) = self.get_arguments_more() {
+            return a;
+        }
         match self.api.as_str() {
             "XMRig6" => self.xmrig6_arguments(rc),
             "SrbMinerMulti" => self.srb_arguments(),
@@ -1106,8 +1115,15 @@ impl ActiveMiner {
         }
     }
 
+    pub(crate) fn local_json_pub(&self, path: &str) -> Option<Value> {
+        self.local_json(path)
+    }
+
     /// UpdateMinerData
     pub fn update_miner_data(&mut self, rc: &RunCtx) {
+        if self.update_miner_data_more(rc) {
+            return;
+        }
         let api = self.api.clone();
         match api.as_str() {
             "Trex" => self.api_trex(rc),

@@ -1,0 +1,22 @@
+[
+ {
+  "MainAlgorithm": "lyra2z",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "megabtx",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "megamec",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sha256q",
+  "Params": ""
+ },
+ {
+  "MainAlgorithm": "sha256t",
+  "Params": ""
+ }
+]

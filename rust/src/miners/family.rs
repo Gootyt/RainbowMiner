@@ -24,6 +24,8 @@ pub enum Suffix {
     KeysNoGPU,
     /// Get-PoolAlgorithmKeys -CoinSymbols
     KeysCoin,
+    /// ListCPU for CPUs, ListGPU for GPUs
+    List,
 }
 
 /// the values a MakeArgs script block sees
@@ -35,6 +37,8 @@ pub struct A<'x, 'c> {
     pub cmd: &'x Value,
     /// $Pools.$Algorithm_Norm
     pub pool: &'x Pool,
+    /// the DevicesByTypes key of the devices ($Miner_Vendor)
+    pub vendor: &'x str,
     /// $Algorithm_Norm (pool key)
     pub key: &'x str,
     /// $Algorithm_Norm_0
@@ -109,6 +113,19 @@ impl A<'_, '_> {
 }
 
 pub type MakeArgs = fn(&A) -> String;
+/// sets more fields of a candidate (SetLDLIBRARYPATH, ListDevices, ..)
+pub type Post = fn(&A, &mut MinerCandidate);
+
+/// a build of the miner for a CUDA version ($UriCuda entries)
+#[derive(Clone, Default)]
+pub struct CudaBuild {
+    pub uri: String,
+    pub cuda: String,
+    /// overrides $Version
+    pub version: String,
+    /// overrides $Path
+    pub path: String,
+}
 /// PerModel: the device filter of a model (replaces the Arch filters)
 pub type ModelFilter = fn(&Family, &Device) -> bool;
 /// PreKey: the device filter of a command
@@ -121,12 +138,14 @@ pub struct Family {
     pub name: &'static str,
     /// the DevicesByTypes key: NVIDIA, AMD, INTEL or CPU
     pub vendor: &'static str,
+    /// all vendors the module loops over (default: vendor)
+    pub vendors: Vec<&'static str>,
     pub info_types: Vec<String>,
     /// path relative to the RainbowMiner folder (".\Bin\..." style is fine)
     pub path: String,
     pub uri: String,
-    /// (Uri, Cuda, Version) newest first; the first one that fits the installed CUDA wins
-    pub uri_cuda: Vec<(String, String, String)>,
+    /// newest first; the first one that fits the installed CUDA wins
+    pub uri_cuda: Vec<CudaBuild>,
     /// on Linux the chosen CUDA version without dots is appended to the path (CcminerMtp)
     pub path_append_cuda: bool,
     pub manual_uri: String,
@@ -172,6 +191,13 @@ pub struct Family {
     pub device_params: Option<fn(&MinerCtx, Option<i64>, Option<&str>) -> String>,
     /// Prerequisite (path, uri, message) of a command
     pub prerequisite: Option<fn(&MinerCtx, &Value) -> Option<(std::path::PathBuf, String, String)>>,
+    pub post: Option<Post>,
+    /// a filter of the commands (Version, Legacy, Vendor fields)
+    pub cmd_ok: Option<fn(&Family, &MinerCtx, &Value) -> bool>,
+    /// $DeviceIDsAll of a vendor's devices (instead of DevIdProp/DevIdJoin)
+    pub ids_fn: Option<fn(&str, &[&Device]) -> String>,
+    /// the algorithm name of a command that is normalized to $Algorithm_Norm_0
+    pub algo_fn: Option<fn(&Value) -> String>,
 }
 
 fn no_args(_: &A) -> String {
@@ -183,6 +209,7 @@ impl Family {
         Family {
             name,
             vendor,
+            vendors: vec![vendor],
             info_types: vec![],
             path: String::new(),
             uri: String::new(),
@@ -227,25 +254,47 @@ impl Family {
             per_key_filter: None,
             device_params: None,
             prerequisite: None,
+            post: None,
+            cmd_ok: None,
+            ids_fn: None,
+            algo_fn: None,
         }
     }
 
     /// add (Uri, Cuda) entries, newest first
     pub fn cuda(mut self, list: &[(&str, &str)]) -> Self {
-        self.uri_cuda = list.iter().map(|(u, c)| (u.to_string(), c.to_string(), String::new())).collect();
+        self.uri_cuda = list.iter().map(|(u, c)| CudaBuild { uri: u.to_string(), cuda: c.to_string(), ..Default::default() }).collect();
         self
     }
     /// add (Uri, Cuda, Version) entries, newest first
     pub fn cuda_v(mut self, list: &[(&str, &str, &str)]) -> Self {
-        self.uri_cuda = list.iter().map(|(u, c, v)| (u.to_string(), c.to_string(), v.to_string())).collect();
+        self.uri_cuda = list
+            .iter()
+            .map(|(u, c, v)| CudaBuild { uri: u.to_string(), cuda: c.to_string(), version: v.to_string(), ..Default::default() })
+            .collect();
+        self
+    }
+    /// add (Uri, Cuda, Path) entries, newest first
+    pub fn cuda_p(mut self, list: &[(&str, &str, &str)]) -> Self {
+        self.uri_cuda = list
+            .iter()
+            .map(|(u, c, p)| CudaBuild { uri: u.to_string(), cuda: c.to_string(), path: p.to_string(), ..Default::default() })
+            .collect();
         self
     }
 
     /// $Uri = if ($UriCuda) {$UriCuda.Uri} else {$Uri} (InfoOnly)
     pub fn info_uri(&self) -> String {
         match self.uri_cuda.first() {
-            Some((u, _, _)) => u.clone(),
+            Some(b) => b.uri.clone(),
             None => self.uri.clone(),
+        }
+    }
+    /// $UriCuda.Path | Select-Object -First 1 when the path comes with the build
+    fn info_path(&self) -> String {
+        match self.uri_cuda.first() {
+            Some(b) if self.path.is_empty() && !b.path.is_empty() => b.path.clone(),
+            _ => self.path.clone(),
         }
     }
 
@@ -264,14 +313,17 @@ impl Family {
         }
         let n = self.uri_cuda.len();
         for i in 0..n {
-            let (uri, cuda, version) = self.uri_cuda[i].clone();
-            if ctx.cuda_ok(&cuda, if i + 1 < n { "" } else { self.name }) {
-                self.uri = uri;
-                if !version.is_empty() {
-                    self.version = version;
+            let b = self.uri_cuda[i].clone();
+            if ctx.cuda_ok(&b.cuda, if i + 1 < n { "" } else { self.name }) {
+                self.uri = b.uri;
+                if !b.version.is_empty() {
+                    self.version = b.version;
+                }
+                if !b.path.is_empty() {
+                    self.path = b.path;
                 }
                 if self.path_append_cuda && ctx.is_linux() {
-                    self.path = format!("{}{}", self.path, cuda.replace('.', ""));
+                    self.path = format!("{}{}", self.path, b.cuda.replace('.', ""));
                 }
                 return true;
             }
@@ -283,7 +335,14 @@ impl Family {
         MinerInfo {
             name: self.name.into(),
             types: self.types(),
-            path: if self.path.is_empty() { Default::default() } else { ctx.path(&self.path) },
+            path: {
+                let p = self.info_path();
+                if p.is_empty() {
+                    Default::default()
+                } else {
+                    ctx.path(&p)
+                }
+            },
             uri: self.info_uri(),
             dev_fee: self.dev_fee,
             manual_uri: self.manual_uri.clone(),
@@ -304,16 +363,16 @@ impl Family {
     /// the body of Invoke-MinerFamily
     pub fn miners(mut self, ctx: &MinerCtx) -> Vec<MinerCandidate> {
         let mut out = Vec::new();
-        if !ctx.has_type(self.vendor) || !self.select_cuda(ctx) {
+        if !self.vendors.iter().any(|v| ctx.has_type(v)) || !self.select_cuda(ctx) {
             return out;
         }
-        let is_gpu = self.vendor != "CPU";
         let path_default = self.path.clone();
         let neverprofitable = ctx.config.b("EnableNeverprofitableAlgos");
         let fam = &self;
-        for model in ctx.models(fam.vendor) {
+        for (vendor, model) in fam.vendors.iter().flat_map(|v| ctx.models(v).into_iter().map(move |m| (*v, m))) {
+            let is_gpu = vendor != "CPU";
             let mut first = true;
-            let all: Vec<&Device> = ctx.devices_of(fam.vendor, &model);
+            let all: Vec<&Device> = ctx.devices_of(vendor, &model);
             if all.is_empty() {
                 continue;
             }
@@ -340,10 +399,17 @@ impl Family {
                 if fam.cmd_filter && ((cmd_b(cmd, "LinuxOnly") && !ctx.is_linux()) || (cmd_b(cmd, "NeverProfitable") && !neverprofitable)) {
                     continue;
                 }
+                if let Some(ok) = fam.cmd_ok {
+                    if !ok(fam, ctx, cmd) {
+                        continue;
+                    }
+                }
                 if fam.first_per_cmd {
                     first = true;
                 }
-                let algo0 = if fam.use_algo_override {
+                let algo0 = if let Some(af) = fam.algo_fn {
+                    crate::data::get_algorithm(&af(cmd))
+                } else if fam.use_algo_override {
                     let a = cmd_s(cmd, "Algorithm");
                     crate::data::get_algorithm(if a.is_empty() { cmd_s(cmd, "MainAlgorithm") } else { a }.as_str())
                 } else {
@@ -375,6 +441,8 @@ impl Family {
                 let keys: Vec<String> = match fam.suffix {
                     Suffix::ListGPU => vec![algo0.clone(), format!("{}-{}", algo0, model), format!("{}-GPU", algo0)],
                     Suffix::ListCPU => vec![algo0.clone(), format!("{}-{}", algo0, model)],
+                    Suffix::List if !is_gpu => vec![algo0.clone(), format!("{}-{}", algo0, model)],
+                    Suffix::List => vec![algo0.clone(), format!("{}-{}", algo0, model), format!("{}-GPU", algo0)],
                     Suffix::KeysNoGPU => ctx.algo_keys(fam.name, &algo0, &model, KeyOpts { no_gpu: true, exclude_pool_name: &exclude, ..Default::default() }),
                     Suffix::KeysCoin => ctx.algo_keys(
                         fam.name,
@@ -404,7 +472,9 @@ impl Family {
                     if first {
                         miner_port = port_fmt(&fam.port, miner_device[0].Index);
                         mname = miner_name(fam.name, None, &miner_device);
-                        if is_gpu {
+                        if let Some(f) = fam.ids_fn {
+                            ids = f(vendor, &miner_device);
+                        } else if is_gpu {
                             ids = device_ids(&miner_device, fam.dev_id_prop, fam.dev_id_join, fam.dev_id_hex);
                         }
                         first = false;
@@ -415,6 +485,7 @@ impl Family {
                         fam,
                         cmd,
                         pool,
+                        vendor,
                         key: &key,
                         algo0: &algo0,
                         pool_port,
@@ -460,6 +531,9 @@ impl Family {
                     }
                     if fam.emits_max_rej {
                         m.max_rejected_share_ratio = cmd_f(cmd, "MaxRejectedShareRatio").filter(|x| *x != 0.0).or(fam.max_rej_default);
+                    }
+                    if let Some(post) = fam.post {
+                        post(&a, &mut m);
                     }
                     if let Some((p, u, msg)) = &prereq {
                         m.prerequisite_path = Some(p.clone());
@@ -513,4 +587,32 @@ pub fn cpu_pick(ctx: &MinerCtx, rules: &[(&str, &'static str)], default: &'stati
         }
     }
     default
+}
+
+/// Switch ($Pools.$Algorithm_Norm.EthMode) of the ethminer style miners
+pub fn eth_protocol(pool: &crate::pool::Pool) -> String {
+    let t = if pool.SSL { "ssl" } else { "tcp" };
+    match pool.EthMode.as_str() {
+        "stratum" => format!("stratum+{}", t),
+        "ethproxy" => format!("stratum1+{}", t),
+        "ethstratumnh" => format!("stratum2+{}", t),
+        _ => format!("stratum{}", if pool.SSL { "s" } else { "" }),
+    }
+}
+
+/// $MinMemGB of a DAG algorithm: the pool's DagSizeMax or Get-EthDAGSize (coin default)
+pub fn dag_size(pool: &crate::pool::Pool, algo0: &str, default_coin: &str, minimum: f64) -> f64 {
+    match pool.DagSizeMax {
+        Some(d) if d > 0.0 => d,
+        _ => crate::data::get_eth_dag_size(if pool.CoinSymbol.is_empty() { default_coin } else { &pool.CoinSymbol }, algo0, minimum),
+    }
+}
+
+/// <user>[:<pass>] url encoded (ethminer style pool urls)
+pub fn user_pass_enc(pool: &crate::pool::Pool) -> String {
+    format!(
+        "{}{}",
+        crate::web::url_encode(&pool.User),
+        if pool.Pass.is_empty() { String::new() } else { format!(":{}", crate::web::url_encode(&pool.Pass)) }
+    )
 }

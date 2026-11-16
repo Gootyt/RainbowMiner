@@ -1,0 +1,247 @@
+[
+ {
+  "MainAlgorithm": "minotaur",
+  "Params": "",
+  "Fee": 0.0,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "randomhash2",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "scryptn2",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespowerarwn",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespoweriots",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespowerlitb",
+  "Params": "",
+  "Fee": 0.0,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "yespowerres",
+  "Params": "",
+  "Fee": 0.0,
+  "Vendor": [
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "blake2b",
+  "Params": "",
+  "Fee": 0.0,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ],
+  "CoinSymbols": [
+   "TNET"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_ccx",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "cryptonight_talleo",
+  "Params": "",
+  "Fee": 0.0,
+  "Vendor": [
+   "AMD",
+   "CPU"
+  ]
+ },
+ {
+  "MainAlgorithm": "dynamo",
+  "Params": "",
+  "Fee": 1.0,
+  "Vendor": [
+   "AMD",
+   "CPU",
+   "NVIDIA"
+  ],
+  "ExcludeYiimp": true
+ },
+ {
+  "MainAlgorithm": "k12",
+  "Params": "",
+  "Fee": 0.0,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "kaspa",
+  "Params": "",
+  "Fee": 0.85,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ]
+ },
+ {
+  "MainAlgorithm": "keccak",
+  "Params": "",
+  "Fee": 0.0,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD"
+  ]
+ },
+ {
+  "MainAlgorithm": "autolykos2",
+  "DAG": true,
+  "Params": "",
+  "Fee": 1.5,
+  "Vendor": [
+   "AMD",
+   "INTEL",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "kaspa",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "dynex",
+  "Params": "",
+  "Fee": 2.5,
+  "Vendor": [
+   "AMD",
+   "INTEL"
+  ],
+  "SecondaryAlgorithm": "kaspa",
+  "ExcludePoolName": "Nicehash"
+ },
+ {
+  "MainAlgorithm": "etchash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "kaspa",
+  "ExcludePoolName": "Gteh"
+ },
+ {
+  "MainAlgorithm": "ethash",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "kaspa",
+  "ExcludePoolName": "Gteh"
+ },
+ {
+  "MainAlgorithm": "ethash2g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 1,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "kaspa",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh"
+ },
+ {
+  "MainAlgorithm": "ethash3g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "kaspa",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh"
+ },
+ {
+  "MainAlgorithm": "ethash4g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 3,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "kaspa",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh"
+ },
+ {
+  "MainAlgorithm": "ethash5g",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 4,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "kaspa",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh"
+ },
+ {
+  "MainAlgorithm": "ethashlowmemory",
+  "DAG": true,
+  "Params": "",
+  "Fee": 0.65,
+  "MinMemGB": 2,
+  "Vendor": [
+   "AMD",
+   "NVIDIA"
+  ],
+  "SecondaryAlgorithm": "kaspa",
+  "Algorithm": "ethash",
+  "ExcludePoolName": "Gteh"
+ }
+]
