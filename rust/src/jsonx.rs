@@ -195,6 +195,14 @@ pub fn values(v: &Value) -> Vec<&Value> {
     }
 }
 
+/// (name, value) of an object's properties
+pub fn entries(v: &Value) -> Vec<(String, &Value)> {
+    match v {
+        Value::Object(m) => m.iter().map(|(k, v)| (k.clone(), v)).collect(),
+        _ => Vec::new(),
+    }
+}
+
 /// Property names of an object
 pub fn keys(v: &Value) -> Vec<String> {
     match v {

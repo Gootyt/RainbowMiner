@@ -1,5 +1,8 @@
 //! Pool modules (Pools/*.ps1)
 
+pub mod group1;
+pub mod group2;
+pub mod group3;
 pub mod herominers;
 pub mod miningdutch;
 pub mod moneroocean;
@@ -24,6 +27,20 @@ pub fn registry() -> Vec<Box<dyn PoolModule>> {
         Box::new(nicehash::NiceHash),
         Box::new(unmineable::UnMineable),
         Box::new(zpool::Zpool),
+        Box::new(group1::F2pool),
+        Box::new(group1::C3pool),
+        Box::new(group1::UUpool),
+        Box::new(group2::K1Pool { solo: false }),
+        Box::new(group2::K1Pool { solo: true }),
+        Box::new(group2::Kryptex { solo: false }),
+        Box::new(group2::Kryptex { solo: true }),
+        Box::new(group2::Mining4people { solo: false }),
+        Box::new(group2::Mining4people { solo: true }),
+        Box::new(group3::BaikalMine { t: group3::BaikalType::Pplns }),
+        Box::new(group3::BaikalMine { t: group3::BaikalType::Pps }),
+        Box::new(group3::BaikalMine { t: group3::BaikalType::Solo }),
+        Box::new(group3::DeepMinerZ { solo: false }),
+        Box::new(group3::DeepMinerZ { solo: true }),
     ]
 }
 
