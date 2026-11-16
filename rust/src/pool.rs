@@ -350,6 +350,11 @@ pub fn wallet_with_payment_id(wallet: &str, pidchar: &str) -> (String, String, S
 
 /// Get-YiiMPValue
 pub fn yiimp_value(req: &serde_json::Value, factor: f64, data_window: &str) -> f64 {
+    yiimp_value_div(req, factor, data_window, 1000.0)
+}
+
+/// Get-YiiMPValue -ActualDivisor
+pub fn yiimp_value_div(req: &serde_json::Value, factor: f64, data_window: &str, actual_divisor: f64) -> f64 {
     use crate::jsonx;
     let fields = ["estimate_current", "estimate_last24h", "actual_last24h"];
     let mut values: IndexMap<&str, f64> = IndexMap::new();
@@ -371,9 +376,9 @@ pub fn yiimp_value(req: &serde_json::Value, factor: f64, data_window: &str) -> f
             values.insert(f, x);
         }
     }
-    if !has_details {
+    if !has_details && actual_divisor != 0.0 {
         if let Some(a) = values.get_mut("actual_last24h") {
-            *a /= 1000.0;
+            *a /= actual_divisor;
         }
     }
     if values.len() == 3 && !contains_zero {

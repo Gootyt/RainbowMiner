@@ -341,6 +341,15 @@ pub fn get_coin(coin_symbol: &str, algorithm: &str) -> Option<CoinInfo> {
     c
 }
 
+/// all coin symbols of the coins database (without the "-Algo" variants)
+pub fn all_coin_symbols() -> Vec<String> {
+    let db = DB.read().unwrap();
+    let mut v: Vec<String> = db.coins_db.keys().map(|k| k.split('-').next().unwrap_or(k).to_string()).collect();
+    v.sort();
+    v.dedup();
+    v
+}
+
 /// Get-CoinSymbol (coin name -> symbol, from Data/coins.json)
 pub fn get_coin_symbol(coin_name: &str) -> Option<String> {
     let key: String = coin_name.to_lowercase().chars().filter(|c| c.is_ascii_alphanumeric()).collect();

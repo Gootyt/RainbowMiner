@@ -17,7 +17,53 @@ use std::sync::{LazyLock, Mutex, RwLock};
 use std::time::{Duration, Instant, SystemTime};
 
 pub const DEFAULT_USER_AGENT: &str =
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36";
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36";
+
+/// Get-Unzip: base64 -> gunzip -> UTF-8
+pub fn unzip_b64(s: &str) -> String {
+    use base64::Engine;
+    let Ok(bytes) = base64::engine::general_purpose::STANDARD.decode(s.trim()) else { return String::new() };
+    let mut out = String::new();
+    let _ = flate2::read::GzDecoder::new(&bytes[..]).read_to_string(&mut out);
+    out
+}
+
+static RBM_DATA_SECRET: LazyLock<String> =
+    LazyLock::new(|| unzip_b64("H4sIAAAAAAAEAAXBQQ6AMAgEwBeRbKEF+pzF4s2L8f9x5q1HDj/KPQ7W0PJItiXFmGbg4Wib2C0V2tkgZselvsSJ7Vq1gE1k/q8nexVMAAAA"));
+
+/// Get-RBMDataAuth: HMAC-SHA256 of the current unix minute
+pub fn rbm_data_auth() -> String {
+    rbm_data_auth_at(util::unix_timestamp().div_euclid(60))
+}
+
+fn rbm_data_auth_at(window: i64) -> String {
+    use hmac::{Hmac, Mac};
+    let mut mac = <Hmac<sha2::Sha256> as Mac>::new_from_slice(RBM_DATA_SECRET.as_bytes()).expect("hmac key");
+    mac.update(window.to_string().as_bytes());
+    hex::encode(mac.finalize().into_bytes())
+}
+
+static RE_RBMINER_URL: LazyLock<regex::Regex> = LazyLock::new(|| regex::Regex::new(r"(?i)^https?://(?:[\w-]+\.)*rbminer\.net(?::\d+)?(?:/|$)").unwrap());
+
+/// requests to rbminer.net carry the client version and the data auth (and never the custom user agent)
+pub fn is_rbminer_url(url: &str) -> bool {
+    RE_RBMINER_URL.is_match(url)
+}
+
+fn rbm_headers(url: &str, given: &[(String, String)]) -> Vec<(&'static str, String)> {
+    let mut v = Vec::new();
+    if is_rbminer_url(url) {
+        let has = |k: &str| given.iter().any(|(h, _)| h.eq_ignore_ascii_case(k));
+        if !has("X-RBM-Client") {
+            v.push(("X-RBM-Client", format!("v{}", crate::VERSION)));
+        }
+        if !has("X-RBM-Auth") {
+            v.push(("X-RBM-Auth", rbm_data_auth()));
+        }
+        v.push(("User-Agent", DEFAULT_USER_AGENT.to_string()));
+    }
+    v
+}
 
 #[derive(Debug, Clone, Default)]
 pub struct WebSettings {
@@ -164,6 +210,9 @@ pub fn fetch_text(req: &Request) -> Result<String> {
     for (k, v) in &req.headers {
         r = r.set(k, v);
     }
+    for (k, v) in rbm_headers(&req.url, &req.headers) {
+        r = r.set(k, &v);
+    }
     let resp = match &req.body {
         Some(b) => r.send_string(b),
         None => r.call(),
@@ -199,11 +248,11 @@ pub fn get_text(url: &str, timeout: u64) -> Result<String> {
 /// download a binary file
 pub fn download_file(url: &str, dest: &std::path::Path, timeout: u64) -> Result<()> {
     let agent = agent_for(url);
-    let resp = agent
-        .get(url)
-        .timeout(Duration::from_secs(timeout))
-        .call()
-        .map_err(|e| anyhow!("{}", e))?;
+    let mut r = agent.get(url).timeout(Duration::from_secs(timeout));
+    for (k, v) in rbm_headers(url, &[]) {
+        r = r.set(k, &v);
+    }
+    let resp = r.call().map_err(|e| anyhow!("{}", e))?;
     if let Some(p) = dest.parent() {
         std::fs::create_dir_all(p)?;
     }
@@ -582,4 +631,30 @@ pub fn url_encode(s: &str) -> String {
         out.push_str(&http_utility_encode(&rest));
     }
     out
+}
+
+#[cfg(test)]
+mod rbm_tests {
+    #[test]
+    fn rbm_auth() {
+        assert_eq!(super::RBM_DATA_SECRET.len(), 76);
+        assert_eq!(super::rbm_data_auth_at(29000000), "ba80eaa209189c992e6f5e41202b7d8422a63add7d836c633ec9eb88699287ca");
+        assert!(super::is_rbminer_url("https://api.rbminer.net/data/coins.json"));
+        assert!(super::is_rbminer_url("http://rbminer.net"));
+        assert!(!super::is_rbminer_url("https://rbminer.net.evil.com/x"));
+    }
+}
+
+#[cfg(test)]
+mod dbg_tests {
+    #[test]
+    #[ignore]
+    fn dbg_fetch() {
+        for u in std::env::var("RBM_URLS").unwrap_or_default().split(',') {
+            match super::get_text(u, 15) {
+                Ok(t) => println!("{} OK {} {}", u, t.len(), t.chars().take(80).collect::<String>()),
+                Err(e) => println!("{} ERR {}", u, e),
+            }
+        }
+    }
 }

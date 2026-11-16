@@ -270,7 +270,7 @@ impl PoolModule for Kryptex {
             for region in regions {
                 for ssl in ["", "ssl_"] {
                     let re = regex::Regex::new(&format!(r"^(.+?-{}.+?):(\d+)$", region)).unwrap();
-                    for url in jsonx::as_list(jsonx::path(v, &["servers", &format!("{}urls", ssl)])) {
+                    for url in jsonx::pluck(jsonx::get(v, "servers"), &format!("{}urls", ssl)) {
                         let u = jsonx::s(url);
                         let Some(c) = re.captures(&u) else { continue };
                         let is_ssl = !ssl.is_empty();
