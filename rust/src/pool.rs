@@ -481,3 +481,196 @@ mod tests {
         assert_eq!(w, "4abc.0123456789abcdef0123");
     }
 }
+
+/// result of Get-PoolDataFromRequest (rewards in satoshi per hash and day)
+#[derive(Debug, Clone, Default)]
+pub struct PoolData {
+    pub live_reward: f64,
+    pub live_hashrate: f64,
+    pub day_reward: f64,
+    pub day_hashrate: f64,
+    pub workers: Option<f64>,
+    pub blk: f64,
+    pub tsl: Option<f64>,
+}
+
+impl PoolData {
+    pub fn reward(&self, day: bool) -> f64 {
+        if day {
+            self.day_reward
+        } else {
+            self.live_reward
+        }
+    }
+    pub fn hashrate(&self, day: bool) -> f64 {
+        if day {
+            self.day_hashrate
+        } else {
+            self.live_hashrate
+        }
+    }
+}
+
+/// parameters of Get-PoolDataFromRequest
+#[derive(Debug, Clone)]
+pub struct PoolDataOpts {
+    pub currency: String,
+    pub chart_currency: String,
+    pub coin_units: f64,
+    pub divisor: f64,
+    pub hashrate_field: String,
+    pub network_field: String,
+    pub lastblock_field: String,
+    pub timestamp: f64,
+    pub add_block_data: bool,
+    pub add_day: bool,
+    pub price_from_session: bool,
+    pub force_coin_units: bool,
+}
+
+impl Default for PoolDataOpts {
+    fn default() -> Self {
+        PoolDataOpts {
+            currency: String::new(),
+            chart_currency: String::new(),
+            coin_units: 1.0,
+            divisor: 1.0,
+            hashrate_field: "hashrate".into(),
+            network_field: "network".into(),
+            lastblock_field: "lastblock".into(),
+            timestamp: crate::util::unix_timestamp() as f64,
+            add_block_data: false,
+            add_day: false,
+            price_from_session: false,
+            force_coin_units: false,
+        }
+    }
+}
+
+/// average of the [timestamp,value] chart entries newer than ts
+fn chart_avg(v: &serde_json::Value, ts: f64) -> f64 {
+    use crate::jsonx;
+    let vals: Vec<f64> = jsonx::as_list(v).into_iter().filter(|e| jsonx::num(jsonx::idx(e, 0)) > ts).map(|e| jsonx::num(jsonx::idx(e, 1))).collect();
+    if vals.is_empty() {
+        0.0
+    } else {
+        vals.iter().sum::<f64>() / vals.len() as f64
+    }
+}
+
+/// block timestamps of a cryptonote-pool "pool.blocks" list ("hash:timestamp:..."), newest first
+pub fn cn_block_times(blocks: &serde_json::Value) -> Vec<f64> {
+    use crate::jsonx;
+    static RE: std::sync::LazyLock<regex::Regex> = std::sync::LazyLock::new(|| regex::Regex::new(r"^.*?:(\d+?):").unwrap());
+    let mut v: Vec<f64> = jsonx::as_list(blocks).into_iter().filter_map(|b| RE.captures(&jsonx::s(b)).and_then(|c| c[1].parse::<f64>().ok())).collect();
+    v.sort_by(|a, b| b.partial_cmp(a).unwrap_or(std::cmp::Ordering::Equal));
+    v
+}
+
+/// Get-PoolDataFromRequest (cryptonote pool APIs)
+pub fn pool_data_from_request(req: &serde_json::Value, o: &PoolDataOpts) -> PoolData {
+    use crate::jsonx;
+    use crate::rates;
+    let pool = jsonx::get(req, "pool");
+    let mut r = PoolData {
+        live_hashrate: jsonx::num(jsonx::get(pool, &o.hashrate_field)),
+        workers: if jsonx::truthy(jsonx::get(pool, "workers")) { jsonx::num_opt(jsonx::get(pool, "workers")) } else { jsonx::num_opt(jsonx::get(pool, "miners")) },
+        tsl: Some(0.0),
+        ..Default::default()
+    };
+    let ts24 = o.timestamp - 86400.0;
+    let net = jsonx::get(req, &o.network_field);
+    let diff_live = jsonx::num(jsonx::get(net, "difficulty"));
+    let reward = if jsonx::truthy(jsonx::get(net, "reward")) { jsonx::num(jsonx::get(net, "reward")) } else { jsonx::num(jsonx::path(req, &[&o.lastblock_field, "reward"])) };
+    let profit_live = if diff_live != 0.0 { 86400.0 / diff_live * reward / o.divisor } else { 0.0 };
+    let mut coin_units = o.coin_units;
+    let cu = jsonx::num(jsonx::path(req, &["config", "coinUnits"]));
+    if cu != 0.0 && !o.force_coin_units {
+        coin_units = cu;
+    }
+    let amount_live = if coin_units != 0.0 { profit_live / coin_units } else { 0.0 };
+    let currency = if o.currency.is_empty() { jsonx::s(jsonx::path(req, &["config", "symbol"])) } else { o.currency.clone() };
+    let mut chart_currency = o.chart_currency.clone();
+    if chart_currency.is_empty() {
+        chart_currency = jsonx::s(jsonx::path(req, &["config", "priceCurrency"]));
+    }
+    let mut last_sat = rates::get(&currency).map(|x| 1.0 / x * 1e8).unwrap_or(0.0);
+    let charts = jsonx::get(req, "charts");
+    if !o.price_from_session && last_sat == 0.0 {
+        let p = |k: &[&str]| jsonx::num(jsonx::path(req, k));
+        if p(&["price", "btc"]) != 0.0 {
+            last_sat = 1e8 * p(&["price", "btc"]);
+        } else if p(&["coinPrice", "priceSats"]) != 0.0 {
+            last_sat = p(&["coinPrice", "priceSats"]);
+        } else if p(&["coinPrice", "price"]) != 0.0 {
+            last_sat = 1e8 * p(&["coinPrice", "price"]);
+        } else if p(&["coinPrice", "coin-btc"]) != 0.0 {
+            last_sat = 1e8 * p(&["coinPrice", "coin-btc"]);
+        } else if p(&["markets", "btc"]) != 0.0 && p(&["markets", "price"]) != 0.0 {
+            last_sat = 1e8 * p(&["markets", "price"]) / p(&["markets", "btc"]);
+        } else {
+            last_sat = jsonx::as_list(jsonx::get(charts, "price")).last().map(|e| jsonx::num(jsonx::idx(e, 1))).unwrap_or(0.0);
+            if !chart_currency.is_empty() && chart_currency != "BTC" && rates::get(&chart_currency).is_some() {
+                last_sat *= 1e8 / rates::get(&chart_currency).unwrap();
+            } else if chart_currency == "BTC" && last_sat < 1.0 {
+                last_sat *= 1e8;
+            }
+            if last_sat == 0.0 {
+                if let Some(x) = rates::get(&currency) {
+                    last_sat = 1.0 / x * 1e8;
+                }
+            }
+        }
+    }
+    r.live_reward = amount_live * last_sat;
+    if o.add_day {
+        let wavg = jsonx::num(jsonx::path(pool, &["stats", "diffs", "wavg24h"]));
+        let avg_diff = if wavg != 0.0 {
+            wavg
+        } else if jsonx::num(jsonx::path(req, &["coinDiff", "avgDiff24h"])) != 0.0 {
+            jsonx::num(jsonx::path(req, &["coinDiff", "avgDiff24h"]))
+        } else if jsonx::num(jsonx::get(charts, "difficulty_1d")) != 0.0 {
+            jsonx::num(jsonx::get(charts, "difficulty_1d"))
+        } else {
+            chart_avg(jsonx::get(charts, "difficulty"), ts24)
+        };
+        let mut rewards_day = 0.0;
+        if avg_diff != 0.0 {
+            let mut avg_price = if jsonx::num(jsonx::get(charts, "price_1d")) != 0.0 {
+                jsonx::num(jsonx::get(charts, "price_1d"))
+            } else if jsonx::truthy(jsonx::get(charts, "price")) {
+                chart_avg(jsonx::get(charts, "price"), ts24)
+            } else {
+                0.0
+            };
+            if !chart_currency.is_empty() && chart_currency != "BTC" && rates::get(&chart_currency).is_some() {
+                avg_price *= 1e8 / rates::get(&chart_currency).unwrap();
+            } else if chart_currency == "BTC" && avg_price < 1.0 {
+                avg_price *= 1e8;
+            }
+            if avg_price == 0.0 {
+                avg_price = last_sat;
+            }
+            let profit_day = 86400.0 / avg_diff * reward / o.divisor;
+            rewards_day = if coin_units != 0.0 { profit_day / coin_units } else { 0.0 } * avg_price;
+        }
+        r.day_reward = if rewards_day != 0.0 { rewards_day } else { r.live_reward };
+        r.day_hashrate = if jsonx::num(jsonx::get(charts, "hashrate_1d")) != 0.0 {
+            jsonx::num(jsonx::get(charts, "hashrate_1d"))
+        } else if jsonx::num(jsonx::get(charts, "hashrate_daily")) != 0.0 {
+            jsonx::num(jsonx::get(charts, "hashrate_daily"))
+        } else {
+            chart_avg(jsonx::get(charts, "hashrate"), ts24)
+        };
+        if r.day_hashrate == 0.0 {
+            r.day_hashrate = r.live_hashrate;
+        }
+    }
+    if o.add_block_data {
+        let blocks = cn_block_times(jsonx::get(pool, "blocks"));
+        let recent: Vec<f64> = blocks.iter().cloned().filter(|t| *t > ts24).collect();
+        r.blk = crate::pools::group8::blk_rate(&recent, 86400.0);
+        r.tsl = blocks.first().map(|t| o.timestamp - t);
+    }
+    r
+}

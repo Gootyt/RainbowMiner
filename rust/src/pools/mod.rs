@@ -8,6 +8,10 @@ pub mod group5;
 pub mod group6;
 pub mod group7;
 pub mod group8;
+pub mod group9;
+pub mod group10;
+pub mod group11;
+pub mod group12;
 pub mod herominers;
 pub mod miningdutch;
 pub mod moneroocean;
@@ -67,6 +71,25 @@ pub fn registry() -> Vec<Box<dyn PoolModule>> {
         Box::new(group8::HashVault),
         Box::new(group8::Hashcryptos),
         Box::new(group8::Hashpool),
+        Box::new(group9::Hellominer),
+        Box::new(group9::LeafPool),
+        Box::new(group9::LuckPool),
+        Box::new(group9::LuckyPool),
+        Box::new(group9::Luxor),
+        Box::new(group10::MinerRocks),
+        Box::new(group10::Mintpond),
+        Box::new(group10::Molepool),
+        Box::new(group10::Neuropool),
+        Box::new(group10::Pearlhash),
+        Box::new(group11::Poolin),
+        Box::new(group11::RaptoreumZone),
+        Box::new(group11::SoloPool),
+        Box::new(group11::Sunpool),
+        Box::new(group11::SupportXmr),
+        Box::new(group12::SuprNova),
+        Box::new(group12::ViaBTC),
+        Box::new(group12::YadaMiners),
+        Box::new(group12::ZpoolCoins),
     ]
 }
 

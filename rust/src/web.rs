@@ -586,7 +586,29 @@ pub fn hmac_sha256_hex(key: &[u8], msg: &[u8]) -> String {
 }
 
 /// [System.Web.HttpUtility]::UrlEncode: form encoding with lower case hex, "!()*" stay
-fn http_utility_encode(s: &str) -> String {
+/// [System.Web.HttpUtility]::UrlDecode: %xx and '+' -> space
+pub fn url_decode(s: &str) -> String {
+    fn hex(c: u8) -> Option<u8> {
+        (c as char).to_digit(16).map(|d| d as u8)
+    }
+    let b = s.as_bytes();
+    let mut out = Vec::with_capacity(b.len());
+    let mut i = 0;
+    while i < b.len() {
+        match b[i] {
+            b'+' => out.push(b' '),
+            b'%' if i + 2 < b.len() && hex(b[i + 1]).is_some() && hex(b[i + 2]).is_some() => {
+                out.push(hex(b[i + 1]).unwrap() * 16 + hex(b[i + 2]).unwrap());
+                i += 2;
+            }
+            c => out.push(c),
+        }
+        i += 1;
+    }
+    String::from_utf8_lossy(&out).into_owned()
+}
+
+pub fn http_utility_encode(s: &str) -> String {
     let e: String = url::form_urlencoded::byte_serialize(s.as_bytes()).collect();
     let mut out = String::with_capacity(e.len());
     let mut chars = e.chars().peekable();
@@ -642,6 +664,7 @@ mod rbm_tests {
         assert!(super::is_rbminer_url("https://api.rbminer.net/data/coins.json"));
         assert!(super::is_rbminer_url("http://rbminer.net"));
         assert!(!super::is_rbminer_url("https://rbminer.net.evil.com/x"));
+        assert_eq!(super::url_decode("a%22b+c%7B%7d%"), "a\"b c{}%");
     }
 }
 
