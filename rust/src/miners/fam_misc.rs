@@ -980,3 +980,553 @@ fn xlarig(ctx: &MinerCtx, _info_only: bool) -> Option<Family> {
     });
     Some(f)
 }
+
+// ------------------------------------------------------------------------------------------
+// Teamblack (TeamBlackMiner, AMD, INTEL, NVIDIA)
+// ------------------------------------------------------------------------------------------
+
+cmds!(CMD_TEAMBLACK, "Teamblack");
+
+pub fn modules_teamblack() -> Vec<FamilyModule> {
+    vec![FamilyModule { name: "Teamblack", types: &["AMD", "INTEL", "NVIDIA"], def: teamblack }]
+}
+
+fn teamblack(ctx: &MinerCtx, info_only: bool) -> Option<Family> {
+    if !win_linux_x64(ctx) {
+        return None;
+    }
+    let mut f = Family::new("Teamblack", "AMD", &CMD_TEAMBLACK);
+    f.info_types = vec!["AMD".into(), "INTEL".into(), "NVIDIA".into()];
+    f.manual_uri = "https://github.com/sp-hash/TeamBlackMiner".into();
+    f.port = "365".into();
+    f.version = "2.46".into();
+    let (uri, cuda) = if ctx.is_linux() {
+        f.path = "Bin/GPU-Teamblack/TBMiner".into();
+        ("https://github.com/RainbowMiner/miner-binaries/releases/download/v2.46-teamblack/TeamBlackMiner_2_46_Ubuntu_22_04_Cuda_12_9.tar.gz", "12.9")
+    } else {
+        f.path = "Bin/GPU-Teamblack/TBMiner.exe".into();
+        ("https://github.com/RainbowMiner/miner-binaries/releases/download/v2.46-teamblack/TeamBlackMiner_2_46_cuda_12.9.7z", "12.9")
+    };
+    f.uri = uri.into();
+    let cuda_ok = !info_only && !ctx.config.cuda_version.is_empty() && ctx.cuda_ok(cuda, if ctx.has_type("NVIDIA") { "Teamblack" } else { "" });
+    f.vendors = if cuda_ok { vec!["AMD", "INTEL", "NVIDIA"] } else { vec!["AMD", "INTEL"] };
+    f.suffix = Suffix::Keys;
+    f.first_per_cmd = true;
+    f.use_exclude_pool = true;
+    f.api = "TBMiner";
+    f.cmd_ok = Some(|_, ctx, cmd| ctx.is_linux() || jsonx::get(cmd, "Xintensity").is_null());
+    f.per_key_filter = Some(|_, ctx, d, cmd, pool, algo0| {
+        let Some(pool) = pool else { return false };
+        cmd_vendor(cmd, &d.Vendor) && ctx.test_vram(d, ctx.min_mem_gb(cmd, pool, algo0))
+    });
+    // --cuda-devices for NVIDIA (Type_Vendor_Index), --cl-devices for the others (Type_Index)
+    f.ids_fn = Some(|vendor, devs| {
+        devs.iter()
+            .map(|d| if vendor == "NVIDIA" { d.Type_Vendor_Index } else { d.Type_Index })
+            .map(|i| i.to_string())
+            .collect::<Vec<_>>()
+            .join(",")
+    });
+    f.make_args = |a| {
+        let p = a.pool;
+        let wallet = if p.Wallet.is_empty() { &p.User } else { &p.Wallet };
+        let devices = match a.vendor {
+            "NVIDIA" => format!("--cuda-devices [{}]", a.ids),
+            "AMD" => format!("--amd-only --cl-devices [{}]", a.ids),
+            _ => format!("--cl-devices [{}]", a.ids),
+        };
+        let xint = cmd_f(a.cmd, "Xintensity").unwrap_or(-1.0);
+        let mut dat = verthash_dat(a.ctx).display().to_string();
+        if dat.contains(' ') {
+            dat = format!("\"{}\"", dat);
+        }
+        format!(
+            "--algo {}{} --hostname {} {} {} --wallet {} --worker-name {}{} {}{}{} --api --api-port $mport --no-ansi --no-cpu {}",
+            a.algorithm(),
+            opt(p.SSL, " --ssl --ssl-verify-none".into()),
+            p.Host,
+            if p.SSL { "--ssl-port" } else { "--port" },
+            a.pool_port,
+            wallet,
+            p.Worker,
+            opt(!p.Pass.is_empty(), format!(" --server-passwd {}", p.Pass)),
+            devices,
+            opt(a.main() == "verthash", format!(" --verthash-data {}", dat)),
+            opt(a.vendor == "NVIDIA" && xint >= 1.0, format!(" --xintensity {}", xint)),
+            a.params()
+        )
+    };
+    f.post = Some(|a, m| {
+        if a.algo0 == "PearlHash" {
+            m.api = "TeamblackWrapper".into();
+        }
+        let fee = cmd_f(a.cmd, "DevFee").unwrap_or(0.0);
+        m.dev_fee.values_mut().for_each(|v| *v = fee);
+        // the original sets the verthash.dat prerequisite on every entry
+        m.prerequisite_path = Some(verthash_dat(a.ctx));
+        m.prerequisite_uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v1.0-verthash/verthash.dat".into();
+        m.prerequisite_msg = "Downloading verthash.dat (1.2GB) in the background, please wait!".into();
+    });
+    Some(f)
+}
+
+// ------------------------------------------------------------------------------------------
+// MiniZ, Nanominer, Phoenix, SrbMiner, TTminer: no dual command in their tables, the dual
+// branches of the originals are not reachable and left out
+// ------------------------------------------------------------------------------------------
+
+cmds!(CMD_MINIZ, "MiniZ");
+cmds!(CMD_NANO, "Nanominer");
+cmds!(CMD_PHOENIX, "Phoenix");
+cmds!(CMD_SRBMINER, "SrbMiner");
+cmds!(CMD_TTMINER, "TTminer");
+
+pub fn modules_more() -> Vec<FamilyModule> {
+    vec![
+        FamilyModule { name: "MiniZ", types: &["AMD", "NVIDIA"], def: miniz },
+        FamilyModule { name: "Nanominer", types: &["AMD", "CPU", "INTEL", "NVIDIA"], def: nanominer },
+        FamilyModule { name: "Phoenix", types: &["AMD", "NVIDIA"], def: phoenix },
+        FamilyModule { name: "SrbMiner", types: &["AMD"], def: srbminer },
+        FamilyModule { name: "TTminer", types: &["AMD", "NVIDIA"], def: ttminer },
+    ]
+}
+
+fn miniz(ctx: &MinerCtx, info_only: bool) -> Option<Family> {
+    if !win_linux_x64(ctx) {
+        return None;
+    }
+    let mut f = Family::new("MiniZ", "AMD", &CMD_MINIZ);
+    f.info_types = vec!["AMD".into(), "NVIDIA".into()];
+    f.manual_uri = "https://bitcointalk.org/index.php?topic=4767892.0".into();
+    f.port = "330".into();
+    f.dev_fee = 2.0;
+    f.version = "2.5e3".into();
+    if ctx.is_linux() {
+        f.path = "Bin/NVIDIA-MiniZ/miniZ".into();
+        f.uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v2.5e3-miniz/miniZ_v2.5e3_linux-x64.tar.gz".into();
+    } else {
+        f.path = "Bin/NVIDIA-MiniZ/miniZ.exe".into();
+        f.uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v2.5e3-miniz/miniZ_v2.5e3_win-x64.7z".into();
+    }
+    let cuda = !info_only && ctx.has_type("NVIDIA") && ctx.cuda_ok("8.0", "MiniZ");
+    f.vendors = if cuda { vec!["AMD", "NVIDIA"] } else { vec!["AMD"] };
+    f.suffix = Suffix::Keys;
+    f.first_per_cmd = true;
+    f.use_exclude_pool = true;
+    f.api = "MiniZ";
+    f.ids_fn = Some(|vendor, devs| device_ids(devs, if vendor == "NVIDIA" { "Type_Vendor_Index" } else { "BusId_Type_Vendor_Index" }, " ", false));
+    f.per_key_filter = Some(|_, ctx, d, cmd, pool, algo0| {
+        let Some(pool) = pool else { return false };
+        if !cmd_vendor(cmd, &d.Vendor) || pool.User.contains('@') || !ctx.test_vram(d, ctx.min_mem_gb(cmd, pool, algo0)) {
+            return false;
+        }
+        if d.Vendor == "AMD" {
+            let cap = d.OpenCL.DeviceCapability.clone().unwrap_or_default();
+            let ex = cmd_list(cmd, "ExcludeCompute");
+            let inc = cmd_list(cmd, "Compute");
+            if (!ex.is_empty() && crate::util::contains_ci(&ex, &cap)) || (!inc.is_empty() && !crate::util::contains_ci(&inc, &cap)) {
+                return false;
+            }
+        }
+        true
+    });
+    f.make_args = |a| {
+        let p = a.pool;
+        let pers = crate::data::get_equihash_coin_pers(&p.CoinSymbol, "auto");
+        let mut stratum = vec![];
+        if p.SSL {
+            stratum.push("ssl");
+        }
+        if ps_match(&p.Host, "miningrigrentals") && ps_match(a.algo0, "^etc?hash") {
+            stratum.push("stratum2");
+        }
+        format!(
+            "--{} --telemetry=$mport --nonvml -cd {} --url={}{}@{}:{}{}{}{} --gpu-line --minimal --extra --latency{}{} {} --nohttpheaders",
+            a.vendor.to_lowercase(),
+            a.ids,
+            opt(!stratum.is_empty(), format!("{}://", stratum.join("+"))),
+            p.User.replace('@', "%40"),
+            p.Host,
+            a.pool_port,
+            a.pass_opt(" -p "),
+            opt(!p.Worker.is_empty() && p.User == p.Wallet, format!(" --worker={}", p.Worker)),
+            opt(!pers.is_empty() && (cmd_b(a.cmd, "AutoPers") || pers != "auto"), format!(" --pers={}", pers)),
+            opt(!a.ctx.config.b("ShowMinerWindow"), " --nocolor".into()),
+            opt(!ps_match(&p.Host, "xxxMiningRigRentals") && pers != "auto", " --smart-pers".into()),
+            a.params()
+        )
+    };
+    f.post = Some(|a, m| {
+        let fee = cmd_f(a.cmd, "Fee").unwrap_or(0.0);
+        m.dev_fee.values_mut().for_each(|v| *v = fee);
+        m.skip_seconds = Some(40);
+    });
+    Some(f)
+}
+
+fn nanominer(ctx: &MinerCtx, info_only: bool) -> Option<Family> {
+    if !win_linux_x64(ctx) {
+        return None;
+    }
+    let mut f = Family::new("Nanominer", "AMD", &CMD_NANO);
+    f.info_types = vec!["AMD".into(), "CPU".into(), "INTEL".into(), "NVIDIA".into()];
+    f.manual_uri = "https://github.com/nanopool/nanominer/releases".into();
+    f.port = "234".into();
+    f.dev_fee = 3.0;
+    f.version = "3.10.0".into();
+    if ctx.is_linux() {
+        f.path = "Bin/ANY-Nanominer/nanominer".into();
+        f.uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v3.10.0-nanominer/nanominer-linux-3.10.0.tar.gz".into();
+    } else {
+        f.path = "Bin/ANY-Nanominer/nanominer.exe".into();
+        f.uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v3.10.0-nanominer/nanominer-windows-3.10.0.zip".into();
+    }
+    let has_nv = ctx.has_type("NVIDIA");
+    let cuda = !info_only && has_nv && ctx.cuda_ok("10.0", "Nanominer");
+    f.vendors = if cuda || !has_nv { vec!["AMD", "CPU", "INTEL", "NVIDIA"] } else { vec!["AMD", "CPU", "INTEL"] };
+    f.vars.insert("Cuda11", if has_nv && ctx.cuda_ok("11.0", "") { "1".into() } else { String::new() });
+    f.suffix = Suffix::KeysCoin;
+    f.exclude_yiimp = true;
+    f.first_per_cmd = true;
+    f.cpu_params = true;
+    f.use_exclude_pool = true;
+    f.api = "Nanominer";
+    f.algo_fn = Some(|cmd| {
+        let m = cmd_s(cmd, "MainAlgorithm");
+        if m == "heavyhash" {
+            "kHeavyHash".into()
+        } else {
+            m
+        }
+    });
+    // the CPU features of a command must all be present
+    f.cmd_ok = Some(|_, ctx, cmd| {
+        let feats = cmd_list(cmd, "CPUFeatures");
+        feats.is_empty() || feats.iter().all(|x| ctx.cpu.has(x))
+    });
+    f.per_key_filter = Some(|fam, ctx, d, cmd, pool, algo0| {
+        let Some(pool) = pool else { return false };
+        if !cmd_vendor(cmd, if d.is_cpu() { "CPU" } else { &d.Vendor }) {
+            return false;
+        }
+        let coins = cmd_list(cmd, "Coins");
+        if (!coins.is_empty() && (pool.CoinSymbol.is_empty() || !crate::util::contains_ci(&coins, &pool.CoinSymbol))) || (pool.SSL && pool.SSLSelfSigned) {
+            return false;
+        }
+        if d.is_cpu() {
+            return true;
+        }
+        let mut min = ctx.min_mem_gb(cmd, pool, algo0);
+        let cmd_min = min_mem(cmd);
+        if cmd_b(cmd, "ZombieMode") && !cmd_b(cmd, "NoMemCalcCheck") && min > cmd_min && ctx.config.b("EnableEthashZombieMode") {
+            min = cmd_min;
+        }
+        let cuda11 = fam.vars.get("Cuda11").map(|s| !s.is_empty()).unwrap_or(false);
+        (algo0 != "Cuckaroo30" || d.Model == "RX57016GB") && (d.Vendor != "NVIDIA" || cuda11 || !ps_match(&d.Model, "^RTX[345]0")) && ctx.test_vram(d, min)
+    });
+    f.post = Some(|a, m| {
+        let p = a.pool;
+        let cpu = a.vendor == "CPU";
+        let wallet = if !p.Wallet.is_empty() {
+            p.Wallet.clone()
+        } else {
+            regex::Regex::new(r"(?i)[\./]\{workername[^\}]*\}$").unwrap().replace(&p.User, "").to_string()
+        };
+        // $MainCoin_Data.Algo -ne $MainAlgorithm_Norm: compared with the pool key
+        let mut coin = Value::String(p.CoinSymbol.clone());
+        let coin_algo = crate::data::get_coin(&p.CoinSymbol, "").map(|c| c.algo).unwrap_or_default();
+        if p.CoinSymbol.is_empty() || (coin_algo != a.key && p.CoinSymbol != "SCC") {
+            coin = Value::Null;
+        }
+        let lhr = if a.vendor == "NVIDIA" && ps_match(a.key, "^Etc?hash") {
+            a.devices.iter().map(|d| if d.IsLHR { "0" } else { "off" }).collect::<Vec<_>>().join(",")
+        } else {
+            String::new()
+        };
+        m.arguments = MinerArgs::Obj(serde_json::json!({
+            "Algorithms": [{
+                "Algo": a.algorithm(),
+                "Coin": coin,
+                "Host": p.Host,
+                "Port": if cpu { p.Port } else { p.port_gpu() },
+                "SSL": p.SSL,
+                "Wallet": wallet,
+                "PaymentId": null,
+                "Worker": p.Worker,
+                "Pass": p.Pass,
+                "Email": p.Email,
+            }],
+            "Devices": if cpu { Value::Null } else { serde_json::json!(a.devices.iter().map(|d| d.BusId_Type_Mineable_Index).collect::<Vec<_>>()) },
+            "Threads": if cpu { serde_json::json!(a.threads) } else { Value::Null },
+            "LHR": lhr,
+            "Params": a.params(),
+        }));
+        let fee = cmd_f(a.cmd, "DevFee").unwrap_or(0.0);
+        m.dev_fee.values_mut().for_each(|v| *v = fee);
+        m.mining_affinity = if cpu { a.affinity.map(|s| s.to_string()) } else { None };
+    });
+    Some(f)
+}
+
+fn phoenix(ctx: &MinerCtx, info_only: bool) -> Option<Family> {
+    if !win_linux_x64(ctx) {
+        return None;
+    }
+    let mut f = Family::new("Phoenix", "AMD", &CMD_PHOENIX);
+    f.info_types = vec!["AMD".into(), "NVIDIA".into()];
+    f.manual_uri = "https://bitcointalk.org/index.php?topic=2647654.0".into();
+    f.port = "308".into();
+    f.dev_fee = 0.65;
+    f.version = "6.2c".into();
+    if ctx.is_linux() {
+        f.path = "Bin/GPU-Phoenix/PhoenixMiner".into();
+        f.uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v6.2c-phoenix/PhoenixMiner_6.2c_Linux.tar.gz".into();
+    } else {
+        f.path = "Bin/GPU-Phoenix/PhoenixMiner.exe".into();
+        f.uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v6.2c-phoenix/PhoenixMiner_6.2c_Windows.7z".into();
+    }
+    let cuda = !info_only && ctx.has_type("NVIDIA") && ctx.cuda_ok("8.0", "Phoenix");
+    f.vendors = if cuda || !ctx.has_type("NVIDIA") { vec!["AMD", "NVIDIA"] } else { vec!["AMD"] };
+    f.suffix = Suffix::Keys;
+    f.first_per_cmd = true;
+    f.use_exclude_pool = true;
+    f.api = "Claymore";
+    f.extend_default = 2;
+    f.dev_id_prop = "BusId_Type_Vendor_Index";
+    f.per_key_filter = Some(|_, ctx, d, cmd, pool, algo0| pool.map(|p| cmd_vendor(cmd, &d.Vendor) && ctx.test_vram(d, dag_size(p, algo0, "", min_mem(cmd)))).unwrap_or(false));
+    f.make_args = |a| {
+        let p = a.pool;
+        let proto = match p.EthMode.as_str() {
+            "minerproxy" => "-proto 1",
+            "ethproxy" => "-proto 2",
+            "qtminer" => "-proto 3",
+            "ethstratum" | "ethstratum1" | "ethstratumnh" => "-proto 4",
+            "ethstratum2" => "-proto 5",
+            _ => "-proto 1",
+        };
+        let mut port = a.pool_port;
+        if ps_match(&p.Host, "F2pool") && regex::Regex::new(r"(?i)^0x[0-9a-f]{40}").unwrap().is_match(&p.User) {
+            port = 8008;
+        }
+        let xlat = [
+            "ATH", "B2G", "BCI", "CLO", "DBIX", "EGEM", "ELLA", "ESN", "ETC", "ETH", "ETHO", "ETHW", "ETP", "EXP", "MIX", "MOAC", "MUSIC", "NUKO", "PGC", "PIRL", "QKC", "REOSC", "UBQ", "VIC", "WHL", "YOC",
+        ];
+        let coin = if ps_match(a.key, "ProgPow") {
+            "bci".to_string()
+        } else if let Some(c) = xlat.iter().find(|c| c.eq_ignore_ascii_case(&p.CoinSymbol)) {
+            if *c == "WHL" {
+                "whale".into()
+            } else {
+                c.to_lowercase()
+            }
+        } else if a.algo0 == "EtcHash" {
+            "etc".into()
+        } else if a.algo0 == "UbqHash" {
+            "ubq".into()
+        } else {
+            "auto".into()
+        };
+        let wal = if !p.Wallet.is_empty() && !ps_match(&p.Host, "gteh|miningrigrentals|nicehash") {
+            format!("-wal {} -worker {}", p.Wallet, p.Worker)
+        } else {
+            format!("-wal {}", p.User)
+        };
+        let dp = match a.vendor {
+            "NVIDIA" => "-nvidia -nvdo 1",
+            "AMD" => "-amd",
+            _ => "",
+        };
+        format!(
+            "-cdmport $mport -coin {} -di {} -pool {}{}:{} {}{} -stales {}{} {} {} -allpools 0 -cdm 1 -leaveoc -log 0 -rmode 0 -wdog 1 -gbase 0 {}",
+            coin,
+            a.ids,
+            opt(p.SSL, "ssl://".into()),
+            p.Host,
+            port,
+            wal,
+            a.pass_opt(" -pass "),
+            if ps_match(&p.Host, "Nicehash") { 0 } else { 1 },
+            opt(p.SSL && p.SSLSelfSigned, " -weakssl".into()),
+            proto,
+            dp,
+            a.params()
+        )
+    };
+    f.post = Some(|_, m| {
+        m.extend_interval = 2;
+        m.start_remove = vec!["*pools.txt".into()];
+    });
+    Some(f)
+}
+
+fn srbminer(ctx: &MinerCtx, _info_only: bool) -> Option<Family> {
+    if !ctx.is_windows() {
+        return None;
+    }
+    let mut f = Family::new("SrbMiner", "AMD", &CMD_SRBMINER);
+    f.path = "Bin/CryptoNight-SRBMiner/srbminer-cn.exe".into();
+    f.uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v1.9.4-srbminer/SRBMiner-CN-V1-9-4.zip".into();
+    f.manual_uri = "https://bitcointalk.org/index.php?topic=3167363.0".into();
+    f.port = "315".into();
+    f.dev_fee = 0.85;
+    f.version = "1.9.4".into();
+    f.suffix = Suffix::ListGPU;
+    f.first_per_cmd = true;
+    f.api = "SrbMiner";
+    f.env_vars = vec!["GPU_MAX_SINGLE_ALLOC_PERCENT=100".into(), "GPU_FORCE_64BIT_PTR=0".into()];
+    f.algo_fn = Some(|cmd| format!("cryptonight{}", cmd_s(cmd, "MainAlgorithm")));
+    f.pre_key_filter = Some(|ctx, d, cmd| ctx.test_vram(d, min_mem(cmd)));
+    f.post = Some(|a, m| {
+        let p = a.pool;
+        let threads = jsonx::num(jsonx::get(a.cmd, "Threads")) as i64;
+        // $Miner_Name: <Name>-<Threads>-<devices>
+        if threads > 0 {
+            let mut parts = vec![a.fam.name.to_string(), threads.to_string()];
+            let mut names: Vec<String> = a.devices.iter().map(|d| d.Name.clone()).collect();
+            names.sort();
+            parts.extend(names);
+            m.name = parts.join("-");
+            let algo0 = a.algo0.to_string();
+            m.hashrates.values_mut().for_each(|v| *v = a.ctx.hashrate(&m.name, &algo0));
+        }
+        let rig = a.ctx.config.pool(&p.Name).map(|c| c.worker.clone()).unwrap_or_default();
+        m.arguments = MinerArgs::Obj(serde_json::json!({
+            "Config": {
+                "cryptonight_type": a.main(),
+                "intensity": 0,
+                "double_threads": false,
+                "timeout": 10,
+                "retry_time": 10,
+                "gpu_conf": a.devices.iter().map(|d| serde_json::json!({"id": d.BusId_Type_Vendor_Index, "intensity": 0, "threads": threads, "platform": "OpenCL"})).collect::<Vec<_>>(),
+            },
+            "Pools": {"pools": [{
+                "pool": format!("{}:{}", p.Host, a.pool_port),
+                "wallet": p.User,
+                "password": p.Pass,
+                "pool_use_tls": p.SSL,
+                "nicehash": ps_match(&p.Host, "NiceHash"),
+            }]},
+            "Params": format!("--apienable --apiport $mport --apirigname {} --disabletweaking --disablegpuwatchdog --enablecoinforking --maxnosharesent 120 {}", rig, a.params()).trim(),
+        }));
+    });
+    Some(f)
+}
+
+/// free space (GB) of the disk the path is on
+fn disk_free_gb(path: &std::path::Path) -> Option<f64> {
+    let disks = sysinfo::Disks::new_with_refreshed_list();
+    let p = std::fs::canonicalize(path).ok()?;
+    disks.iter().filter(|d| p.starts_with(d.mount_point())).max_by_key(|d| d.mount_point().as_os_str().len()).map(|d| d.available_space() as f64 / 1073741824.0)
+}
+
+fn ttminer(ctx: &MinerCtx, info_only: bool) -> Option<Family> {
+    if !win_linux_x64(ctx) {
+        return None;
+    }
+    let mut f = Family::new("TTminer", "AMD", &CMD_TTMINER);
+    f.info_types = vec!["AMD".into(), "NVIDIA".into()];
+    f.manual_uri = "https://bitcointalk.org/index.php?topic=5025783.0".into();
+    f.port = "333".into();
+    f.dev_fee = 1.0;
+    f.version = "2024.3.2".into();
+    if ctx.is_linux() {
+        f.path = "Bin/NVIDIA-TTminer/TT-Miner".into();
+        f.uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v2024.3.2-ttminer/TT-Miner-2024.3.2.tar.gz".into();
+    } else {
+        f.path = "Bin/NVIDIA-TTminer/TT-Miner.exe".into();
+        f.uri = "https://github.com/RainbowMiner/miner-binaries/releases/download/v2024.3.2-ttminer/TT-Miner-2024.3.2.zip".into();
+    }
+    // without a CUDA version $Cuda keeps the (truthy) required version
+    let cuda = ctx.config.cuda_version.is_empty() || (!info_only && ctx.cuda_ok("11.8", "TTminer"));
+    f.vendors = if cuda { vec!["AMD", "NVIDIA"] } else { vec!["AMD"] };
+    let nvmax = if ctx.config.cuda_version.is_empty() { 0 } else { ctx.devices.all_devices.iter().filter(|d| d.is_gpu() && d.Codec == "CUDA").count() };
+    f.vars.insert("NVmax", nvmax.to_string());
+    let mut save_dag = ctx.config.b("EnableMinersToSaveDAG");
+    if save_dag {
+        let dag_dir = ctx.path(&f.path).parent().map(|p| p.join("DAGs"));
+        let used = dag_dir
+            .and_then(|d| std::fs::read_dir(d).ok())
+            .map(|rd| rd.flatten().filter(|e| e.path().extension().map(|x| x == "dag").unwrap_or(false)).filter_map(|e| e.metadata().ok()).map(|m| m.len() as f64).sum::<f64>() / 1073741824.0)
+            .unwrap_or(0.0);
+        if let Some(free) = disk_free_gb(ctx.base) {
+            if free < 100.0 - (used * 10.0).round() / 10.0 {
+                save_dag = false;
+            }
+        }
+    }
+    f.vars.insert("SaveDAG", if save_dag { "1".into() } else { String::new() });
+    f.suffix = Suffix::Keys;
+    f.first_per_cmd = true;
+    f.use_exclude_pool = true;
+    f.api = "TTminerWrapper";
+    f.per_key_filter = Some(|_, ctx, d, cmd, pool, algo0| {
+        let Some(pool) = pool else { return false };
+        let coins = cmd_list(cmd, "Coins");
+        let ex = cmd_list(cmd, "ExcludeCoins");
+        cmd_vendor(cmd, &d.Vendor)
+            && (coins.is_empty() || crate::util::contains_ci(&coins, &pool.CoinSymbol))
+            && (ex.is_empty() || !crate::util::contains_ci(&ex, &pool.CoinSymbol))
+            && ctx.test_vram(d, ctx.min_mem_gb(cmd, pool, algo0))
+    });
+    f.ids_fn = Some(|vendor, devs| {
+        if vendor == "NVIDIA" {
+            format!("-d {} -cuda-order", devs.iter().map(|d| d.Type_Vendor_Index.to_string()).collect::<Vec<_>>().join(" "))
+        } else {
+            // the AMD cards are counted after the CUDA devices: $NVmax added in make_args
+            format!("-d {}", devs.iter().map(|d| d.BusId_Type_Codec_Index.to_string()).collect::<Vec<_>>().join(" "))
+        }
+    });
+    f.make_args = |a| {
+        let p = a.pool;
+        let ids = if a.vendor == "NVIDIA" {
+            a.ids.to_string()
+        } else {
+            let nvmax: usize = a.var("NVmax").parse().unwrap_or(0);
+            format!(
+                "-d {}",
+                a.ids.trim_start_matches("-d ").split_whitespace().map(|i| (i.parse::<usize>().unwrap_or(0) + nvmax).to_string()).collect::<Vec<_>>().join(" ")
+            )
+        };
+        let ssl_plus = if p.SSL { "+ssl" } else { "" };
+        let mut proto = if p.CoinSymbol == "EPIC" {
+            format!("epic{}://", ssl_plus)
+        } else if p.EthMode == "ethproxy" && (!ps_match(&p.Host, "MiningRigRentals") || a.algo0 != "ProgPow") {
+            format!("stratum1{}://", ssl_plus)
+        } else {
+            opt(p.SSL, "ssl://".into())
+        };
+        if a.algo0 == "SHA3Solidity" {
+            proto.clear();
+        }
+        let mut pass = p.Pass.clone();
+        if !pass.is_empty() && ps_match(&p.Host, "C3pool|MoneroOcean") {
+            pass = regex::Regex::new(r":[^:]+~").unwrap().replace(&pass, "~").to_string();
+        }
+        let params = a.params();
+        const COINS: &[&str] = &[
+            "AKA", "ALPH", "ALT", "ARL", "AVS", "BBC", "BCH", "BLACK", "BNBTC", "BTC", "BTRM", "BUT", "CLO", "CLORE", "Coin", "EGAZ", "EGEM", "ELH", "EPIC", "ETC", "ETHF", "ETHO", "ETHW", "ETI", "ETP", "EVOX",
+            "EVR", "EXP", "FIRO", "FITA", "FRENS", "GRAMS", "GSPC", "HVQ", "IRON", "JGC", "KAW", "KCN", "LAB", "LTR", "MEOW", "MEWC", "NAPI", "NEOX", "NOVO", "OCTA", "PAPRY", "PRCO", "REDE", "RTH", "RTM",
+            "RVN", "RXD", "SATO", "SATOX", "SCC", "SERO", "SPR", "THOON", "TTM", "UBQ", "VBK", "VEIL", "VKAX", "VTE", "XEL", "XNA", "YERB", "ZANO", "ZELS", "ZKBTC",
+        ];
+        let dag = cmd_b(a.cmd, "DAG");
+        // the original reads the Wallet of an unset key: the pool user, never -w
+        format!(
+            "-rep-i 10 {}{}{} -o {}{}:{} -u {}{}{} {}",
+            ids,
+            opt(dag && a.var_b("SaveDAG"), " -dag-2disk".into()),
+            opt(dag, " -daginfo".into()),
+            proto,
+            p.Host,
+            p.Port,
+            p.User,
+            opt(!pass.is_empty(), format!(" -p {}", pass)),
+            opt(!ps_match(&params, "-c") && !p.CoinSymbol.is_empty() && COINS.iter().any(|c| c.eq_ignore_ascii_case(&p.CoinSymbol)), format!(" -c {}", p.CoinSymbol)),
+            params
+        )
+    };
+    f.post = Some(|a, m| {
+        let fee = cmd_f(a.cmd, "DevFee").unwrap_or(a.fam.dev_fee);
+        m.dev_fee.values_mut().for_each(|v| *v = fee);
+    });
+    Some(f)
+}

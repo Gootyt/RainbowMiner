@@ -130,6 +130,8 @@ pub struct MinerCandidate {
     pub list_devices: String,
     /// more process names of the miner (child processes, $Miner.Executables)
     pub executables: Vec<String>,
+    /// files (glob in the miner folder) removed before the start (Phoenix StartCommand)
+    pub start_remove: Vec<String>,
     // ---- set by the core (Invoke-Core "Calculating profit for each miner")
     pub pools: IndexMap<String, Pool>,
     pub difficulties: HashMap<String, f64>,
@@ -188,6 +190,7 @@ impl MinerCandidate {
             min_samples: None,
             list_devices: String::new(),
             executables: Vec::new(),
+            start_remove: Vec::new(),
             pools: IndexMap::new(),
             difficulties: HashMap::new(),
             ratios: HashMap::new(),

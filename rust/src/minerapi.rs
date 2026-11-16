@@ -156,6 +156,7 @@ pub struct ActiveMiner {
     pub stats_sub: String,
     pub env_vars: Vec<String>,
     pub executables: Vec<String>,
+    pub start_remove: Vec<String>,
     pub priority_cpu: i32,
     pub priority_gpu: i32,
     pub priority_affinity: String,
@@ -267,6 +268,7 @@ impl ActiveMiner {
             stats_sub: String::new(),
             env_vars: c.env_vars.clone(),
             executables: c.executables.clone(),
+            start_remove: c.start_remove.clone(),
             priority_cpu: -2,
             priority_gpu: -1,
             priority_affinity: String::new(),
@@ -799,6 +801,19 @@ impl ActiveMiner {
     }
 
     fn start_mining_pre_process(&mut self) {
+        // StartCommand: Get-ChildItem "<miner folder>\<pattern>" | Remove-Item -Force
+        if let Some(dir) = self.path.parent() {
+            for pat in &self.start_remove {
+                let re = regex::Regex::new(&format!("(?i)^{}$", regex::escape(pat).replace(r"\*", ".*").replace(r"\?", "."))).unwrap();
+                if let Ok(rd) = std::fs::read_dir(dir) {
+                    for e in rd.flatten() {
+                        if e.path().is_file() && re.is_match(&e.file_name().to_string_lossy()) {
+                            let _ = std::fs::remove_file(e.path());
+                        }
+                    }
+                }
+            }
+        }
         let n = self.algorithm.len();
         self.stratum = vec![Stratum::default(); n];
         self.rejected_share_ratio = vec![0.0; n];
